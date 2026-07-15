@@ -111,6 +111,7 @@
       transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
     .button:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(41,78,58,.22); background: var(--forest-dark); }
+    .button:disabled { cursor: wait; opacity: .68; transform: none; box-shadow: none; }
     .button.secondary { color: var(--forest); background: transparent; box-shadow: none; }
     .button.secondary:hover { background: rgba(41,78,58,.07); }
     .button.light { color: var(--forest-dark); background: var(--paper); border-color: var(--paper); }
@@ -278,7 +279,10 @@
     .contact-inline { display: flex; flex-wrap: wrap; gap: .65rem 1.25rem; margin-top: 1rem; }
     .contact-inline a { color: inherit; font-weight: 750; text-decoration-thickness: 1px; text-underline-offset: 3px; }
     .contact-inline a:hover { color: var(--gold); }
-    .email-form-status { color: var(--muted); font-size: .84rem; margin: .2rem 0 0; }
+    .form-status { min-height: 1.35em; color: var(--muted); font-size: .84rem; margin: .2rem 0 0; }
+    .form-status.success { color: var(--forest); font-weight: 700; }
+    .form-status.error { color: #8b2e21; font-weight: 700; }
+    .hp-field { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 
     .faq { background: var(--sage); }
     .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
@@ -373,7 +377,7 @@
         <a href="#about">About Angel</a>
         <a href="#community">Community</a>
         <a href="#curriculum">Curriculum</a>
-        <a class="button small" href="#book">Request an event</a>
+        <a class="button small" href="#book" data-open-tab="event-panel">Request an event</a>
       </nav>
     </div>
   </header>
@@ -386,7 +390,7 @@
           <h1>Bring the farm to <span>your classroom.</span></h1>
           <p class="hero-lead">Angel Floyd brings live farm animals, practical lessons, and memorable hands-on learning to schools, churches, and community groups near Grant, Michigan.</p>
           <div class="hero-actions">
-            <a class="button" href="#book">Request a school visit
+            <a class="button" href="#book" data-open-tab="event-panel">Request a school visit
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
             <a class="button secondary" href="#community">Join community activities</a>
@@ -454,13 +458,13 @@
             <div class="service-number">01 · SCHOOL VISITS</div>
             <h3>Farm animals in the classroom</h3>
             <p>Live-animal presentations that teach animal needs, care, behavior, life cycles, and responsible stewardship while pointing children toward the wonder and order of God's creation.</p>
-            <a class="service-link" href="#book">Request a school event <span aria-hidden="true">→</span></a>
+            <a class="service-link" href="#book" data-open-tab="event-panel">Request a school event <span aria-hidden="true">→</span></a>
           </article>
           <article class="service-card">
             <div class="service-number">02 · CHURCH PROGRAMS</div>
             <h3>Creation-centered learning</h3>
             <p>Hands-on programs for churches, VBS, camps, and Christian schools that connect animal learning with biblical themes and care for God's creation.</p>
-            <a class="service-link" href="#book">Discuss a church program <span aria-hidden="true">→</span></a>
+            <a class="service-link" href="#book" data-open-tab="event-panel">Discuss a church program <span aria-hidden="true">→</span></a>
           </article>
           <article class="service-card">
             <div class="service-number">03 · COMMUNITY</div>
@@ -493,7 +497,7 @@
           <div class="section-kicker">How it works</div>
           <h2>A simple path from inquiry to event day.</h2>
           <p>No confusing packages or placeholder prices. Each event receives a custom quote based on the location, group size, animals, timing, and program needs.</p>
-          <a class="button" href="#book">Start an event request</a>
+          <a class="button" href="#book" data-open-tab="event-panel">Start an event request</a>
         </div>
         <div class="steps">
           <article class="step"><div class="step-no">1</div><div><h3>Tell Angel about your group</h3><p>Share your organization, children's ages, estimated group size, location, and preferred date.</p></div></article>
@@ -521,7 +525,7 @@
             <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Christian foundation in every program</span></div>
             <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Based near Grant, Michigan</span></div>
           </div>
-          <a class="button secondary" href="#book">Ask Angel about a visit</a>
+          <a class="button secondary" href="#book" data-open-tab="event-panel">Ask Angel about a visit</a>
         </div>
       </div>
     </section>
@@ -561,11 +565,17 @@
           <div class="waitlist-card">
             <h3>Be notified when the first packet is ready.</h3>
             <p>No pretend product catalog and no preorders. Join the list and Angel will send one update when the first printable resource is available.</p>
-            <form class="form-stack email-form" name="curriculum-waitlist" data-email-subject="Curriculum waitlist signup">
+            <form class="form-stack website-form" name="curriculum-waitlist" data-form-type="curriculum-waitlist" novalidate>
+              <input type="hidden" name="form_type" value="curriculum-waitlist">
+              <input type="hidden" name="submission_id" value="">
+              <input type="hidden" name="form_started" value="">
+              <input type="hidden" name="page_url" value="">
+              <label class="hp-field" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
               <label>Email address<input type="email" name="email" autocomplete="email" required placeholder="you@example.com"></label>
               <label>I am a<select name="audience"><option>Teacher or school administrator</option><option>Church or ministry leader</option><option>Homeschool parent</option><option>Other</option></select></label>
               <button class="button" type="submit">Join the curriculum list</button>
-              <p class="fine-print">Submitting opens a prepared email to Homegrown Learning. No account or mailing-list subscription is required.</p>
+              <p class="form-status" aria-live="polite"></p>
+              <p class="fine-print">Your information is sent directly to Homegrown Learning and saved to its private inquiry log.</p>
             </form>
           </div>
         </div>
@@ -587,12 +597,17 @@
 
         <div class="booking-panel">
           <div class="tabs" role="tablist" aria-label="Contact options">
-            <button class="tab active" type="button" role="tab" aria-selected="true" data-tab="event-panel">Request an event</button>
-            <button class="tab" type="button" role="tab" aria-selected="false" data-tab="consult-panel">Book a consultation</button>
+            <button class="tab active" type="button" role="tab" aria-selected="true" data-tab="consult-panel">Book a consultation</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-tab="event-panel">Request an event</button>
           </div>
 
-          <div class="tab-panel active" id="event-panel" role="tabpanel">
-            <form class="form-stack email-form" name="event-request" data-email-subject="New event request">
+          <div class="tab-panel" id="event-panel" role="tabpanel">
+            <form class="form-stack website-form" name="event-request" data-form-type="event-request" novalidate>
+              <input type="hidden" name="form_type" value="event-request">
+              <input type="hidden" name="submission_id" value="">
+              <input type="hidden" name="form_started" value="">
+              <input type="hidden" name="page_url" value="">
+              <label class="hp-field" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
               <div class="field-row">
                 <label>Your name<input type="text" name="name" autocomplete="name" required></label>
                 <label>Organization<input type="text" name="organization" required></label>
@@ -612,11 +627,12 @@
               <label>Children's ages or grade levels<input type="text" name="ages" placeholder="Example: preschool through 1st grade"></label>
               <label>What would make this event successful?<textarea name="message" required placeholder="Tell Angel about the event, schedule, learning goals, animal interests, and anything important about the group or venue."></textarea></label>
               <button class="button" type="submit">Send event request</button>
-              <p class="fine-print">No payment is collected here. Submitting opens a prepared email for you to send to Angel, who will review the request and provide a custom quote.</p>
+              <p class="form-status" aria-live="polite"></p>
+              <p class="fine-print">No payment is collected here. The request is emailed directly to Angel and saved to Homegrown Learning’s private inquiry log.</p>
             </form>
           </div>
 
-          <div class="tab-panel" id="consult-panel" role="tabpanel">
+          <div class="tab-panel active" id="consult-panel" role="tabpanel">
             <iframe
               class="calendar-frame"
               title="Book a phone consultation with Angel Floyd"
@@ -649,7 +665,7 @@
     <section class="cta-band">
       <div class="container cta-box">
         <div><h2>Give children a lesson they will talk about after school.</h2><p>Tell Angel what you are planning and receive a custom response.</p></div>
-        <a class="button light" href="#book">Request an event</a>
+        <a class="button light" href="#book" data-open-tab="event-panel">Request an event</a>
       </div>
     </section>
 
@@ -657,11 +673,18 @@
       <div class="container booking-grid">
         <div class="booking-copy"><div class="section-kicker">Community interest list</div><h2>Hear about local family activities.</h2><p>Use this form for homeschool and community activities—not school or church event requests.</p></div>
         <div class="booking-panel">
-          <form class="form-stack email-form" name="community-interest" data-email-subject="Community activity interest">
+          <form class="form-stack website-form" name="community-interest" data-form-type="community-interest" novalidate>
+            <input type="hidden" name="form_type" value="community-interest">
+            <input type="hidden" name="submission_id" value="">
+            <input type="hidden" name="form_started" value="">
+            <input type="hidden" name="page_url" value="">
+            <label class="hp-field" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
             <div class="field-row"><label>Parent's name<input type="text" name="name" autocomplete="name" required></label><label>Email<input type="email" name="email" autocomplete="email" required></label></div>
             <div class="field-row"><label>City<input type="text" name="city" required></label><label>Children's ages<input type="text" name="children-ages" placeholder="Example: 3, 6, and 9"></label></div>
             <label>What kinds of activities interest your family?<textarea name="interests" placeholder="Nature walks, farm animals, field trips, practical skills, seasonal events..."></textarea></label>
             <button class="button" type="submit">Join the interest list</button>
+            <p class="form-status" aria-live="polite"></p>
+            <p class="fine-print">Your information is sent directly to Homegrown Learning and saved to its private inquiry log.</p>
           </form>
         </div>
       </div>
@@ -676,16 +699,17 @@
           <p>Mobile, hands-on farm animal education for schools, churches, and families near Grant, Michigan.</p><div class="contact-inline"><a href="mailto:homegrownlearningmi@gmail.com">homegrownlearningmi@gmail.com</a><a href="tel:+12313295981">231-329-5981</a></div>
         </div>
         <div><div class="footer-title">Explore</div><div class="footer-links"><a href="#programs">Programs</a><a href="#about">About Angel</a><a href="#community">Community</a><a href="#curriculum">Curriculum</a></div></div>
-        <div><div class="footer-title">Get started</div><div class="footer-links"><a href="#book">Request an event</a><a href="#book">Book a consultation</a><a href="#community-form">Community interest list</a></div></div><div><div class="footer-title">Contact</div><div class="footer-links"><a href="mailto:homegrownlearningmi@gmail.com">Email Angel</a><a href="tel:+12313295981">Call 231-329-5981</a></div></div>
+        <div><div class="footer-title">Get started</div><div class="footer-links"><a href="#book" data-open-tab="event-panel">Request an event</a><a href="#book" data-open-tab="consult-panel">Book a consultation</a><a href="#community-form">Community interest list</a></div></div><div><div class="footer-title">Contact</div><div class="footer-links"><a href="mailto:homegrownlearningmi@gmail.com">Email Angel</a><a href="tel:+12313295981">Call 231-329-5981</a></div></div>
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> Homegrown Learning. All rights reserved.</span><span>Serving West Michigan from the Grant area.</span></div>
     </div>
   </footer>
 
-  <div class="toast" role="status" aria-live="polite"><strong>Email draft opened.</strong><span>Review the prepared message in your email app, then press Send.</span></div>
+  <div class="toast" role="status" aria-live="polite"><strong>Request sent.</strong><span>Homegrown Learning has received your information.</span></div>
+  <iframe class="hidden" name="form-submit-frame" id="form-submit-frame" title="Form submission response"></iframe>
 
   <script>
-    const BUSINESS_EMAIL = "homegrownlearningmi@gmail.com";
+    const FORM_HANDLER_URL = "https://script.google.com/macros/s/AKfycbydrJI0Fys5vSpcZhZoH4Nmuq3kBW-wqr1CEnUSgJz2LrHxKQKLAk3809pZiYHq-h_UZw/exec";
 
     const menuButton = document.querySelector('.menu-button');
     const navLinks = document.querySelector('.nav-links');
@@ -729,32 +753,96 @@
       toastTimer = setTimeout(() => toast.classList.remove('show'), 6500);
     }
 
-    function labelForField(field) {
-      const label = field.closest('label');
-      if (label) {
-        const textNode = [...label.childNodes].find(node => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
-        if (textNode) return textNode.textContent.trim();
-      }
-      return field.name.replaceAll('-', ' ').replace(/\b\w/g, c => c.toUpperCase());
+    function activateTab(panelId) {
+      const targetTab = document.querySelector(`.tab[data-tab="${panelId}"]`);
+      const targetPanel = document.getElementById(panelId);
+      if (!targetTab || !targetPanel) return;
+      document.querySelectorAll('.tab').forEach(tab => {
+        const active = tab === targetTab;
+        tab.classList.toggle('active', active);
+        tab.setAttribute('aria-selected', String(active));
+      });
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.toggle('active', panel === targetPanel));
     }
 
-    document.querySelectorAll('.email-form').forEach(form => {
+    document.querySelectorAll('[data-open-tab]').forEach(link => {
+      link.addEventListener('click', () => activateTab(link.dataset.openTab));
+    });
+
+    const handlerReady = /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(FORM_HANDLER_URL);
+    const pendingSubmissions = new Map();
+
+    function resetFormTiming(form) {
+      form.elements.form_started.value = String(Date.now());
+      form.elements.page_url.value = window.location.href;
+      form.elements.submission_id.value = '';
+    }
+
+    document.querySelectorAll('.website-form').forEach(resetFormTiming);
+
+    window.addEventListener('message', event => {
+      const data = event.data;
+      if (!data || data.source !== 'homegrown-learning-form' || !data.submissionId) return;
+      const pending = pendingSubmissions.get(data.submissionId);
+      if (!pending) return;
+
+      clearTimeout(pending.timeout);
+      pendingSubmissions.delete(data.submissionId);
+      const { form, button, originalText, status } = pending;
+      button.disabled = false;
+      button.textContent = originalText;
+
+      if (data.status === 'success') {
+        status.textContent = data.message || 'Thank you. Your information was sent successfully.';
+        status.className = 'form-status success';
+        form.reset();
+        resetFormTiming(form);
+        showToast('Request sent.', 'Homegrown Learning received your information. Angel will follow up directly.');
+      } else {
+        status.textContent = data.message || 'The form could not be sent. Please try again or call 231-329-5981.';
+        status.className = 'form-status error';
+        showToast('Request not sent.', status.textContent);
+      }
+    });
+
+    document.querySelectorAll('.website-form').forEach(form => {
       form.addEventListener('submit', event => {
         event.preventDefault();
         if (!form.reportValidity()) return;
 
-        const lines = [];
-        form.querySelectorAll('input, select, textarea').forEach(field => {
-          if (!field.name || field.type === 'hidden' || field.type === 'submit') return;
-          const value = field.value.trim();
-          if (value) lines.push(`${labelForField(field)}: ${value}`);
-        });
+        const status = form.querySelector('.form-status');
+        if (!handlerReady) {
+          status.textContent = 'This form still needs its Google Apps Script web-app URL. Please call 231-329-5981 until setup is complete.';
+          status.className = 'form-status error';
+          return;
+        }
 
-        lines.push('', `Submitted from ${window.location.href}`);
-        const subject = form.dataset.emailSubject || 'Homegrown Learning website inquiry';
-        const mailto = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
-        window.location.href = mailto;
-        showToast('Email draft opened.', 'Review the prepared message in your email app, then press Send. You may also call 231-329-5981.');
+        const button = form.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+        const submissionId = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`);
+        form.elements.submission_id.value = submissionId;
+        form.elements.page_url.value = window.location.href;
+        form.action = FORM_HANDLER_URL;
+        form.method = 'POST';
+        form.target = 'form-submit-frame';
+
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        status.textContent = 'Sending your information securely…';
+        status.className = 'form-status';
+
+        const timeout = setTimeout(() => {
+          const pending = pendingSubmissions.get(submissionId);
+          if (!pending) return;
+          pendingSubmissions.delete(submissionId);
+          button.disabled = false;
+          button.textContent = originalText;
+          status.textContent = 'The server did not confirm the submission. Please try again or call 231-329-5981.';
+          status.className = 'form-status error';
+        }, 20000);
+
+        pendingSubmissions.set(submissionId, { form, button, originalText, status, timeout });
+        form.submit();
       });
     });
   </script>
