@@ -157,18 +157,31 @@
     .hero-proof svg { width: 17px; height: 17px; color: var(--forest); }
 
     .hero-art {
-      position: relative; min-height: 560px; border-radius: 42px;
-      background: linear-gradient(145deg, #315d46 0%, #1f4432 72%);
-      box-shadow: var(--shadow); overflow: hidden; isolation: isolate;
+      position: relative;
+      min-height: 560px;
+      border-radius: 42px;
+      background: #264b39;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
     }
-    .hero-art::before {
-      content: ""; position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,.13) 1px, transparent 1px);
-      background-size: 22px 22px; opacity: .35;
+
+    /*
+     * HERO IMAGE
+     * Replace assets/illustrations/farm1.png with another image under the same
+     * filename if you want to swap the artwork later.
+     *
+     * Adjust inset to control the image margins inside the rounded panel.
+     */
+    .hero-scene {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      z-index: 1;
     }
-    .sun { position: absolute; top: 56px; right: 55px; width: 126px; height: 126px; border-radius: 50%; background: #f2c979; box-shadow: 0 0 0 25px rgba(242,201,121,.08); }
-    .land { position: absolute; left: -8%; right: -8%; bottom: -9%; height: 48%; background: #d8dfb9; border-radius: 50% 50% 0 0; transform: rotate(-2deg); }
-    .farm-svg { position: absolute; inset: 82px 34px 58px; z-index: 2; }
     .art-note {
       position: absolute; left: 28px; top: 28px; z-index: 4; max-width: 220px;
       padding: 1rem 1.05rem; background: rgba(255,253,248,.94); border-radius: 18px;
@@ -616,7 +629,7 @@
       .container { width: min(calc(100% - 1.25rem), var(--max)); }
       .hero { padding-top: 3.6rem; }
       .hero-art { min-height: 440px; border-radius: 28px; }
-      .farm-svg { inset: 92px 10px 35px; }
+      .hero-scene { object-position: center center; }
       .sun { width: 90px; height: 90px; right: 25px; top: 70px; }
       .art-note { left: 18px; top: 18px; max-width: 190px; }
       .art-tag { right: 16px; bottom: 16px; }
@@ -693,36 +706,8 @@
         </div>
 
         <div class="hero-art" aria-label="Illustration of a mobile farm learning visit">
-          <div class="sun"></div>
+          <img class="hero-scene" src="assets/illustrations/farm1.png" alt="" aria-hidden="true" decoding="async">
           <div class="art-note"><strong>A living lesson</strong><span>Children observe, ask questions, and meet animals up close.</span></div>
-          <svg class="farm-svg" viewBox="0 0 650 560" fill="none" aria-hidden="true">
-            <path d="M91 417c85-62 184-90 294-83 74 5 132 27 190 68" stroke="#b7c89e" stroke-width="24" stroke-linecap="round" opacity=".65"/>
-            <path d="M120 377V214l118-82 119 82v163" fill="#f4e2bd" stroke="#183426" stroke-width="10" stroke-linejoin="round"/>
-            <path d="m94 225 144-102 145 102" stroke="#183426" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="174" y="265" width="128" height="112" rx="5" fill="#aa6541" stroke="#183426" stroke-width="9"/>
-            <path d="M176 269h126M238 269v108" stroke="#f0d6b0" stroke-width="7"/>
-            <rect x="133" y="236" width="48" height="55" rx="5" fill="#dbe8e0" stroke="#183426" stroke-width="8"/>
-            <rect x="295" y="236" width="48" height="55" rx="5" fill="#dbe8e0" stroke="#183426" stroke-width="8"/>
-            <path d="M28 410h571M58 410v80M148 410v80M238 410v80M328 410v80M418 410v80M508 410v80M598 410v80" stroke="#183426" stroke-width="8" stroke-linecap="round"/>
-            <path d="M30 446h568" stroke="#183426" stroke-width="7" stroke-linecap="round"/>
-            <!-- goat -->
-            <path d="M397 355c4-43 41-66 87-52 31 9 47 37 42 74-5 36-32 54-74 51-38-3-59-29-55-73Z" fill="#f7f3e9" stroke="#183426" stroke-width="9"/>
-            <path d="M493 310c28-28 66-14 63 18-2 18-18 28-39 29" fill="#f7f3e9" stroke="#183426" stroke-width="9" stroke-linecap="round"/>
-            <path d="m535 305 12-24M550 309l22-17" stroke="#183426" stroke-width="7" stroke-linecap="round"/>
-            <path d="M430 418v47M489 418v47" stroke="#183426" stroke-width="10" stroke-linecap="round"/>
-            <circle cx="535" cy="326" r="4" fill="#183426"/>
-            <!-- chicken -->
-            <path d="M76 372c-7-33 12-60 45-64 33-3 56 19 55 49-1 32-24 53-55 52-24-1-40-15-45-37Z" fill="#d69b43" stroke="#183426" stroke-width="8"/>
-            <path d="M109 310c0-19 22-29 37-15 12 11 9 31-5 39" fill="#d69b43" stroke="#183426" stroke-width="8"/>
-            <path d="m143 311 18 7-17 9" fill="#f0d6b0" stroke="#183426" stroke-width="6" stroke-linejoin="round"/>
-            <path d="M81 334c-20-15-29-4-19 15-21-4-25 11-8 23" stroke="#183426" stroke-width="8" stroke-linecap="round"/>
-            <path d="M108 408v28M135 407v29" stroke="#183426" stroke-width="7" stroke-linecap="round"/>
-            <circle cx="139" cy="306" r="3.5" fill="#183426"/>
-            <!-- little learning cards -->
-            <rect x="405" y="85" width="165" height="91" rx="17" fill="#fffdf8" stroke="#183426" stroke-width="7" transform="rotate(4 405 85)"/>
-            <path d="M434 118h93M434 137h70" stroke="#9bb4a2" stroke-width="8" stroke-linecap="round" transform="rotate(4 405 85)"/>
-          </svg>
-          <div class="land"></div>
           <div class="art-tag">Animals • Wonder • Learning</div>
         </div>
       </div>

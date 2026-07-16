@@ -1,16 +1,18 @@
-HOMEGROWN LEARNING — CROSS PLACEMENT UPDATE
+HOMEGROWN LEARNING — HERO IMAGE SWAP
 
-Upload:
-1. Replace the root index.html with the included index.html.
-2. Upload assets/illustrations/cross.png.
+This version removes the original inline hero illustration and uses:
 
-The cross appears beside the "Meet Angel." heading.
+assets/illustrations/farm1.png
 
-To move or resize it later, search index.html for:
-.about-title-row
-.about-cross
+Upload farm1.png into:
+assets/illustrations/farm1.png
 
-Useful properties:
-- gap: space between title and cross
-- width / height: image size
-- transform: translateX(...) translateY(...): fine positioning
+Then replace your site index.html with the included file.
+
+If you want to swap the hero artwork later without editing HTML, just replace
+farm1.png in GitHub under the same name.
+
+To tweak the hero image later, search for:
+.hero-scene
+.art-note
+.art-tag
