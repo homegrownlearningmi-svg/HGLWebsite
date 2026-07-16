@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Homegrown Learning brings hands-on farm animal education to schools, churches, and community groups near Grant, Michigan.">
+  <meta name="theme-color" content="#294e3a">
+  <title>Homegrown Learning | Farm Animal Education in West Michigan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23294e3a'/%3E%3Cpath d='M17 40c11-1 17-10 19-25 9 8 13 18 8 28-5 10-18 11-27 3 7-1 13-5 17-10-6 3-11 5-17 4Z' fill='%23f7f3e9'/%3E%3Cpath d='M25 47c4-7 10-13 18-18' stroke='%23d69b43' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --cream: #f7f3e9;
+      --paper: #fffdf8;
+      --sage: #dfe9d9;
+      --sage-2: #cbdcc6;
+      --forest: #294e3a;
+      --forest-dark: #183426;
+      --ink: #1c2d24;
+      --muted: #5d6c63;
+      --gold: #d69b43;
+      --rust: #aa6541;
+      --line: rgba(28,45,36,.16);
+      --white: #ffffff;
+      --shadow: 0 22px 70px rgba(24,52,38,.12);
+      --radius: 26px;
+      --max: 1180px;
+
+      /*
+       * FILE-BACKED BRAND ASSETS
+       * Replace a file in GitHub under the same path/name to update the site
+       * without rewriting the HTML.
+       */
+      --pattern-leaves: url("assets/patterns/leaves-tile.png");
+      --pattern-chickens: url("assets/patterns/chickens-tile.png");
+      --pattern-speckles: url("assets/patterns/speckles-tile.png");
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "Source Sans 3", Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    h1, h2, h3, .brand-name {
+      font-family: "Fraunces", Georgia, serif;
+      letter-spacing: -.035em;
+      line-height: 1.05;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(3rem, 7vw, 6.6rem); margin-bottom: 1.4rem; }
+    h2 { font-size: clamp(2.35rem, 5vw, 4.4rem); margin-bottom: 1rem; }
+    h3 { font-size: clamp(1.35rem, 2.4vw, 1.85rem); margin-bottom: .55rem; }
+    p { margin-bottom: 1rem; }
+
+    .skip-link {
+      position: fixed; top: 8px; left: 8px; transform: translateY(-150%);
+      background: var(--forest-dark); color: white; padding: .7rem 1rem;
+      border-radius: 8px; z-index: 9999;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .container { width: min(calc(100% - 2rem), var(--max)); margin-inline: auto; }
+    .section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
+    .section-kicker {
+      display: inline-flex; align-items: center; gap: .55rem;
+      margin-bottom: 1rem; color: var(--forest); font-size: .78rem;
+      font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    }
+    .section-kicker::before {
+      content: ""; width: 34px; height: 2px; background: var(--gold); border-radius: 2px;
+    }
+    .section-head { max-width: 760px; margin-bottom: 2.5rem; }
+    .section-head p { color: var(--muted); font-size: 1.08rem; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .65rem;
+      padding: .45rem .75rem; border: 1px solid rgba(41,78,58,.22);
+      border-radius: 999px; color: var(--forest); background: rgba(255,255,255,.5);
+      font-weight: 800; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 5px rgba(214,155,67,.18); }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(247,243,233,.88); backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(28,45,36,.08);
+    }
+    .nav-wrap { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: inline-flex; align-items: center; gap: .72rem; text-decoration: none; min-width: max-content; }
+    .brand-mark {
+      width: 44px; height: 44px; border-radius: 14px; background: var(--forest);
+      display: grid; place-items: center; box-shadow: 0 10px 25px rgba(41,78,58,.18);
+    }
+    .brand-mark svg { width: 26px; height: 26px; }
+    .brand-name { font-size: 1.26rem; font-weight: 800; letter-spacing: -.025em; }
+    .brand-sub { display: block; color: var(--muted); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; margin-top: .14rem; }
+    .nav-links { display: flex; align-items: center; gap: 1.4rem; }
+    .nav-links a { text-decoration: none; font-size: .92rem; font-weight: 700; color: #34493e; }
+    .nav-links a:not(.button):hover { color: var(--rust); }
+    .menu-button { display: none; border: 0; background: transparent; width: 46px; height: 46px; border-radius: 12px; }
+    .menu-button:hover { background: rgba(41,78,58,.08); }
+    .menu-button span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 5px auto; transition: .2s; }
+
+    .button {
+      display: inline-flex; justify-content: center; align-items: center; gap: .55rem;
+      min-height: 48px; padding: .78rem 1.15rem; border-radius: 999px;
+      border: 1px solid var(--forest); background: var(--forest); color: var(--white);
+      text-decoration: none; font-weight: 800; line-height: 1; box-shadow: 0 12px 25px rgba(41,78,58,.16);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(41,78,58,.22); background: var(--forest-dark); }
+    .button:disabled { cursor: wait; opacity: .68; transform: none; box-shadow: none; }
+    .button.secondary { color: var(--forest); background: transparent; box-shadow: none; }
+    .button.secondary:hover { background: rgba(41,78,58,.07); }
+    .button.light { color: var(--forest-dark); background: var(--paper); border-color: var(--paper); }
+    .button.small { min-height: 42px; padding: .65rem 1rem; font-size: .88rem; }
+    .button svg { width: 18px; height: 18px; }
+
+    .hero {
+      position: relative; overflow: hidden; padding: clamp(4.5rem, 9vw, 8.5rem) 0 clamp(5rem, 9vw, 8rem);
+      background:
+        radial-gradient(circle at 88% 15%, rgba(214,155,67,.19), transparent 23rem),
+        radial-gradient(circle at 4% 80%, rgba(203,220,198,.75), transparent 28rem),
+        var(--cream);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: auto -8% -160px 45%; height: 300px;
+      background: var(--sage); border-radius: 50%; transform: rotate(-8deg); opacity: .6;
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+    .hero-copy { max-width: 700px; }
+    .hero-copy h1 span { color: var(--forest); }
+    .hero-lead { font-size: clamp(1.08rem, 2vw, 1.28rem); color: #455a4f; max-width: 640px; margin-bottom: 1.8rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 2.1rem; }
+    .hero-proof { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; color: #4b5e54; font-size: .9rem; }
+    .hero-proof span { display: inline-flex; align-items: center; gap: .45rem; }
+    .hero-proof svg { width: 17px; height: 17px; color: var(--forest); }
+
+    .hero-art {
+      position: relative; min-height: 560px; border-radius: 42px;
+      background: linear-gradient(145deg, #315d46 0%, #1f4432 72%);
+      box-shadow: var(--shadow); overflow: hidden; isolation: isolate;
+    }
+    .hero-art::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.13) 1px, transparent 1px);
+      background-size: 22px 22px; opacity: .35;
+    }
+    .sun { position: absolute; top: 56px; right: 55px; width: 126px; height: 126px; border-radius: 50%; background: #f2c979; box-shadow: 0 0 0 25px rgba(242,201,121,.08); }
+    .land { position: absolute; left: -8%; right: -8%; bottom: -9%; height: 48%; background: #d8dfb9; border-radius: 50% 50% 0 0; transform: rotate(-2deg); }
+    .farm-svg { position: absolute; inset: 82px 34px 58px; z-index: 2; }
+    .art-note {
+      position: absolute; left: 28px; top: 28px; z-index: 4; max-width: 220px;
+      padding: 1rem 1.05rem; background: rgba(255,253,248,.94); border-radius: 18px;
+      box-shadow: 0 16px 40px rgba(17,34,25,.18);
+    }
+    .art-note strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.18rem; margin-bottom: .2rem; }
+    .art-note span { color: var(--muted); font-size: .82rem; }
+    .art-tag {
+      position: absolute; right: 24px; bottom: 24px; z-index: 4; color: var(--forest-dark);
+      background: var(--gold); padding: .7rem .95rem; border-radius: 999px; font-weight: 900; font-size: .82rem;
+      box-shadow: 0 14px 35px rgba(17,34,25,.22);
+    }
+
+    .trust-strip { position: relative; z-index: 5; margin-top: -30px; }
+    .trust-card {
+      display: grid; grid-template-columns: repeat(3, 1fr); background: var(--paper);
+      border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 18px 50px rgba(28,45,36,.1); overflow: hidden;
+    }
+    .trust-item { padding: 1.35rem 1.55rem; display: flex; gap: .85rem; align-items: center; }
+    .trust-item + .trust-item { border-left: 1px solid var(--line); }
+    .trust-icon { width: 42px; height: 42px; flex: 0 0 auto; border-radius: 13px; display: grid; place-items: center; background: var(--sage); color: var(--forest); }
+    .trust-icon svg { width: 22px; height: 22px; }
+    .trust-item strong { display: block; font-size: .96rem; }
+    .trust-item span { color: var(--muted); font-size: .8rem; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .service-card {
+      position: relative; padding: 2rem; min-height: 330px; background: var(--paper);
+      border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .service-card::after { content: ""; position: absolute; width: 150px; height: 150px; border-radius: 50%; right: -65px; bottom: -70px; background: var(--sage); }
+    .service-card:nth-child(2)::after { background: #ecd9c9; }
+    .service-card:nth-child(3)::after { background: #ebe0b7; }
+    .service-number { color: var(--rust); font-weight: 900; letter-spacing: .1em; font-size: .76rem; margin-bottom: 2.6rem; }
+    .service-card p { color: var(--muted); }
+    .service-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--forest); font-weight: 850; text-decoration: none; margin-top: .8rem; }
+
+    .audience { background: var(--forest-dark); color: white; position: relative; overflow: hidden; }
+    .audience::before { content: ""; position: absolute; width: 480px; height: 480px; right: -170px; top: -230px; border-radius: 50%; border: 90px solid rgba(255,255,255,.035); }
+    .audience .section-kicker { color: #dcebdc; }
+    .audience .section-head p { color: #c5d1ca; }
+    .audience-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; position: relative; z-index: 1; }
+    .audience-card { padding: 1.7rem; border-radius: 22px; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.055); }
+    .audience-card h3 { color: white; }
+    .audience-card p { color: #c8d5cd; }
+    .audience-card ul { padding-left: 1.15rem; margin: 1rem 0 0; color: #e7eee9; }
+    .audience-card li + li { margin-top: .35rem; }
+
+    .process-wrap { display: grid; grid-template-columns: .83fr 1.17fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+    .process-intro { position: sticky; top: 112px; }
+    .process-intro p { color: var(--muted); font-size: 1.05rem; }
+    .steps { display: grid; gap: .9rem; }
+    .step { display: grid; grid-template-columns: 64px 1fr; gap: 1rem; padding: 1.45rem; background: var(--paper); border: 1px solid var(--line); border-radius: 20px; }
+    .step-no { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: var(--sage); color: var(--forest); font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; font-weight: 800; }
+    .step p { margin-bottom: 0; color: var(--muted); }
+
+    .about { background: var(--sage); }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+    .portrait-wrap { position: relative; max-width: 470px; }
+    .portrait { width: 100%; aspect-ratio: .78; object-fit: cover; border-radius: 38px; box-shadow: 0 25px 70px rgba(24,52,38,.2); border: 8px solid rgba(255,255,255,.75); }
+    .portrait-badge { position: absolute; right: -18px; bottom: 38px; background: var(--paper); border-radius: 18px; padding: 1rem 1.15rem; box-shadow: 0 16px 40px rgba(24,52,38,.2); max-width: 180px; }
+    .portrait-badge strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.5rem; color: var(--forest); }
+    .portrait-badge span { color: var(--muted); font-size: .82rem; }
+    .about-copy p { color: #45594e; font-size: 1.04rem; }
+    .about-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin: 1.5rem 0 1.8rem; }
+    .fact { display: flex; gap: .65rem; align-items: flex-start; padding: .85rem; border-radius: 14px; background: rgba(255,255,255,.45); }
+    .fact svg { width: 19px; flex: 0 0 auto; color: var(--forest); margin-top: .15rem; }
+    .fact span { font-size: .9rem; font-weight: 700; }
+
+    .community-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1rem; }
+    .community-main, .community-side { border-radius: 30px; padding: clamp(2rem, 5vw, 3.3rem); }
+    .community-main { background: #eadbc7; position: relative; overflow: hidden; }
+    .community-main::after { content: ""; position: absolute; width: 250px; height: 250px; border-radius: 50%; right: -100px; bottom: -120px; background: rgba(170,101,65,.16); }
+    .community-main p { color: #5f5146; max-width: 650px; }
+    .community-side { background: var(--paper); border: 1px solid var(--line); }
+    .community-list { display: grid; gap: .75rem; margin-top: 1.2rem; }
+    .community-list div { display: flex; align-items: center; gap: .65rem; font-weight: 700; }
+    .community-list svg { width: 20px; color: var(--rust); }
+
+    .curriculum { background: #f0e9d6; }
+    .curriculum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .product-preview { min-height: 420px; padding: 2rem; border-radius: 30px; position: relative; overflow: hidden; background: var(--forest); color: white; }
+    .product-preview::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px); background-size: 28px 28px; }
+    .packet-stack { position: absolute; left: 50%; bottom: 45px; transform: translateX(-50%) rotate(-3deg); width: min(72%, 340px); aspect-ratio: .76; background: var(--paper); color: var(--ink); border-radius: 8px; padding: 2rem; box-shadow: -14px 16px 0 #d7c697, -28px 32px 0 #aa6541, 0 26px 55px rgba(0,0,0,.28); }
+    .packet-stack small { color: var(--rust); font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .packet-stack h3 { margin-top: .5rem; font-size: 2rem; }
+    .packet-lines { display: grid; gap: .5rem; margin-top: 1.5rem; }
+    .packet-lines span { height: 7px; border-radius: 9px; background: #d8dfd9; }
+    .packet-lines span:nth-child(2) { width: 82%; }
+    .packet-lines span:nth-child(3) { width: 65%; }
+    .waitlist-card { padding: clamp(2rem, 5vw, 3.2rem); border-radius: 30px; background: var(--paper); border: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; }
+    .waitlist-card p { color: var(--muted); }
+
+    .form-stack { display: grid; gap: .85rem; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: .85rem; }
+    label { display: grid; gap: .35rem; font-size: .82rem; font-weight: 800; color: #34493e; }
+    input, select, textarea {
+      width: 100%; border: 1px solid rgba(28,45,36,.22); border-radius: 13px;
+      background: #fff; color: var(--ink); padding: .82rem .9rem; outline: 0;
+      transition: border .2s ease, box-shadow .2s ease;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--forest); box-shadow: 0 0 0 4px rgba(41,78,58,.1); }
+    textarea { min-height: 120px; resize: vertical; }
+    .fine-print { color: var(--muted); font-size: .76rem; margin: .2rem 0 0; }
+
+    .booking { background: var(--paper); }
+    .booking-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    .booking-copy p { color: var(--muted); }
+    .booking-options { display: grid; gap: .75rem; margin-top: 1.5rem; }
+    .booking-option { display: flex; gap: .75rem; align-items: flex-start; }
+    .booking-option svg { width: 20px; color: var(--forest); flex: 0 0 auto; margin-top: .15rem; }
+    .booking-panel { background: var(--cream); border: 1px solid var(--line); border-radius: 28px; padding: clamp(1.3rem, 3vw, 2rem); box-shadow: 0 18px 50px rgba(28,45,36,.08); }
+    .tabs { display: flex; gap: .45rem; padding: .35rem; background: rgba(41,78,58,.08); border-radius: 14px; margin-bottom: 1.2rem; }
+    .tab { flex: 1; border: 0; border-radius: 10px; padding: .72rem .8rem; background: transparent; color: var(--muted); font-weight: 800; }
+    .tab.active { background: white; color: var(--forest); box-shadow: 0 5px 16px rgba(28,45,36,.1); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .calendar-placeholder { border: 1px dashed rgba(41,78,58,.35); border-radius: 18px; padding: 2rem; text-align: center; background: rgba(255,255,255,.5); }
+    .calendar-placeholder svg { width: 46px; margin: 0 auto 1rem; color: var(--forest); }
+    .calendar-placeholder p { color: var(--muted); }
+    .calendar-frame { width: 100%; min-height: 680px; border: 0; border-radius: 18px; background: white; }
+    .calendar-actions { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; margin-top: 1rem; }
+    .calendar-note { color: var(--muted); font-size: .86rem; margin: .85rem 0 0; }
+    .contact-inline { display: flex; flex-wrap: wrap; gap: .65rem 1.25rem; margin-top: 1rem; }
+    .contact-inline a { color: inherit; font-weight: 750; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .contact-inline a:hover { color: var(--gold); }
+    .form-status { min-height: 1.35em; color: var(--muted); font-size: .84rem; margin: .2rem 0 0; }
+    .form-status.success { color: var(--forest); font-weight: 700; }
+    .form-status.error { color: #8b2e21; font-weight: 700; }
+    .hp-field { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+
+    .faq { background: var(--sage); }
+    .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    details { border-bottom: 1px solid rgba(28,45,36,.18); padding: 1.15rem 0; }
+    summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 1rem; font-weight: 850; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 1.4rem; color: var(--forest); transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { color: #4f6157; padding-right: 2rem; margin: .8rem 0 0; }
+
+    .cta-band { padding: 0 0 clamp(4rem, 7vw, 6rem); background: var(--sage); }
+    .cta-box { background: var(--rust); color: white; border-radius: 32px; padding: clamp(2.2rem, 6vw, 4.5rem); display: flex; justify-content: space-between; align-items: center; gap: 2rem; box-shadow: var(--shadow); }
+    .cta-box h2 { max-width: 750px; margin-bottom: .7rem; }
+    .cta-box p { color: #f7ded2; margin-bottom: 0; }
+    .cta-box .button { flex: 0 0 auto; }
+
+    footer { background: var(--forest-dark); color: white; padding: 3.8rem 0 1.5rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr repeat(3, .7fr); gap: 2rem; }
+    .footer-brand p { color: #b9c8bf; max-width: 480px; margin-top: 1rem; }
+    .footer-title { font-size: .78rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: #acc0b4; margin-bottom: 1rem; }
+    .footer-links { display: grid; gap: .55rem; }
+    .footer-links a { color: #f2f6f3; text-decoration: none; }
+    .footer-links a:hover { color: #f2c979; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); margin-top: 2.5rem; padding-top: 1.2rem; display: flex; justify-content: space-between; gap: 1rem; color: #aebdb4; font-size: .8rem; }
+
+    .toast {
+      position: fixed; right: 18px; bottom: 18px; z-index: 2000; width: min(420px, calc(100% - 36px));
+      padding: 1rem 1.1rem; border-radius: 16px; background: var(--forest-dark); color: white;
+      box-shadow: 0 18px 50px rgba(0,0,0,.28); transform: translateY(140%); opacity: 0;
+      transition: .3s ease; pointer-events: none;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast strong { display: block; margin-bottom: .15rem; }
+    .hidden { display: none !important; }
+    .form-submit-frame {
+      position: fixed;
+      left: -10000px;
+      top: 0;
+      width: 1px;
+      height: 1px;
+      border: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+
+    /* Homegrown Learning file-backed patterns and illustrations */
+    .pattern-leaves,
+    .pattern-speckles,
+    .pattern-wood {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .pattern-leaves::before,
+    .pattern-speckles::before,
+    .pattern-wood::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-repeat: repeat;
+      background-position: center top;
+    }
+
+    .pattern-leaves::before {
+      background-image: var(--pattern-leaves);
+      background-size: 260px 260px;
+      opacity: .13;
+    }
+
+    /* The old class name stays in place for compatibility, but now uses the
+       chicken tile stored in assets/patterns/chickens-tile.png. */
+    .pattern-wood::before {
+      background-image: var(--pattern-chickens);
+      background-size: 340px 340px;
+      opacity: .08;
+    }
+
+    .pattern-speckles::before {
+      background-image: var(--pattern-speckles);
+      background-size: 180px 180px;
+      opacity: .12;
+    }
+
+    .pattern-leaves > *,
+    .pattern-speckles > *,
+    .pattern-wood > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Program card illustrations */
+    .service-card {
+      isolation: isolate;
+    }
+
+    .service-card::before {
+      display: none;
+    }
+
+    .service-card::after {
+      z-index: 0;
+    }
+
+    .service-card > :not(.brand-card-art) {
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-card-art {
+      position: absolute;
+      z-index: 1;
+      right: .95rem;
+      top: .8rem;
+      width: 92px;
+      height: 92px;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 9px 12px rgba(24,52,38,.12));
+    }
+
+    /* Audience leaf illustrations */
+    .audience-card {
+      position: relative;
+      overflow: hidden;
+      padding-right: 6.4rem;
+    }
+
+    .audience-card > :not(.audience-card-art) {
+      position: relative;
+      z-index: 2;
+    }
+
+    .audience-card-art {
+      position: absolute;
+      z-index: 1;
+      right: .9rem;
+      top: .9rem;
+      width: 78px;
+      height: 92px;
+      object-fit: contain;
+      opacity: .68;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Process illustrations */
+    .step {
+      position: relative;
+      overflow: hidden;
+      padding-right: 5.8rem;
+    }
+
+    .step-art {
+      position: absolute;
+      right: .75rem;
+      bottom: -.35rem;
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+      opacity: .28;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* About and curriculum illustrations */
+    .about-rabbit {
+      position: absolute;
+      z-index: 3;
+      left: -54px;
+      bottom: -34px;
+      width: 142px;
+      height: 142px;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 12px 18px rgba(24,52,38,.16));
+    }
+
+    .curriculum-egg {
+      position: absolute;
+      z-index: 3;
+      right: 24px;
+      top: 24px;
+      width: 112px;
+      height: 112px;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 10px 14px rgba(0,0,0,.16));
+    }
+
+    /* File-backed card patterns */
+    .community-main {
+      background-image:
+        var(--pattern-speckles),
+        linear-gradient(#eadbc7, #eadbc7);
+      background-size: 180px 180px, auto;
+      background-repeat: repeat, no-repeat;
+    }
+
+    .waitlist-card {
+      background-image:
+        var(--pattern-leaves),
+        linear-gradient(var(--paper), var(--paper));
+      background-size: 210px 210px, auto;
+      background-position: 108% 110%, center;
+      background-repeat: no-repeat;
+    }
+
+    .booking-panel {
+      background-image:
+        var(--pattern-speckles),
+        linear-gradient(var(--cream), var(--cream));
+      background-size: 180px 180px, auto;
+    }
+
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      right: -60px;
+      bottom: -90px;
+      background-image: var(--pattern-leaves);
+      background-size: 230px 230px;
+      filter: brightness(0) invert(1);
+      opacity: .12;
+      transform: rotate(-12deg);
+      pointer-events: none;
+    }
+
+    @media (max-width: 980px) {
+      .programs-doodle { right: 1rem; top: 30px; opacity: .7; }
+      .about-doodle, .community-doodle, .curriculum-doodle, .booking-doodle { opacity: .45; }
+    }
+    @media (max-width: 700px) {
+      .section-doodle { display: none; }
+      .pattern-leaves, .pattern-speckles, .pattern-wood {
+        background-size: 150px 150px;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { position: fixed; inset: 79px 0 auto 0; background: var(--cream); padding: 1.5rem 1rem 2rem; display: none; flex-direction: column; align-items: stretch; border-bottom: 1px solid var(--line); box-shadow: 0 25px 50px rgba(28,45,36,.12); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: .55rem .25rem; }
+      .menu-button { display: block; }
+      .hero-grid, .about-grid, .booking-grid, .faq-grid, .process-wrap { grid-template-columns: 1fr; }
+      .hero-art { min-height: 500px; }
+      .services-grid, .audience-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: auto; }
+      .process-intro { position: static; }
+      .community-grid, .curriculum-grid { grid-template-columns: 1fr; }
+      .portrait-wrap { margin-inline: auto; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(calc(100% - 1.25rem), var(--max)); }
+      .hero { padding-top: 3.6rem; }
+      .hero-art { min-height: 440px; border-radius: 28px; }
+      .farm-svg { inset: 92px 10px 35px; }
+      .sun { width: 90px; height: 90px; right: 25px; top: 70px; }
+      .art-note { left: 18px; top: 18px; max-width: 190px; }
+      .art-tag { right: 16px; bottom: 16px; }
+      .trust-card { grid-template-columns: 1fr; }
+      .trust-item + .trust-item { border-left: 0; border-top: 1px solid var(--line); }
+      .field-row, .about-facts { grid-template-columns: 1fr; }
+      .portrait-badge { right: 10px; bottom: 18px; }
+      .cta-box { align-items: flex-start; flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: auto; }
+      .footer-bottom { flex-direction: column; }
+      .calendar-frame { min-height: 720px; }
+      .brand-sub { display: none; }
+      .brand-card-art { width: 74px; height: 74px; opacity: .82; }
+      .audience-card { padding-right: 1.7rem; }
+      .audience-card-art { width: 62px; height: 72px; opacity: .24; }
+      .step { padding-right: 1.45rem; }
+      .step-art { width: 62px; height: 62px; opacity: .13; right: .35rem; }
+      .about-rabbit { width: 105px; height: 105px; left: -12px; bottom: -26px; }
+      .curriculum-egg { width: 82px; height: 82px; right: 14px; top: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Homegrown Learning home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none"><path d="M17 40c11-1 17-10 19-25 9 8 13 18 8 28-5 10-18 11-27 3 7-1 13-5 17-10-6 3-11 5-17 4Z" fill="#f7f3e9"/><path d="M25 47c4-7 10-13 18-18" stroke="#d69b43" stroke-width="4" stroke-linecap="round"/></svg>
+        </span>
+        <span><span class="brand-name">Homegrown Learning</span><span class="brand-sub">Hands-on education in West Michigan</span></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#programs">Programs</a>
+        <a href="#about">About Angel</a>
+        <a href="#community">Community</a>
+        <a href="#curriculum">Curriculum</a>
+        <a class="button small" href="#book" data-open-tab="event-panel">Request an event</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="dot"></span> Mobile farm-animal education</div>
+          <h1>Bring the farm to <span>your classroom.</span></h1>
+          <p class="hero-lead">Angel Floyd brings live farm animals, practical lessons, and memorable hands-on learning to schools, churches, and community groups near Grant, Michigan.</p>
+          <div class="hero-actions">
+            <a class="button" href="#book" data-open-tab="event-panel">Request an event
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="button secondary" href="#community">Join homeschool activities</a>
+          </div>
+          <div class="hero-proof">
+            <span><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Custom event quotes</span>
+            <span><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Approximately 45 minutes from Grant</span>
+            <span><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Schools, churches, and groups</span>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Illustration of a mobile farm learning visit">
+          <div class="sun"></div>
+          <div class="art-note"><strong>A living lesson</strong><span>Children observe, ask questions, and meet animals up close.</span></div>
+          <svg class="farm-svg" viewBox="0 0 650 560" fill="none" aria-hidden="true">
+            <path d="M91 417c85-62 184-90 294-83 74 5 132 27 190 68" stroke="#b7c89e" stroke-width="24" stroke-linecap="round" opacity=".65"/>
+            <path d="M120 377V214l118-82 119 82v163" fill="#f4e2bd" stroke="#183426" stroke-width="10" stroke-linejoin="round"/>
+            <path d="m94 225 144-102 145 102" stroke="#183426" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="174" y="265" width="128" height="112" rx="5" fill="#aa6541" stroke="#183426" stroke-width="9"/>
+            <path d="M176 269h126M238 269v108" stroke="#f0d6b0" stroke-width="7"/>
+            <rect x="133" y="236" width="48" height="55" rx="5" fill="#dbe8e0" stroke="#183426" stroke-width="8"/>
+            <rect x="295" y="236" width="48" height="55" rx="5" fill="#dbe8e0" stroke="#183426" stroke-width="8"/>
+            <path d="M28 410h571M58 410v80M148 410v80M238 410v80M328 410v80M418 410v80M508 410v80M598 410v80" stroke="#183426" stroke-width="8" stroke-linecap="round"/>
+            <path d="M30 446h568" stroke="#183426" stroke-width="7" stroke-linecap="round"/>
+            <!-- goat -->
+            <path d="M397 355c4-43 41-66 87-52 31 9 47 37 42 74-5 36-32 54-74 51-38-3-59-29-55-73Z" fill="#f7f3e9" stroke="#183426" stroke-width="9"/>
+            <path d="M493 310c28-28 66-14 63 18-2 18-18 28-39 29" fill="#f7f3e9" stroke="#183426" stroke-width="9" stroke-linecap="round"/>
+            <path d="m535 305 12-24M550 309l22-17" stroke="#183426" stroke-width="7" stroke-linecap="round"/>
+            <path d="M430 418v47M489 418v47" stroke="#183426" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="535" cy="326" r="4" fill="#183426"/>
+            <!-- chicken -->
+            <path d="M76 372c-7-33 12-60 45-64 33-3 56 19 55 49-1 32-24 53-55 52-24-1-40-15-45-37Z" fill="#d69b43" stroke="#183426" stroke-width="8"/>
+            <path d="M109 310c0-19 22-29 37-15 12 11 9 31-5 39" fill="#d69b43" stroke="#183426" stroke-width="8"/>
+            <path d="m143 311 18 7-17 9" fill="#f0d6b0" stroke="#183426" stroke-width="6" stroke-linejoin="round"/>
+            <path d="M81 334c-20-15-29-4-19 15-21-4-25 11-8 23" stroke="#183426" stroke-width="8" stroke-linecap="round"/>
+            <path d="M108 408v28M135 407v29" stroke="#183426" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="139" cy="306" r="3.5" fill="#183426"/>
+            <!-- little learning cards -->
+            <rect x="405" y="85" width="165" height="91" rx="17" fill="#fffdf8" stroke="#183426" stroke-width="7" transform="rotate(4 405 85)"/>
+            <path d="M434 118h93M434 137h70" stroke="#9bb4a2" stroke-width="8" stroke-linecap="round" transform="rotate(4 405 85)"/>
+          </svg>
+          <div class="land"></div>
+          <div class="art-tag">Animals • Wonder • Learning</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-card">
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18V8l8-5 8 5v10H4Z" stroke="currentColor" stroke-width="2"/><path d="M9 18v-5h6v5" stroke="currentColor" stroke-width="2"/></svg></span><span><strong>Built for schools</strong><span>Age-appropriate, organized, and easy to host</span></span></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22V8M7 13c-3 0-5-2-5-5 3 0 5 2 5 5Zm10-4c3 0 5-2 5-5-3 0-5 2-5 5ZM8 6c0-3 2-5 4-6 2 1 4 3 4 6 0 3-2 5-4 6-2-1-4-3-4-6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Full of wonder</strong><span>Creation, care, and stewardship come up naturally</span></span></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/></svg></span><span><strong>Local and mobile</strong><span>Serving communities around Grant, Michigan</span></span></div>
+      </div>
+    </div>
+
+    <section class="section pattern-leaves" id="programs">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Programs</div>
+          <h2>Learning that sticks.</h2>
+          <p>Each visit is planned around the host's age group, setting, and goals. Angel handles the lesson and animal presentation; the host receives a clear plan before the event.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <img class="brand-card-art" src="assets/illustrations/rabbit%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img class="brand-card-art" src="assets/illustrations/egg%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img class="brand-card-art" src="assets/illustrations/chicken%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <div class="service-number">01 · SCHOOL VISITS</div>
+            <h3>Classroom visits</h3>
+            <p>Live-animal lessons about care, behavior, life cycles, stewardship, and the wonder of God's creation.</p>
+            <a class="service-link" href="#book" data-open-tab="event-panel">Request a school event <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card">
+            <div class="service-number">02 · CHURCH PROGRAMS</div>
+            <h3>Church programs</h3>
+            <p>Hands-on animal programs for churches, VBS, camps, and schools, with biblical connections woven in naturally.</p>
+            <a class="service-link" href="#book" data-open-tab="event-panel">Discuss a church program <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="service-card">
+            <div class="service-number">03 · COMMUNITY</div>
+            <h3>Family activities</h3>
+            <p>Seasonal nature walks, farm activities, field trips, and practical learning experiences for like-minded homeschool families.</p>
+            <a class="service-link" href="#community">Join the interest list <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section audience">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">For every setting</div>
+          <h2>Made for your group.</h2>
+          <p>The format changes with the setting and the children's ages; the heart of the lesson stays the same—curiosity, good care, and gratitude for God's creation.</p>
+        </div>
+        <div class="audience-grid">
+          <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Schools</h3><p>Clear, age-appropriate animal learning with plenty of room for questions and wonder.</p><ul><li>Observation and animal science</li><li>Care, needs, and life cycles</li><li>Stewardship and supervised interaction</li></ul></article>
+          <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Churches</h3><p>Farm-animal learning for VBS, camps, schools, and special events, with natural biblical connections.</p><ul><li>Creation and stewardship</li><li>Biblical connections</li><li>VBS, camps, and special events</li></ul></article>
+          <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Families</h3><p>Local activities that bring together practical experience, nature, and friendship.</p><ul><li>Seasonal events and field trips</li><li>Hands-on learning stations</li><li>Family-focused local community</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pattern-speckles">
+      <div class="container process-wrap">
+        <div class="process-intro">
+          <div class="section-kicker">How it works</div>
+          <h2>From inquiry to event.</h2>
+          <p>No confusing packages or placeholder prices. Each event receives a custom quote based on the location, group size, animals, timing, and program needs.</p>
+          <a class="button" href="#book" data-open-tab="event-panel">Start an event request</a>
+        </div>
+        <div class="steps">
+          <article class="step"><img class="step-art" src="assets/illustrations/chicken%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="step-no">1</div><div><h3>Share the basics</h3><p>Share your organization, children's ages, estimated group size, location, and preferred date.</p></div></article>
+          <article class="step"><img class="step-art" src="assets/illustrations/egg%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="step-no">2</div><div><h3>Shape the visit</h3><p>Angel confirms the available animals, lesson focus, space requirements, travel details, and event goals.</p></div></article>
+          <article class="step"><img class="step-art" src="assets/illustrations/rabbit%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="step-no">3</div><div><h3>Get your quote</h3><p>You receive a straightforward event proposal rather than choosing from generic hourly packages.</p></div></article>
+          <article class="step"><img class="step-art" src="assets/illustrations/chicken%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="step-no">4</div><div><h3>Meet the animals</h3><p>Angel arrives prepared to lead the presentation and guide the children through a memorable hands-on lesson.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about pattern-speckles" id="about">
+      <div class="container about-grid">
+        <div class="portrait-wrap">
+          <img class="portrait" src="assets/illustrations/prof.png" alt="Angel Floyd, founder of Homegrown Learning">
+          <img class="about-rabbit" src="assets/illustrations/rabbit%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <div class="portrait-badge"><strong>30 years</strong><span>of early childhood experience</span></div>
+        </div>
+        <div class="about-copy">
+          <div class="section-kicker">Meet Angel</div>
+          <h2>Meet Angel.</h2>
+          <p>Angel Floyd has spent 30 years working in early childhood development and helping children discover the world around them. Her favorite lessons are the ones children can experience firsthand—holding a chick, observing an animal's behavior, exploring a plant, or asking the unexpected question that opens a new line of learning.</p>
+          <p>Through Homegrown Learning, Angel brings farm animals and practical teaching directly to schools, churches, and community groups. Her love for God's creation is evident in her passion for children, stewardship, and care.</p>
+          <div class="about-facts">
+            <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Early childhood education experience</span></div>
+            <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Hands-on animal presentations</span></div>
+            <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Faith woven naturally into each program</span></div>
+            <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Based near Grant, Michigan</span></div>
+          </div>
+          <a class="button secondary" href="#book" data-open-tab="event-panel">Ask Angel about a visit</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pattern-wood" id="community">
+      <div class="container community-grid">
+        <div class="community-main">
+          <div class="section-kicker">For local families</div>
+          <h2>Join the community.</h2>
+          <p>Angel is growing a local community for families who value Christian, hands-on learning. Activities may include nature walks, animal experiences, seasonal outings, farm projects, and practical skills.</p>
+          <p><strong>This is an interest list, not a paid membership.</strong> Joining simply lets Angel contact you when an appropriate community activity is planned.</p>
+          <a class="button" href="#community-form">Join the interest list</a>
+        </div>
+        <aside class="community-side">
+          <h3>What to expect</h3>
+          <div class="community-list">
+            <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Activities near the Grant area</div>
+            <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Family-friendly outdoor learning</div>
+            <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Shared values and easygoing fellowship</div>
+            <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Invitations sent as events are scheduled</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section curriculum pattern-speckles" id="curriculum">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Coming later</div>
+          <h2>Activity packs are coming.</h2>
+          <p>Angel is developing activity packets that extend hands-on lessons into the classroom or home. Join the list if you are interested!</p>
+        </div>
+        <div class="curriculum-grid">
+          <div class="product-preview" aria-label="Preview illustration of a printable activity packet">
+            <img class="curriculum-egg" src="assets/illustrations/egg%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <div class="packet-stack"><small>Homegrown Learning</small><h3>Farm Animal Discovery Pack</h3><p>Observation • vocabulary • activities</p><div class="packet-lines"><span></span><span></span><span></span></div></div>
+          </div>
+          <div class="waitlist-card">
+            <h3>Get the first packet.</h3>
+            <p>No pretend product catalog and no preorders. Join the list and Angel will send one update when the first printable resource is available.</p>
+            <form class="form-stack website-form" name="curriculum-waitlist" data-form-type="curriculum-waitlist" novalidate>
+              <input type="hidden" name="form_type" value="curriculum-waitlist">
+              <input type="hidden" name="submission_id" value="">
+              <input type="hidden" name="form_started" value="">
+              <input type="hidden" name="page_url" value="">
+              <label class="hp-field" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+              <label>Email address<input type="email" name="email" autocomplete="email" required placeholder="you@example.com"></label>
+              <label>I am a<select name="audience"><option>Teacher or school administrator</option><option>Church or ministry leader</option><option>Homeschool parent</option><option>Other</option></select></label>
+              <button class="button" type="submit">Join the curriculum list</button>
+              <p class="form-status" aria-live="polite"></p>
+              <p class="fine-print">Your information is sent directly to Homegrown Learning and saved to its private inquiry log.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section booking pattern-leaves" id="book">
+      <div class="container booking-grid">
+        <div class="booking-copy">
+          <div class="section-kicker">Request or consult</div>
+          <h2>Choose how to connect.</h2>
+          <p>Administrators can request a custom event quote or book a short phone consultation. Event requests are reviewed individually because travel, animals, group size, and venue needs vary.</p>
+          <div class="booking-options">
+            <div class="booking-option"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3v3m12-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span><strong>Event request:</strong> share your date, location, group, and program needs.</span></div>
+            <div class="booking-option"><svg viewBox="0 0 24 24" fill="none"><path d="M8 10h8M8 14h5M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7l-5 3v-3H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Consultation:</strong> choose a live opening and book a 30-minute phone call.</span></div>
+            <div class="booking-option"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/></svg><span><strong>Service area:</strong> generally within about 45 minutes of Grant, Michigan.</span></div>
+          </div>
+        </div>
+
+        <div class="booking-panel">
+          <div class="tabs" role="tablist" aria-label="Contact options">
+            <button class="tab active" type="button" role="tab" aria-selected="true" data-tab="consult-panel">Book a consultation</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-tab="event-panel">Request an event</button>
+          </div>
+
+          <div class="tab-panel" id="event-panel" role="tabpanel">
+            <form class="form-stack website-form" name="event-request" data-form-type="event-request" novalidate>
+              <input type="hidden" name="form_type" value="event-request">
+              <input type="hidden" name="submission_id" value="">
+              <input type="hidden" name="form_started" value="">
+              <input type="hidden" name="page_url" value="">
+              <label class="hp-field" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+              <div class="field-row">
+                <label>Your name<input type="text" name="name" autocomplete="name" required></label>
+                <label>Organization<input type="text" name="organization" required></label>
+              </div>
+              <div class="field-row">
+                <label>Email<input type="email" name="email" autocomplete="email" required></label>
+                <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
+              </div>
+              <div class="field-row">
+                <label>Organization type<select name="organization-type" required><option value="">Choose one</option><option>School</option><option>Church or ministry</option><option>Homeschool group</option><option>Community organization</option><option>Other</option></select></label>
+                <label>Approximate group size<input type="number" name="group-size" min="1" inputmode="numeric" placeholder="Example: 24"></label>
+              </div>
+              <div class="field-row">
+                <label>Preferred date<input class="date-field" type="date" name="preferred-date"></label>
+                <label>City or location<input type="text" name="location" placeholder="City, MI"></label>
+              </div>
+              <label>Children's ages or grade levels<input type="text" name="ages" placeholder="Example: preschool through 1st grade"></label>
+              <label>What would make this event successful?<textarea name="message" required placeholder="Tell Angel about the event, schedule, learning goals, animal interests, and anything important about the group or venue."></textarea></label>
+              <button class="button" type="submit">Send event request</button>
+              <p class="form-status" aria-live="polite"></p>
+              <p class="fine-print">No payment is collected here. The request is emailed directly to Angel and saved to Homegrown Learning’s private inquiry log.</p>
+            </form>
+          </div>
+
+          <div class="tab-panel active" id="consult-panel" role="tabpanel">
+            <iframe
+              class="calendar-frame"
+              title="Book a phone consultation with Angel Floyd"
+              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ05SYaFbz1QNDDc6rfdlrW472JtCUrw27OjcVtrNK-ygu3vcGKChw5RQuW9rkD778b-29aaD_Oy?gv=true"
+              loading="lazy"
+              frameborder="0"></iframe>
+            <div class="calendar-actions">
+              <a class="button secondary small" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ05SYaFbz1QNDDc6rfdlrW472JtCUrw27OjcVtrNK-ygu3vcGKChw5RQuW9rkD778b-29aaD_Oy?gv=true" target="_blank" rel="noopener">Open booking page</a>
+              <a class="button secondary small" href="tel:+12316295981">Call 231-629-5981</a>
+            </div>
+            <p class="calendar-note">Consultations are phone calls. Current availability is controlled directly through Angel’s Google Calendar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <div class="container faq-grid">
+        <div><div class="section-kicker">Common questions</div><h2>Good to know.</h2></div>
+        <div>
+          <details><summary>Which animals can Angel bring?</summary><p>The animal lineup depends on availability, season, travel conditions, the venue, and the children's ages. Angel will confirm the plan before the event.</p></details>
+          <details><summary>How much does an event cost?</summary><p>Events are quoted individually. Price can depend on travel distance, event length, number of sessions, group size, animals, and any special program requirements.</p></details>
+          <details><summary>How far does Angel travel?</summary><p>The normal service area is approximately 45 minutes from Grant, Michigan. Requests outside that area can still be discussed, but travel may affect availability and pricing.</p></details>
+          <details><summary>Can families join the homeschool group?</summary><p>Families can join the interest list for community activities. Angel can then send invitations as suitable nature, farm, or practical-learning events are planned.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-box">
+        <div><h2>Bring the farm to your group.</h2><p>Tell Angel what you are planning and receive a custom response.</p></div>
+        <a class="button light" href="#book" data-open-tab="event-panel">Request an event</a>
+      </div>
+    </section>
+
+    <section class="section" id="community-form">
+      <div class="container booking-grid">
+        <div class="booking-copy"><div class="section-kicker">Community interest list</div><h2>Get local activity updates.</h2><p>Use this form for homeschool and community activities—not school or church event requests.</p></div>
+        <div class="booking-panel">
+          <form class="form-stack website-form" name="community-interest" data-form-type="community-interest" novalidate>
+            <input type="hidden" name="form_type" value="community-interest">
+            <input type="hidden" name="submission_id" value="">
+            <input type="hidden" name="form_started" value="">
+            <input type="hidden" name="page_url" value="">
+            <label class="hp-field" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="field-row"><label>Parent's name<input type="text" name="name" autocomplete="name" required></label><label>Email<input type="email" name="email" autocomplete="email" required></label></div>
+            <div class="field-row"><label>City<input type="text" name="city" required></label><label>Children's ages<input type="text" name="children-ages" placeholder="Example: 3, 6, and 9"></label></div>
+            <label>What kinds of activities interest your family?<textarea name="interests" placeholder="Nature walks, farm animals, field trips, practical skills, seasonal events..."></textarea></label>
+            <button class="button" type="submit">Join the interest list</button>
+            <p class="form-status" aria-live="polite"></p>
+            <p class="fine-print">Your information is sent directly to Homegrown Learning and saved to its private inquiry log.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top"><span class="brand-mark"><svg viewBox="0 0 64 64" fill="none"><path d="M17 40c11-1 17-10 19-25 9 8 13 18 8 28-5 10-18 11-27 3 7-1 13-5 17-10-6 3-11 5-17 4Z" fill="#f7f3e9"/><path d="M25 47c4-7 10-13 18-18" stroke="#d69b43" stroke-width="4" stroke-linecap="round"/></svg></span><span class="brand-name">Homegrown Learning</span></a>
+          <p>Mobile, hands-on farm animal education for schools, churches, and families near Grant, Michigan.</p><div class="contact-inline"><a href="mailto:homegrownlearningmi@gmail.com">homegrownlearningmi@gmail.com</a><a href="tel:+12316295981">231-629-5981</a></div>
+        </div>
+        <div><div class="footer-title">Explore</div><div class="footer-links"><a href="#programs">Programs</a><a href="#about">About Angel</a><a href="#community">Community</a><a href="#curriculum">Curriculum</a></div></div>
+        <div><div class="footer-title">Get started</div><div class="footer-links"><a href="#book" data-open-tab="event-panel">Request an event</a><a href="#book" data-open-tab="consult-panel">Book a consultation</a><a href="#community-form">Community interest list</a></div></div><div><div class="footer-title">Contact</div><div class="footer-links"><a href="mailto:homegrownlearningmi@gmail.com">Email Angel</a><a href="tel:+12316295981">Call 231-629-5981</a></div></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Homegrown Learning. All rights reserved.</span><span>Serving West Michigan from the Grant area.</span></div>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"><strong>Request sent.</strong><span>Homegrown Learning has received your information.</span></div>
+  <iframe class="form-submit-frame" name="form-submit-frame" id="form-submit-frame" title="Form submission response"></iframe>
+
+  <script>
+    const FORM_HANDLER_URL = "https://script.google.com/macros/s/AKfycbydrJI0Fys5vSpcZhZoH4Nmuq3kBW-wqr1CEnUSgJz2LrHxKQKLAk3809pZiYHq-h_UZw/exec";
+
+    const menuButton = document.querySelector('.menu-button');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      document.body.classList.toggle('menu-open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    const today = new Date();
+    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+    document.querySelectorAll('.date-field').forEach(field => field.min = localToday);
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toast = document.querySelector('.toast');
+    let toastTimer;
+    function showToast(title, message) {
+      toast.querySelector('strong').textContent = title;
+      toast.querySelector('span').textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 6500);
+    }
+
+    function activateTab(panelId) {
+      const targetTab = document.querySelector(`.tab[data-tab="${panelId}"]`);
+      const targetPanel = document.getElementById(panelId);
+      if (!targetTab || !targetPanel) return;
+      document.querySelectorAll('.tab').forEach(tab => {
+        const active = tab === targetTab;
+        tab.classList.toggle('active', active);
+        tab.setAttribute('aria-selected', String(active));
+      });
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.toggle('active', panel === targetPanel));
+    }
+
+    document.querySelectorAll('[data-open-tab]').forEach(link => {
+      link.addEventListener('click', () => activateTab(link.dataset.openTab));
+    });
+
+    const handlerReady = /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(FORM_HANDLER_URL);
+    const pendingSubmissions = new Map();
+
+    function resetFormTiming(form) {
+      form.elements.form_started.value = String(Date.now());
+      form.elements.page_url.value = window.location.href;
+      form.elements.submission_id.value = '';
+    }
+
+    document.querySelectorAll('.website-form').forEach(resetFormTiming);
+
+    window.addEventListener('message', event => {
+      let data = event.data;
+      if (typeof data === 'string') {
+        try { data = JSON.parse(data); } catch (error) { return; }
+      }
+      if (!data || data.source !== 'homegrown-learning-form' || !data.submissionId) return;
+      const pending = pendingSubmissions.get(data.submissionId);
+      if (!pending) return;
+
+      clearTimeout(pending.timeout);
+      pendingSubmissions.delete(data.submissionId);
+      const { form, button, originalText, status } = pending;
+      button.disabled = false;
+      button.textContent = originalText;
+
+      if (data.status === 'success') {
+        status.textContent = data.message || 'Thank you. Your information was sent successfully.';
+        status.className = 'form-status success';
+        form.reset();
+        resetFormTiming(form);
+        showToast('Request sent.', 'Homegrown Learning received your information. Angel will follow up directly.');
+      } else {
+        status.textContent = data.message || 'The form could not be sent. Please try again or call 231-629-5981.';
+        status.className = 'form-status error';
+        showToast('Request not sent.', status.textContent);
+      }
+    });
+
+    document.querySelectorAll('.website-form').forEach(form => {
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const status = form.querySelector('.form-status');
+        if (!handlerReady) {
+          status.textContent = 'This form still needs its Google Apps Script web-app URL. Please call 231-629-5981 until setup is complete.';
+          status.className = 'form-status error';
+          return;
+        }
+
+        const button = form.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+        const submissionId = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`);
+        form.elements.submission_id.value = submissionId;
+        form.elements.page_url.value = window.location.href;
+        form.action = FORM_HANDLER_URL;
+        form.method = 'POST';
+        form.target = 'form-submit-frame';
+
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        status.textContent = 'Sending your information securely…';
+        status.className = 'form-status';
+
+        const timeout = setTimeout(() => {
+          const pending = pendingSubmissions.get(submissionId);
+          if (!pending) return;
+          pendingSubmissions.delete(submissionId);
+          button.disabled = false;
+          button.textContent = originalText;
+          status.textContent = 'The server did not confirm the submission. Please try again or call 231-629-5981.';
+          status.className = 'form-status error';
+        }, 45000);
+
+        pendingSubmissions.set(submissionId, { form, button, originalText, status, timeout });
+        form.submit();
+      });
+    });
+  </script>
+</body>
+</html>
