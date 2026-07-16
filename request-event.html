@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plan and request a Homegrown Learning farm-animal education event in West Michigan.">
+  <meta name="theme-color" content="#294e3a">
+  <title>Request an Event | Homegrown Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:#f7f3e9; --paper:#fffdf8; --sage:#dfe9d9; --sage-2:#cbdcc6;
+      --forest:#294e3a; --forest-dark:#183426; --ink:#1c2d24; --muted:#5d6c63;
+      --gold:#d69b43; --rust:#aa6541; --line:rgba(28,45,36,.16); --white:#fff;
+      --shadow:0 22px 70px rgba(24,52,38,.12); --radius:26px; --max:1180px;
+      --pattern-speckles:url("assets/patterns/speckles-tile.png");
+      --pattern-leaves:url("assets/patterns/leaves-tile.png");
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:var(--cream);font-family:"Source Sans 3",Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    h1,h2,h3,.brand-name{font-family:"Fraunces",Georgia,serif;letter-spacing:-.035em;line-height:1.05}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(2.8rem,7vw,5.7rem);margin-bottom:1rem}
+    h2{font-size:clamp(2rem,4.5vw,3.5rem);margin-bottom:.85rem}
+    h3{font-size:clamp(1.25rem,2.3vw,1.7rem);margin-bottom:.45rem}
+    p{margin-bottom:1rem}
+    .container{width:min(calc(100% - 2rem),var(--max));margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:1000;background:rgba(247,243,233,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(28,45,36,.08)}
+    .nav-wrap{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:inline-flex;align-items:center;gap:.72rem;text-decoration:none}
+    .brand-mark{width:44px;height:44px;border-radius:14px;background:var(--forest);display:grid;place-items:center;box-shadow:0 10px 25px rgba(41,78,58,.18)}
+    .brand-mark svg{width:26px;height:26px}
+    .brand-name{font-size:1.26rem;font-weight:800}
+    .brand-sub{display:block;color:var(--muted);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.14rem}
+    .nav-links{display:flex;align-items:center;gap:1.15rem}
+    .nav-links a{text-decoration:none;font-size:.91rem;font-weight:750;color:#34493e}
+    .nav-links a:hover{color:var(--rust)}
+    .button{display:inline-flex;justify-content:center;align-items:center;gap:.55rem;min-height:48px;padding:.78rem 1.15rem;border-radius:999px;border:1px solid var(--forest);background:var(--forest);color:white;text-decoration:none;font-weight:800;line-height:1;box-shadow:0 12px 25px rgba(41,78,58,.16);transition:.2s}
+    .button:hover{transform:translateY(-2px);background:var(--forest-dark)}
+    .button:disabled{cursor:wait;opacity:.68;transform:none}
+    .button.secondary{color:var(--forest);background:transparent;box-shadow:none}
+    .request-hero{position:relative;overflow:hidden;padding:clamp(4rem,8vw,7rem) 0;background:radial-gradient(circle at 88% 15%,rgba(214,155,67,.2),transparent 23rem),var(--cream)}
+    .request-hero::before{content:"";position:absolute;inset:0;background-image:var(--pattern-leaves);background-repeat:repeat;background-size:320px 320px;opacity:.14;pointer-events:none}
+    .request-hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:.65rem;padding:.45rem .75rem;border:1px solid rgba(41,78,58,.22);border-radius:999px;color:var(--forest);background:rgba(255,255,255,.66);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.2rem}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(214,155,67,.18)}
+    .hero-lead{font-size:1.15rem;color:#455a4f;max-width:700px}
+    .hero-summary{padding:1.6rem;border-radius:28px;background:var(--forest-dark);color:white;box-shadow:var(--shadow)}
+    .hero-summary h3{color:white}
+    .summary-points{display:grid;gap:.75rem;margin-top:1rem}
+    .summary-points div{display:flex;gap:.65rem;align-items:flex-start;color:#d8e4dc}
+    .summary-points svg{width:19px;flex:0 0 auto;color:#f2c979;margin-top:.18rem}
+    .page-main{padding:clamp(3.5rem,7vw,6rem) 0}
+    .layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:1.25rem;align-items:start}
+    .form-card{background:var(--paper);border:1px solid var(--line);border-radius:32px;box-shadow:var(--shadow);overflow:hidden}
+    .form-section{padding:clamp(1.5rem,4vw,2.5rem);border-bottom:1px solid var(--line)}
+    .form-section:last-child{border-bottom:0}
+    .section-number{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:11px;background:var(--sage);color:var(--forest);font-family:"Fraunces",serif;font-weight:800;margin-bottom:.75rem}
+    .section-copy{color:var(--muted);max-width:760px}
+    .form-stack{display:grid;gap:.9rem}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+    label.field{display:grid;gap:.35rem;font-size:.83rem;font-weight:800;color:#34493e}
+    input,select,textarea{width:100%;border:1px solid rgba(28,45,36,.24);border-radius:13px;background:white;color:var(--ink);padding:.85rem .92rem;outline:0;transition:.2s}
+    input:focus,select:focus,textarea:focus{border-color:var(--forest);box-shadow:0 0 0 4px rgba(41,78,58,.1)}
+    textarea{min-height:135px;resize:vertical}
+    .choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+    .choice-card{position:relative;display:grid;gap:.5rem;padding:1rem;border:1px solid var(--line);border-radius:18px;background:var(--cream);cursor:pointer;transition:.2s}
+    .choice-card:hover{transform:translateY(-2px);border-color:rgba(41,78,58,.45)}
+    .choice-card input{position:absolute;opacity:0;pointer-events:none}
+    .choice-card:has(input:checked){border-color:var(--forest);box-shadow:0 0 0 3px rgba(41,78,58,.1);background:#f0f5ed}
+    .choice-card strong{font-family:"Fraunces",serif;font-size:1.15rem;color:var(--forest-dark)}
+    .choice-card .price{font-size:1.3rem;font-weight:900;color:var(--rust)}
+    .lesson-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .lesson-card{position:relative;padding:1.25rem;border:1px solid var(--line);border-radius:20px;background:var(--cream);cursor:pointer}
+    .lesson-card input{position:absolute;opacity:0}
+    .lesson-card:has(input:checked){border-color:var(--forest);box-shadow:0 0 0 3px rgba(41,78,58,.1);background:#f0f5ed}
+    .lesson-card ul{padding-left:1.15rem;margin:.75rem 0 0;color:#42574b}
+    .lesson-card li+li{margin-top:.25rem}
+    .lesson-note{margin-top:1rem;padding:1rem;border-left:4px solid var(--gold);background:rgba(214,155,67,.11);border-radius:0 12px 12px 0;color:#4a493c}
+    .animal-mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:1rem}
+    .animal-mode-card{position:relative;display:grid;gap:.35rem;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:18px;background:var(--cream);cursor:pointer;transition:.2s}
+    .animal-mode-card input{position:absolute;opacity:0;pointer-events:none}
+    .animal-mode-card:has(input:checked){border-color:var(--forest);box-shadow:0 0 0 3px rgba(41,78,58,.1);background:#f0f5ed}
+    .animal-mode-card strong{font-family:"Fraunces",serif;font-size:1.2rem;color:var(--forest-dark)}
+    .animal-mode-card span{color:var(--muted)}
+    .animal-mode-card em{color:var(--rust);font-style:normal;font-weight:900}
+    .animal-list-panel{display:none;margin-top:1rem}
+    .animal-list-panel.active{display:block}
+    .animal-list-heading{display:flex;justify-content:space-between;gap:1rem;align-items:end;margin-bottom:.8rem}
+    .animal-list-heading p{margin:0;color:var(--muted)}
+    .animal-list-badge{flex:0 0 auto;padding:.35rem .65rem;border-radius:999px;background:var(--sage);color:var(--forest-dark);font-size:.76rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase}
+    .animal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+    .animal-choice{position:relative;display:grid;grid-template-columns:88px 1fr;gap:.8rem;align-items:center;padding:.75rem;border:1px solid var(--line);border-radius:18px;background:var(--cream);cursor:pointer;transition:.2s;overflow:hidden}
+    .animal-choice input{position:absolute;opacity:0}
+    .animal-choice:has(input:checked){border-color:var(--forest);box-shadow:0 0 0 3px rgba(41,78,58,.1);background:#f0f5ed}
+    .animal-art{position:relative;width:88px;height:78px;border-radius:14px;background:var(--sage);display:grid;place-items:center;overflow:hidden}
+    .animal-art img{width:100%;height:100%;object-fit:contain;padding:.25rem}
+    .animal-placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:.5rem;color:#617267;font-size:.72rem;font-weight:750}
+    .animal-art.has-image .animal-placeholder{display:none}
+    .animal-choice-copy{display:grid;gap:.12rem}
+    .animal-choice-copy strong{font-family:"Fraunces",serif;font-size:1.08rem}
+    .animal-choice-copy small{color:var(--muted);line-height:1.25}
+    .animal-choice-copy>span{color:var(--rust);font-weight:900}
+    .selection-warning{display:none;margin-top:.85rem;color:#8b2e21;font-weight:750}
+    .selection-warning.show{display:block}
+    .addon-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+    .addon-card{position:relative;display:grid;grid-template-columns:96px 1fr;gap:1rem;align-items:center;padding:1rem;border:1px solid var(--line);border-radius:18px;background:var(--cream);cursor:pointer}
+    .addon-card input{position:absolute;opacity:0}
+    .addon-card:has(input:checked){border-color:var(--forest);box-shadow:0 0 0 3px rgba(41,78,58,.1);background:#f0f5ed}
+    .addon-art{position:relative;width:96px;height:88px;border-radius:14px;background:var(--sage);display:grid;place-items:center;overflow:hidden}
+    .addon-art img{width:100%;height:100%;object-fit:contain;padding:.25rem}
+    .addon-art.has-image .animal-placeholder{display:none}
+    .addon-copy strong{display:block;font-family:"Fraunces",serif;font-size:1.12rem}
+    .addon-copy span{color:var(--rust);font-weight:900}
+    .fine-print{color:var(--muted);font-size:.78rem;margin:.4rem 0 0}
+    .form-status{min-height:1.35em;color:var(--muted);font-size:.86rem;margin:.2rem 0 0}
+    .form-status.success{color:var(--forest);font-weight:700}
+    .form-status.error{color:#8b2e21;font-weight:700}
+    .hp-field,.summary-field{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+    .estimate{position:sticky;top:96px;padding:1.35rem;border-radius:24px;background:var(--forest-dark);color:white;box-shadow:var(--shadow)}
+    .estimate h3{color:white}
+    .estimate-total{font-family:"Fraunces",serif;font-size:3rem;font-weight:800;color:#f2c979;line-height:1;margin:.45rem 0}
+    .estimate small{display:block;color:#bfcfc5}
+    .estimate-lines{display:grid;gap:.55rem;margin:1rem 0;padding:1rem 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)}
+    .estimate-line{display:flex;justify-content:space-between;gap:1rem;color:#d9e4dd}
+    .estimate-line span:last-child{font-weight:800;color:white}
+    .estimate-note{color:#c3d2c8;font-size:.82rem}
+    .price-guide-link{display:inline-flex;margin-top:.85rem;color:#f2c979;font-weight:800;text-underline-offset:3px}
+    .toast{position:fixed;right:18px;bottom:18px;z-index:2000;width:min(420px,calc(100% - 36px));padding:1rem 1.1rem;border-radius:16px;background:var(--forest-dark);color:white;box-shadow:0 18px 50px rgba(0,0,0,.28);transform:translateY(140%);opacity:0;transition:.3s ease;pointer-events:none}
+    .toast.show{transform:translateY(0);opacity:1}
+    .toast strong{display:block;margin-bottom:.15rem}
+    .form-submit-frame{position:fixed;left:-10000px;top:0;width:1px;height:1px;border:0;opacity:0;pointer-events:none}
+    footer{background:var(--forest-dark);color:white;padding:3rem 0 1.3rem;margin-top:4rem}
+    .footer-row{display:flex;justify-content:space-between;gap:2rem;align-items:flex-start}
+    .footer-row p{color:#b9c8bf;max-width:620px}
+    .contact-inline{display:flex;flex-wrap:wrap;gap:.65rem 1.25rem}
+    .contact-inline a{font-weight:750}
+    @media(max-width:980px){
+      .request-hero-grid,.layout{grid-template-columns:1fr}
+      .estimate{position:static}
+      .animal-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:700px){
+      .container{width:min(calc(100% - 1.25rem),var(--max))}
+      .nav-links{gap:.7rem}
+      .nav-links a:not(.button){display:none}
+      .brand-sub{display:none}
+      .field-row,.choice-grid,.lesson-grid,.animal-mode-grid,.animal-grid,.addon-grid{grid-template-columns:1fr}
+      .animal-choice{grid-template-columns:76px 1fr}
+      .animal-art{width:76px;height:70px}
+      .footer-row{flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Homegrown Learning home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none"><path d="M17 40c11-1 17-10 19-25 9 8 13 18 8 28-5 10-18 11-27 3 7-1 13-5 17-10-6 3-11 5-17 4Z" fill="#f7f3e9"/><path d="M25 47c4-7 10-13 18-18" stroke="#d69b43" stroke-width="4" stroke-linecap="round"/></svg>
+        </span>
+        <span><span class="brand-name">Homegrown Learning</span><span class="brand-sub">Hands-on education in West Michigan</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Request page navigation">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#about">About Angel</a>
+        <a href="assets/pricing.pdf" target="_blank" rel="noopener">Price guide</a>
+        <a class="button secondary" href="index.html">Back to home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="request-hero">
+      <div class="container request-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Event request</div>
+          <h1>Plan the visit.</h1>
+          <p class="hero-lead">Choose the visit length, lesson format, animals, and optional hatching materials. This creates a detailed request for Angel to review; it does not collect payment or automatically reserve the date.</p>
+        </div>
+        <aside class="hero-summary">
+          <h3>Current starting points</h3>
+          <div class="summary-points">
+            <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Visits begin at $175 for 1.5 hours.</span></div>
+            <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>List A allows one animal and cannot be combined with List B.</span></div>
+            <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>List B allows up to three animals; the first is included.</span></div>
+            <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Angel confirms availability and the final quote.</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page-main">
+      <div class="container layout">
+        <form class="form-card website-form" name="event-request" data-form-type="event-request" novalidate>
+          <input type="hidden" name="form_type" value="event-request">
+          <input type="hidden" name="submission_id" value="">
+          <input type="hidden" name="form_started" value="">
+          <input type="hidden" name="page_url" value="">
+          <textarea class="summary-field" name="message" aria-hidden="true"></textarea>
+          <label class="hp-field" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+
+          <section class="form-section">
+            <div class="section-number">1</div>
+            <h2>Tell Angel about the group.</h2>
+            <p class="section-copy">These are the same contact and event details used on the original request form.</p>
+            <div class="form-stack">
+              <div class="field-row">
+                <label class="field">Your name<input type="text" name="name" autocomplete="name" required></label>
+                <label class="field">Organization<input type="text" name="organization" required></label>
+              </div>
+              <div class="field-row">
+                <label class="field">Email<input type="email" name="email" autocomplete="email" required></label>
+                <label class="field">Phone<input type="tel" name="phone" autocomplete="tel"></label>
+              </div>
+              <div class="field-row">
+                <label class="field">Organization type
+                  <select name="organization-type" required>
+                    <option value="">Choose one</option>
+                    <option>School</option>
+                    <option>Church or ministry</option>
+                    <option>Homeschool group</option>
+                    <option>Community organization</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+                <label class="field">Approximate group size<input type="number" name="group-size" min="1" inputmode="numeric" placeholder="Example: 24"></label>
+              </div>
+              <div class="field-row">
+                <label class="field">Preferred date<input class="date-field" type="date" name="preferred-date"></label>
+                <label class="field">City or location<input type="text" name="location" placeholder="City, MI"></label>
+              </div>
+              <label class="field">Children's ages or grade levels<input type="text" name="ages" placeholder="Example: preschool through 1st grade"></label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-number">2</div>
+            <h2>Choose a visit length.</h2>
+            <p class="section-copy">These are starting prices. Travel, sessions, animals, and special program needs may affect the final quote.</p>
+            <div class="choice-grid">
+              <label class="choice-card">
+                <input type="radio" name="visit-length" value="1.5-hour visit" data-label="1.5-hour visit" data-price="175" checked>
+                <strong>1.5 hours</strong><span class="price">$175</span><span>Animal visit with lesson</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="visit-length" value="3-hour visit" data-label="3-hour visit" data-price="335">
+                <strong>3 hours</strong><span class="price">$335</span><span>Extended visit and lesson time</span>
+              </label>
+              <label class="choice-card">
+                <input type="radio" name="visit-length" value="5-hour visit" data-label="5-hour visit" data-price="500">
+                <strong>5 hours</strong><span class="price">$500</span><span>Longer program or rotations</span>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-number">3</div>
+            <h2>Select the lesson format.</h2>
+            <div class="lesson-grid">
+              <label class="lesson-card">
+                <input type="radio" name="lesson-plan" value="30-minute lesson" checked>
+                <h3>30-minute lesson</h3>
+                <p>Accommodates larger groups of children.</p>
+                <ul>
+                  <li>Storytime</li>
+                  <li>Discussion and information sharing</li>
+                  <li>Animal safety</li>
+                  <li>Hands-on time with the animal</li>
+                  <li>Review of learning</li>
+                </ul>
+              </label>
+              <label class="lesson-card">
+                <input type="radio" name="lesson-plan" value="60-minute lesson">
+                <h3>60-minute lesson</h3>
+                <p>Designed for smaller groups of approximately 25 children or fewer. Space is needed for a large-group game.</p>
+                <ul>
+                  <li>Storytime</li>
+                  <li>Discussion and information sharing</li>
+                  <li>Animal safety</li>
+                  <li>Hands-on time with the animal</li>
+                  <li>Large-group game</li>
+                  <li>Additional learning activity</li>
+                  <li>Review of learning</li>
+                </ul>
+              </label>
+            </div>
+            <div class="lesson-note">For a multiple-animal experience, discussion and review time may be adjusted to allow additional hands-on time with each animal.</div>
+            <div class="field-row" style="margin-top:1rem;">
+              <label class="field">How many sessions or group rotations?<input type="number" name="session-count" min="1" value="1"></label>
+              <label class="field">Approximate schedule or time window<input type="text" name="schedule-window" placeholder="Example: 9:00 AM-12:00 PM"></label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-number">4</div>
+            <h2>Choose List A or List B.</h2>
+            <p class="section-copy">The two lists cannot be combined. Choose one List A animal, or choose up to three List B animals.</p>
+
+            <div class="animal-mode-grid">
+              <label class="animal-mode-card">
+                <input type="radio" name="animal-list" value="List A" checked>
+                <strong>List A — choose one</strong>
+                <span>Goat, sheep, piglets, lambs, or baby goats.</span>
+                <em>Adds $35 to the base visit</em>
+              </label>
+              <label class="animal-mode-card">
+                <input type="radio" name="animal-list" value="List B">
+                <strong>List B — choose up to three</strong>
+                <span>Chickens, rabbits, ducks, chicks, bunnies, or turkeys.</span>
+                <em>First animal included; additional animals are $35 each</em>
+              </label>
+            </div>
+
+            <div class="animal-list-panel active" id="list-a-panel">
+              <div class="animal-list-heading">
+                <div>
+                  <h3>List A animals</h3>
+                  <p>Select exactly one. Selecting a List A animal ends the animal selection; List B animals cannot be added.</p>
+                </div>
+                <span class="animal-list-badge">Choose 1</span>
+              </div>
+              <div class="animal-grid">
+              <label class="animal-choice">
+                <input type="radio" name="list-a-animal" value="Goat" data-label="Goat" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-goat.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add goat image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Goat</strong>
+                  <small>List A</small>
+                  <span>+$35 upgrade</span>
+                </span>
+              </label>
+              <label class="animal-choice">
+                <input type="radio" name="list-a-animal" value="Sheep" data-label="Sheep" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-sheep.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add sheep image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Sheep</strong>
+                  <small>List A</small>
+                  <span>+$35 upgrade</span>
+                </span>
+              </label>
+              <label class="animal-choice">
+                <input type="radio" name="list-a-animal" value="Piglets" data-label="Piglets" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-piglet.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add piglets image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Piglets</strong>
+                  <small>List A - seasonal</small>
+                  <span>+$35 upgrade</span>
+                </span>
+              </label>
+              <label class="animal-choice">
+                <input type="radio" name="list-a-animal" value="Lambs" data-label="Lambs" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-lamb.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add lambs image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Lambs</strong>
+                  <small>List A - seasonal</small>
+                  <span>+$35 upgrade</span>
+                </span>
+              </label>
+              <label class="animal-choice">
+                <input type="radio" name="list-a-animal" value="Baby goats" data-label="Baby goats" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-baby-goat.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add baby goats image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Baby goats</strong>
+                  <small>List A - seasonal</small>
+                  <span>+$35 upgrade</span>
+                </span>
+              </label>
+              </div>
+            </div>
+
+            <div class="animal-list-panel" id="list-b-panel">
+              <div class="animal-list-heading">
+                <div>
+                  <h3>List B animals</h3>
+                  <p>Select one, two, or three. The first is included in the visit price; the second and third are $35 each.</p>
+                </div>
+                <span class="animal-list-badge">Choose up to 3</span>
+              </div>
+              <div class="animal-grid">
+              <label class="animal-choice">
+                <input type="checkbox" name="list-b-chicken" value="Chickens" data-label="Chickens" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-chicken.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add chickens image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Chickens</strong>
+                  <small>List B</small>
+                  <span>First included; extras +$35</span>
+                </span>
+              </label>
+              <label class="animal-choice">
+                <input type="checkbox" name="list-b-rabbit" value="Rabbits" data-label="Rabbits" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-rabbit.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add rabbits image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Rabbits</strong>
+                  <small>List B</small>
+                  <span>First included; extras +$35</span>
+                </span>
+              </label>
+              <label class="animal-choice">
+                <input type="checkbox" name="list-b-duck" value="Ducks" data-label="Ducks" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-duck.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add ducks image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Ducks</strong>
+                  <small>List B - August through October</small>
+                  <span>First included; extras +$35</span>
+                </span>
+              </label>
+              <label class="animal-choice">
+                <input type="checkbox" name="list-b-chick" value="Chicks" data-label="Chicks" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-chick.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add chicks image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Chicks</strong>
+                  <small>List B - seasonal</small>
+                  <span>First included; extras +$35</span>
+                </span>
+              </label>
+              <label class="animal-choice">
+                <input type="checkbox" name="list-b-bunny" value="Bunnies" data-label="Bunnies" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-bunny.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add bunnies image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Bunnies</strong>
+                  <small>List B - seasonal</small>
+                  <span>First included; extras +$35</span>
+                </span>
+              </label>
+              <label class="animal-choice">
+                <input type="checkbox" name="list-b-turkey" value="Turkeys" data-label="Turkeys" data-price="35">
+                <span class="animal-art">
+                  <img src="assets/illustrations/animal-turkey.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add turkeys image</span>
+                </span>
+                <span class="animal-choice-copy">
+                  <strong>Turkeys</strong>
+                  <small>List B - seasonal</small>
+                  <span>First included; extras +$35</span>
+                </span>
+              </label>
+              </div>
+            </div>
+
+            <p class="selection-warning" id="animal-warning" role="alert"></p>
+            <p class="fine-print">Seasonal choices and all animal requests remain subject to availability, travel conditions, the venue, and the children's ages.</p>
+          </section>
+
+          <section class="form-section">
+            <div class="section-number">5</div>
+            <h2>Optional hatching materials.</h2>
+            <div class="addon-grid">
+              <label class="addon-card">
+                <input type="checkbox" name="hatching-experience" value="Chicken hatching experience" data-label="Chicken hatching experience" data-price="100">
+                <span class="addon-art">
+                  <img src="assets/illustrations/animal-incubator.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add incubator image</span>
+                </span>
+                <span class="addon-copy"><strong>Chicken-hatching experience</strong><span>+$100</span><small>Incubator use and 12 eggs</small></span>
+              </label>
+              <label class="addon-card">
+                <input type="checkbox" name="brooder-materials" value="Brooder and care materials" data-label="Brooder and care materials" data-price="150">
+                <span class="addon-art">
+                  <img src="assets/illustrations/animal-brooder.png" alt="" loading="lazy">
+                  <span class="animal-placeholder">Add brooder image</span>
+                </span>
+                <span class="addon-copy"><strong>Brooder and care materials</strong><span>+$150</span><small>Brooder, dishes, and startup food and water supplies</small></span>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-number">6</div>
+            <h2>Anything else Angel should know?</h2>
+            <label class="field">What would make this event successful?
+              <textarea name="event-notes" required placeholder="Tell Angel about the event, learning goals, animal interests, accessibility needs, the venue, and anything else important."></textarea>
+            </label>
+            <button class="button" type="submit" style="width:100%;margin-top:1rem;">Send event request</button>
+            <p class="form-status" aria-live="polite"></p>
+            <p class="fine-print">No payment is collected here. The request is emailed directly to Angel and saved to Homegrown Learning's private inquiry log.</p>
+          </section>
+        </form>
+
+        <aside class="estimate" aria-live="polite">
+          <h3>Estimated starting total</h3>
+          <div class="estimate-total" id="estimate-total">$175</div>
+          <small>This is not a final invoice or confirmed reservation.</small>
+          <div class="estimate-lines">
+            <div class="estimate-line"><span>Visit</span><span id="estimate-visit">$175</span></div>
+            <div class="estimate-line"><span>Animal selection</span><span id="estimate-animals">$0</span></div>
+            <div class="estimate-line"><span>Hatching materials</span><span id="estimate-addons">$0</span></div>
+          </div>
+          <p class="estimate-note">Angel will review travel, scheduling, animal availability, group size, and program needs before confirming the final quote.</p>
+          <a class="price-guide-link" href="assets/pricing.pdf" target="_blank" rel="noopener">Open the full 2026 price guide</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 64 64" fill="none"><path d="M17 40c11-1 17-10 19-25 9 8 13 18 8 28-5 10-18 11-27 3 7-1 13-5 17-10-6 3-11 5-17 4Z" fill="#f7f3e9"/><path d="M25 47c4-7 10-13 18-18" stroke="#d69b43" stroke-width="4" stroke-linecap="round"/></svg></span><span class="brand-name">Homegrown Learning</span></a>
+        <p>Mobile, hands-on farm-animal education serving West Michigan from the Grant area.</p>
+      </div>
+      <div class="contact-inline">
+        <a href="mailto:homegrownlearningmi@gmail.com">homegrownlearningmi@gmail.com</a>
+        <a href="tel:+12316295981">231-629-5981</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"><strong>Request sent.</strong><span>Homegrown Learning received your information.</span></div>
+  <iframe class="form-submit-frame" name="form-submit-frame" id="form-submit-frame" title="Form submission response"></iframe>
+
+  <script>
+    const FORM_HANDLER_URL = "https://script.google.com/macros/s/AKfycbydrJI0Fys5vSpcZhZoH4Nmuq3kBW-wqr1CEnUSgJz2LrHxKQKLAk3809pZiYHq-h_UZw/exec";
+    const form = document.querySelector('.website-form');
+    const pendingSubmissions = new Map();
+    const animalWarning = document.getElementById('animal-warning');
+
+    const today = new Date();
+    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+    document.querySelectorAll('.date-field').forEach(field => field.min = localToday);
+
+    function initializeImageSlot(wrapper) {
+      const image = wrapper.querySelector('img');
+      if (!image) return;
+      const markLoaded = () => wrapper.classList.add('has-image');
+      const markMissing = () => wrapper.classList.remove('has-image');
+      if (image.complete) {
+        image.naturalWidth ? markLoaded() : markMissing();
+      }
+      image.addEventListener('load', markLoaded);
+      image.addEventListener('error', markMissing);
+    }
+    document.querySelectorAll('.animal-art, .addon-art').forEach(initializeImageSlot);
+
+    function money(value) {
+      return `$${Number(value || 0).toLocaleString('en-US')}`;
+    }
+
+    function selectedAnimalList() {
+      return document.querySelector('input[name="animal-list"]:checked')?.value || 'List A';
+    }
+
+    function selectedListAAnimal() {
+      return document.querySelector('input[name="list-a-animal"]:checked');
+    }
+
+    function selectedListBAnimals() {
+      return [...document.querySelectorAll('input[name^="list-b-"]:checked')];
+    }
+
+    function syncAnimalPanels() {
+      const mode = selectedAnimalList();
+      const listAPanel = document.getElementById('list-a-panel');
+      const listBPanel = document.getElementById('list-b-panel');
+
+      listAPanel.classList.toggle('active', mode === 'List A');
+      listBPanel.classList.toggle('active', mode === 'List B');
+
+      if (mode === 'List A') {
+        document.querySelectorAll('input[name^="list-b-"]').forEach(input => {
+          input.checked = false;
+        });
+      } else {
+        document.querySelectorAll('input[name="list-a-animal"]').forEach(input => {
+          input.checked = false;
+        });
+      }
+
+      animalWarning.classList.remove('show');
+      animalWarning.textContent = '';
+    }
+
+    function enforceListBLimit(changedInput) {
+      const selected = selectedListBAnimals();
+      if (selected.length <= 3) {
+        animalWarning.classList.remove('show');
+        animalWarning.textContent = '';
+        return true;
+      }
+
+      changedInput.checked = false;
+      animalWarning.textContent = 'List B allows no more than three animals.';
+      animalWarning.classList.add('show');
+      return false;
+    }
+
+    function validateAnimalSelection() {
+      const mode = selectedAnimalList();
+
+      if (mode === 'List A' && !selectedListAAnimal()) {
+        animalWarning.textContent = 'Choose one List A animal.';
+        animalWarning.classList.add('show');
+        document.getElementById('list-a-panel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return false;
+      }
+
+      if (mode === 'List B' && selectedListBAnimals().length === 0) {
+        animalWarning.textContent = 'Choose at least one List B animal.';
+        animalWarning.classList.add('show');
+        document.getElementById('list-b-panel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return false;
+      }
+
+      animalWarning.classList.remove('show');
+      animalWarning.textContent = '';
+      return true;
+    }
+
+    function getEstimate() {
+      const visit = document.querySelector('input[name="visit-length"]:checked');
+      const animalList = selectedAnimalList();
+      const listAAnimal = selectedListAAnimal();
+      const listBAnimals = selectedListBAnimals();
+      const addons = [...document.querySelectorAll('.addon-card input:checked')];
+
+      const visitPrice = Number(visit?.dataset.price || 0);
+
+      // List A replaces the included List B animal and adds a $35 upgrade.
+      // List B includes the first animal; second and third animals are $35 each.
+      const animalsPrice = animalList === 'List A'
+        ? (listAAnimal ? 35 : 0)
+        : Math.max(0, listBAnimals.length - 1) * 35;
+
+      const addonsPrice = addons.reduce((sum, item) => sum + Number(item.dataset.price || 0), 0);
+
+      return {
+        visit,
+        animalList,
+        listAAnimal,
+        listBAnimals,
+        addons,
+        visitPrice,
+        animalsPrice,
+        addonsPrice,
+        total: visitPrice + animalsPrice + addonsPrice,
+      };
+    }
+
+    function updateEstimate() {
+      const estimate = getEstimate();
+      document.getElementById('estimate-total').textContent = money(estimate.total);
+      document.getElementById('estimate-visit').textContent = money(estimate.visitPrice);
+      document.getElementById('estimate-animals').textContent = money(estimate.animalsPrice);
+      document.getElementById('estimate-addons').textContent = money(estimate.addonsPrice);
+    }
+
+    function buildEventSummary() {
+      const estimate = getEstimate();
+      const lessonPlan = document.querySelector('input[name="lesson-plan"]:checked')?.value || '';
+      const sessions = form.elements['session-count'].value || 'Not specified';
+      const scheduleWindow = form.elements['schedule-window'].value.trim() || 'Not specified';
+      const notes = form.elements['event-notes'].value.trim();
+
+      const selectedAnimals = estimate.animalList === 'List A'
+        ? (estimate.listAAnimal?.dataset.label || 'None selected')
+        : estimate.listBAnimals.map(item => item.dataset.label).join(', ');
+
+      const animalPricing = estimate.animalList === 'List A'
+        ? 'One List A animal; $35 upgrade over the included List B animal'
+        : `${estimate.listBAnimals.length} List B animal(s); first included, additional animals $35 each`;
+
+      const addOns = estimate.addons.length
+        ? estimate.addons.map(item => `${item.dataset.label} (+${money(item.dataset.price)})`).join(', ')
+        : 'None selected';
+
+      const lines = [
+        'EVENT PLAN',
+        `Visit length: ${estimate.visit?.dataset.label || 'Not selected'} (${money(estimate.visitPrice)})`,
+        `Lesson format: ${lessonPlan}`,
+        `Sessions / group rotations: ${sessions}`,
+        `Schedule / time window: ${scheduleWindow}`,
+        `Animal list: ${estimate.animalList}`,
+        `Animals selected: ${selectedAnimals}`,
+        `Animal pricing: ${animalPricing}`,
+        `Animal-selection charge: ${money(estimate.animalsPrice)}`,
+        `Hatching materials: ${addOns}`,
+        `Estimated starting total: ${money(estimate.total)}`,
+        '',
+        'EVENT NOTES',
+        notes,
+        '',
+        'The estimated total is not a final invoice or confirmed reservation.',
+      ];
+
+      form.elements.message.value = lines.join('\n');
+    }
+
+    document.querySelectorAll('input[name="visit-length"], input[name="lesson-plan"], .addon-card input').forEach(input => {
+      input.addEventListener('change', updateEstimate);
+    });
+
+    document.querySelectorAll('input[name="animal-list"]').forEach(input => {
+      input.addEventListener('change', () => {
+        syncAnimalPanels();
+        updateEstimate();
+      });
+    });
+
+    document.querySelectorAll('input[name="list-a-animal"]').forEach(input => {
+      input.addEventListener('change', () => {
+        animalWarning.classList.remove('show');
+        animalWarning.textContent = '';
+        updateEstimate();
+      });
+    });
+
+    document.querySelectorAll('input[name^="list-b-"]').forEach(input => {
+      input.addEventListener('change', () => {
+        enforceListBLimit(input);
+        updateEstimate();
+      });
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const requestedType = params.get('type');
+    const typeMap = {
+      school: 'School',
+      church: 'Church or ministry',
+      homeschool: 'Homeschool group',
+      community: 'Community organization',
+    };
+    if (requestedType && typeMap[requestedType]) {
+      form.elements['organization-type'].value = typeMap[requestedType];
+    }
+
+    syncAnimalPanels();
+    updateEstimate();
+
+    const toast = document.querySelector('.toast');
+    let toastTimer;
+    function showToast(title, message) {
+      toast.querySelector('strong').textContent = title;
+      toast.querySelector('span').textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 6500);
+    }
+
+    function resetFormTiming() {
+      form.elements.form_started.value = String(Date.now());
+      form.elements.page_url.value = window.location.href;
+      form.elements.submission_id.value = '';
+    }
+    resetFormTiming();
+
+    window.addEventListener('message', event => {
+      let data = event.data;
+      if (typeof data === 'string') {
+        try { data = JSON.parse(data); } catch (error) { return; }
+      }
+      if (!data || data.source !== 'homegrown-learning-form' || !data.submissionId) return;
+      const pending = pendingSubmissions.get(data.submissionId);
+      if (!pending) return;
+
+      clearTimeout(pending.timeout);
+      pendingSubmissions.delete(data.submissionId);
+      const { button, originalText, status } = pending;
+      button.disabled = false;
+      button.textContent = originalText;
+
+      if (data.status === 'success') {
+        status.textContent = data.message || 'Thank you. Your event request was sent successfully.';
+        status.className = 'form-status success';
+        form.reset();
+        resetFormTiming();
+        syncAnimalPanels();
+        updateEstimate();
+        showToast('Request sent.', 'Homegrown Learning received your event plan. Angel will follow up directly.');
+      } else {
+        status.textContent = data.message || 'The form could not be sent. Please try again or call 231-629-5981.';
+        status.className = 'form-status error';
+        showToast('Request not sent.', status.textContent);
+      }
+    });
+
+    const handlerReady = /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(FORM_HANDLER_URL);
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      if (!validateAnimalSelection()) return;
+
+      buildEventSummary();
+
+      const status = form.querySelector('.form-status');
+      if (!handlerReady) {
+        status.textContent = 'This form still needs its Google Apps Script web-app URL. Please call 231-629-5981 until setup is complete.';
+        status.className = 'form-status error';
+        return;
+      }
+
+      const button = form.querySelector('button[type="submit"]');
+      const originalText = button.textContent;
+      const submissionId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      form.elements.submission_id.value = submissionId;
+      form.elements.page_url.value = window.location.href;
+      form.action = FORM_HANDLER_URL;
+      form.method = 'POST';
+      form.target = 'form-submit-frame';
+
+      button.disabled = true;
+      button.textContent = 'Sending...';
+      status.textContent = 'Sending your information securely...';
+      status.className = 'form-status';
+
+      const timeout = setTimeout(() => {
+        const pending = pendingSubmissions.get(submissionId);
+        if (!pending) return;
+        pendingSubmissions.delete(submissionId);
+        button.disabled = false;
+        button.textContent = originalText;
+        status.textContent = 'The server did not confirm the submission. Please try again or call 231-629-5981.';
+        status.className = 'form-status error';
+      }, 45000);
+
+      pendingSubmissions.set(submissionId, { button, originalText, status, timeout });
+      form.submit();
+    });
+  </script>
+</body>
+</html>

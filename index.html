@@ -160,29 +160,27 @@
       position: relative;
       min-height: 560px;
       border-radius: 42px;
-      background: var(--forest);
+      background: #264b39;
       box-shadow: var(--shadow);
       overflow: hidden;
       isolation: isolate;
     }
 
     /*
-     * HERO FARM IMAGE
-     * Replace assets/illustrations/farm1.png under the same filename to
-     * change this artwork without editing the HTML.
+     * HERO IMAGE
+     * Replace assets/illustrations/farm1.png with another image under the same
+     * filename if you want to swap the artwork later.
      *
-     * object-position controls which part of the picture stays centered
-     * when the container crops it.
+     * Adjust inset to control the image margins inside the rounded panel.
      */
-    .hero-scene-image {
+    .hero-scene {
       position: absolute;
       inset: 0;
-      z-index: 1;
       width: 100%;
       height: 100%;
-      display: block;
       object-fit: cover;
       object-position: center center;
+      z-index: 1;
     }
     .art-note {
       position: absolute; left: 28px; top: 28px; z-index: 4; max-width: 220px;
@@ -418,16 +416,8 @@
        chicken tile stored in assets/patterns/chickens-tile.png. */
     .pattern-wood::before {
       background-image: var(--pattern-chickens);
-
-      /*
-       * CHICKEN TILE POSITIONING
-       * Increase background-size for fewer/larger repeats.
-       * The first background-position value moves the tile horizontally.
-       * The second value moves it vertically.
-       */
-      background-size: 460px 460px;
-      background-position: 72px 38px;
-      opacity: .20;
+      background-size: 360px 360px;
+      opacity: .30;
     }
 
     .pattern-speckles::before {
@@ -441,38 +431,6 @@
     .pattern-wood > * {
       position: relative;
       z-index: 1;
-    }
-
-    /*
-     * TEXT OVER PATTERNED BACKGROUNDS
-     * These rules darken only text that sits directly over the tile patterns.
-     */
-    .pattern-leaves .section-head p,
-    .pattern-speckles .section-head p,
-    .pattern-wood .section-head p,
-    .pattern-leaves .process-intro p,
-    .pattern-speckles .process-intro p,
-    .pattern-wood .process-intro p {
-      color: #2f463b;
-      font-weight: 520;
-      text-shadow: 0 1px 0 rgba(255,255,255,.78);
-    }
-
-    .pattern-leaves .section-kicker,
-    .pattern-speckles .section-kicker,
-    .pattern-wood .section-kicker {
-      color: #183426;
-      text-shadow: 0 1px 0 rgba(255,255,255,.88);
-    }
-
-    .pattern-leaves .section-head h2,
-    .pattern-speckles .section-head h2,
-    .pattern-wood .section-head h2,
-    .pattern-leaves .process-intro h2,
-    .pattern-speckles .process-intro h2,
-    .pattern-wood .process-intro h2 {
-      color: #142d22;
-      text-shadow: 0 1px 0 rgba(255,255,255,.82);
     }
 
     /* Program card illustrations */
@@ -671,6 +629,7 @@
       .container { width: min(calc(100% - 1.25rem), var(--max)); }
       .hero { padding-top: 3.6rem; }
       .hero-art { min-height: 440px; border-radius: 28px; }
+      .hero-scene { object-position: center center; }
       .sun { width: 90px; height: 90px; right: 25px; top: 70px; }
       .art-note { left: 18px; top: 18px; max-width: 190px; }
       .art-tag { right: 16px; bottom: 16px; }
@@ -721,7 +680,7 @@
         <a href="#about">About Angel</a>
         <a href="#community">Community</a>
         <a href="#curriculum">Curriculum</a>
-        <a class="button small" href="#book" data-open-tab="event-panel">Request an event</a>
+        <a class="button small" href="request-event.html">Request an event</a>
       </nav>
     </div>
   </header>
@@ -734,7 +693,7 @@
           <h1>Bring the farm to <span>your classroom.</span></h1>
           <p class="hero-lead">Angel Floyd brings live farm animals, practical lessons, and memorable hands-on learning to schools, churches, and community groups near Grant, Michigan.</p>
           <div class="hero-actions">
-            <a class="button" href="#book" data-open-tab="event-panel">Request an event
+            <a class="button" href="request-event.html">Request an event
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
             <a class="button secondary" href="#community">Join homeschool activities</a>
@@ -746,15 +705,8 @@
           </div>
         </div>
 
-        <div class="hero-art" aria-label="Illustration of a farm with chickens and rabbits">
-          <img
-            class="hero-scene-image"
-            src="assets/illustrations/farm1.png"
-            alt=""
-            aria-hidden="true"
-            fetchpriority="high"
-            decoding="async"
-          >
+        <div class="hero-art" aria-label="Illustration of a mobile farm learning visit">
+          <img class="hero-scene" src="assets/illustrations/farm1.png" alt="" aria-hidden="true" decoding="async">
           <div class="art-note"><strong>A living lesson</strong><span>Children observe, ask questions, and meet animals up close.</span></div>
           <div class="art-tag">Animals • Wonder • Learning</div>
         </div>
@@ -782,14 +734,14 @@
             <div class="service-number">01 · SCHOOL VISITS</div>
             <h3>Classroom visits</h3>
             <p>Live-animal lessons about care, behavior, life cycles, stewardship, and the wonder of God's creation.</p>
-            <a class="service-link" href="#book" data-open-tab="event-panel">Request a school event <span aria-hidden="true">→</span></a>
+            <a class="service-link" href="request-event.html?type=school">Request a school event <span aria-hidden="true">→</span></a>
           </article>
           <article class="service-card">
             <img class="brand-card-art card-art-church" src="assets/illustrations/egg%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             <div class="service-number">02 · CHURCH PROGRAMS</div>
             <h3>Church programs</h3>
             <p>Hands-on animal programs for churches, VBS, camps, and schools that connect animal care, stewardship, and Scripture.</p>
-            <a class="service-link" href="#book" data-open-tab="event-panel">Discuss a church program <span aria-hidden="true">→</span></a>
+            <a class="service-link" href="request-event.html?type=church">Discuss a church program <span aria-hidden="true">→</span></a>
           </article>
           <article class="service-card">
             <img class="brand-card-art card-art-family" src="assets/illustrations/rabbit%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
@@ -822,8 +774,8 @@
         <div class="process-intro">
           <div class="section-kicker">How it works</div>
           <h2>From inquiry to event.</h2>
-          <p>No confusing packages or placeholder prices. Each event receives a custom quote based on the location, group size, animals, timing, and program needs.</p>
-          <a class="button" href="#book" data-open-tab="event-panel">Start an event request</a>
+          <p>The request page shows the current visit lengths, animal choices, add-ons, and lesson formats. Angel confirms the final quote after reviewing travel, group size, timing, and program needs.</p>
+          <a class="button" href="request-event.html">Start an event request</a>
         </div>
         <div class="steps">
           <article class="step"><img class="step-art" src="assets/illustrations/chicken%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="step-no">1</div><div><h3>Share the basics</h3><p>Share your organization, children's ages, estimated group size, location, and preferred date.</p></div></article>
@@ -855,7 +807,7 @@
             <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>God's creation and stewardship in every program</span></div>
             <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Based near Grant, Michigan</span></div>
           </div>
-          <a class="button secondary" href="#book" data-open-tab="event-panel">Ask Angel about a visit</a>
+          <a class="button secondary" href="request-event.html">Ask Angel about a visit</a>
         </div>
       </div>
     </section>
@@ -917,63 +869,42 @@
         <div class="booking-copy">
           <div class="section-kicker">Request or consult</div>
           <h2>Choose how to connect.</h2>
-          <p>Administrators can request a custom event quote or book a short phone consultation. Event requests are reviewed individually because travel, animals, group size, and venue needs vary.</p>
+          <p>Use the event-planning page to choose a visit length, lesson format, animals, and optional hatching materials. For questions before submitting a request, book a short phone consultation.</p>
+
           <div class="booking-options">
-            <div class="booking-option"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3v3m12-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span><strong>Event request:</strong> share your date, location, group, and program needs.</span></div>
-            <div class="booking-option"><svg viewBox="0 0 24 24" fill="none"><path d="M8 10h8M8 14h5M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7l-5 3v-3H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Consultation:</strong> choose a live opening and book a 30-minute phone call.</span></div>
-            <div class="booking-option"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/></svg><span><strong>Service area:</strong> generally within about 45 minutes of Grant, Michigan.</span></div>
+            <div class="booking-option">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6 3v3m12-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span><strong>Event request:</strong> select the program details and send Angel one complete request.</span>
+            </div>
+            <div class="booking-option">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M8 10h8M8 14h5M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7l-5 3v-3H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>Consultation:</strong> choose a live opening and book a 30-minute phone call.</span>
+            </div>
+            <div class="booking-option">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/></svg>
+              <span><strong>Service area:</strong> generally within about 45 minutes of Grant, Michigan.</span>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.6rem;">
+            <a class="button" href="request-event.html">Plan and request an event</a>
+            <a class="button secondary" href="assets/pricing.pdf" target="_blank" rel="noopener">View the 2026 price guide</a>
           </div>
         </div>
 
-        <div class="booking-panel">
-          <div class="tabs" role="tablist" aria-label="Contact options">
-            <button class="tab active" type="button" role="tab" aria-selected="true" data-tab="consult-panel">Book a consultation</button>
-            <button class="tab" type="button" role="tab" aria-selected="false" data-tab="event-panel">Request an event</button>
-          </div>
-
-          <div class="tab-panel" id="event-panel" role="tabpanel">
-            <form class="form-stack website-form" name="event-request" data-form-type="event-request" novalidate>
-              <input type="hidden" name="form_type" value="event-request">
-              <input type="hidden" name="submission_id" value="">
-              <input type="hidden" name="form_started" value="">
-              <input type="hidden" name="page_url" value="">
-              <label class="hp-field" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-              <div class="field-row">
-                <label>Your name<input type="text" name="name" autocomplete="name" required></label>
-                <label>Organization<input type="text" name="organization" required></label>
-              </div>
-              <div class="field-row">
-                <label>Email<input type="email" name="email" autocomplete="email" required></label>
-                <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
-              </div>
-              <div class="field-row">
-                <label>Organization type<select name="organization-type" required><option value="">Choose one</option><option>School</option><option>Church or ministry</option><option>Homeschool group</option><option>Community organization</option><option>Other</option></select></label>
-                <label>Approximate group size<input type="number" name="group-size" min="1" inputmode="numeric" placeholder="Example: 24"></label>
-              </div>
-              <div class="field-row">
-                <label>Preferred date<input class="date-field" type="date" name="preferred-date"></label>
-                <label>City or location<input type="text" name="location" placeholder="City, MI"></label>
-              </div>
-              <label>Children's ages or grade levels<input type="text" name="ages" placeholder="Example: preschool through 1st grade"></label>
-              <label>What would make this event successful?<textarea name="message" required placeholder="Tell Angel about the event, schedule, learning goals, animal interests, and anything important about the group or venue."></textarea></label>
-              <button class="button" type="submit">Send event request</button>
-              <p class="form-status" aria-live="polite"></p>
-              <p class="fine-print">No payment is collected here. The request is emailed directly to Angel and saved to Homegrown Learning’s private inquiry log.</p>
-            </form>
-          </div>
-
-          <div class="tab-panel active" id="consult-panel" role="tabpanel">
-            <iframe
-              class="calendar-frame"
-              title="Book a phone consultation with Angel Floyd"
-              src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ05SYaFbz1QNDDc6rfdlrW472JtCUrw27OjcVtrNK-ygu3vcGKChw5RQuW9rkD778b-29aaD_Oy?gv=true"
-              loading="lazy"
-              frameborder="0"></iframe>
-            <div class="calendar-actions">
-              <a class="button secondary small" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ05SYaFbz1QNDDc6rfdlrW472JtCUrw27OjcVtrNK-ygu3vcGKChw5RQuW9rkD778b-29aaD_Oy?gv=true" target="_blank" rel="noopener">Open booking page</a>
-              <a class="button secondary small" href="tel:+12316295981">Call 231-629-5981</a>
-            </div>
-            <p class="calendar-note">Consultations are phone calls. Current availability is controlled directly through Angel’s Google Calendar.</p>
+        <div class="booking-panel" id="consult-panel">
+          <div class="section-kicker">Phone consultation</div>
+          <h3>Book a planning call.</h3>
+          <p class="calendar-note">Consultations are phone calls. Current availability is controlled directly through Angel's Google Calendar.</p>
+          <iframe
+            class="calendar-frame"
+            title="Book a phone consultation with Angel Floyd"
+            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ05SYaFbz1QNDDc6rfdlrW472JtCUrw27OjcVtrNK-ygu3vcGKChw5RQuW9rkD778b-29aaD_Oy?gv=true"
+            loading="lazy"
+            frameborder="0"></iframe>
+          <div class="calendar-actions">
+            <a class="button secondary small" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ05SYaFbz1QNDDc6rfdlrW472JtCUrw27OjcVtrNK-ygu3vcGKChw5RQuW9rkD778b-29aaD_Oy?gv=true" target="_blank" rel="noopener">Open booking page</a>
+            <a class="button secondary small" href="tel:+12316295981">Call 231-629-5981</a>
           </div>
         </div>
       </div>
@@ -984,7 +915,7 @@
         <div><div class="section-kicker">Common questions</div><h2>Good to know.</h2></div>
         <div>
           <details><summary>Which animals can Angel bring?</summary><p>The animal lineup depends on availability, season, travel conditions, the venue, and the children's ages. Angel will confirm the plan before the event.</p></details>
-          <details><summary>How much does an event cost?</summary><p>Events are quoted individually. Price can depend on travel distance, event length, number of sessions, group size, animals, and any special program requirements.</p></details>
+          <details><summary>How much does an event cost?</summary><p>The event request page shows current starting prices, animal choices, and optional hatching materials. Angel confirms the final quote after reviewing travel, group size, sessions, animal availability, and program needs. <a href="request-event.html">Plan an event</a> or <a href="assets/pricing.pdf" target="_blank" rel="noopener">view the 2026 price guide</a>.</p></details>
           <details><summary>How far does Angel travel?</summary><p>The normal service area is approximately 45 minutes from Grant, Michigan. Requests outside that area can still be discussed, but travel may affect availability and pricing.</p></details>
           <details><summary>Can families join the homeschool group?</summary><p>Families can join the interest list for community activities. Angel can then send invitations as suitable nature, farm, or practical-learning events are planned.</p></details>
         </div>
@@ -994,7 +925,7 @@
     <section class="cta-band">
       <div class="container cta-box">
         <div><h2>Bring the farm to your group.</h2><p>Tell Angel what you are planning and receive a custom response.</p></div>
-        <a class="button light" href="#book" data-open-tab="event-panel">Request an event</a>
+        <a class="button light" href="request-event.html">Request an event</a>
       </div>
     </section>
 
@@ -1028,7 +959,7 @@
           <p>Mobile, hands-on farm animal education for schools, churches, and families near Grant, Michigan.</p><div class="contact-inline"><a href="mailto:homegrownlearningmi@gmail.com">homegrownlearningmi@gmail.com</a><a href="tel:+12316295981">231-629-5981</a></div>
         </div>
         <div><div class="footer-title">Explore</div><div class="footer-links"><a href="#programs">Programs</a><a href="#about">About Angel</a><a href="#community">Community</a><a href="#curriculum">Curriculum</a></div></div>
-        <div><div class="footer-title">Get started</div><div class="footer-links"><a href="#book" data-open-tab="event-panel">Request an event</a><a href="#book" data-open-tab="consult-panel">Book a consultation</a><a href="#community-form">Community interest list</a></div></div><div><div class="footer-title">Contact</div><div class="footer-links"><a href="mailto:homegrownlearningmi@gmail.com">Email Angel</a><a href="tel:+12316295981">Call 231-629-5981</a></div></div>
+        <div><div class="footer-title">Get started</div><div class="footer-links"><a href="request-event.html">Request an event</a><a href="#book">Book a consultation</a><a href="#community-form">Community interest list</a></div></div><div><div class="footer-title">Contact</div><div class="footer-links"><a href="mailto:homegrownlearningmi@gmail.com">Email Angel</a><a href="tel:+12316295981">Call 231-629-5981</a></div></div>
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> Homegrown Learning. All rights reserved.</span><span>Serving West Michigan from the Grant area.</span></div>
     </div>
