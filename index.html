@@ -115,7 +115,25 @@
     .brand-name { font-size: 1.26rem; font-weight: 800; letter-spacing: -.025em; }
     .brand-sub { display: block; color: var(--muted); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; margin-top: .14rem; }
     .nav-links { display: flex; align-items: center; gap: 1.4rem; }
-    .nav-links a { text-decoration: none; font-size: .92rem; font-weight: 700; color: #34493e; }
+    .nav-links a:not(.button) {
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 700;
+      color: #34493e;
+    }
+
+    /*
+     * HEADER REQUEST BUTTON
+     * Keep the text white in every link state.
+     */
+    .nav-links .button,
+    .nav-links .button:link,
+    .nav-links .button:visited,
+    .nav-links .button:hover,
+    .nav-links .button:active,
+    .nav-links .button:focus {
+      color: #ffffff !important;
+    }
     .nav-links a:not(.button):hover { color: var(--rust); }
     .menu-button { display: none; border: 0; background: transparent; width: 46px; height: 46px; border-radius: 12px; }
     .menu-button:hover { background: rgba(41,78,58,.08); }
