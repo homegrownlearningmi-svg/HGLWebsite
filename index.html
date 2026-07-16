@@ -160,27 +160,29 @@
       position: relative;
       min-height: 560px;
       border-radius: 42px;
-      background: #264b39;
+      background: var(--forest);
       box-shadow: var(--shadow);
       overflow: hidden;
       isolation: isolate;
     }
 
     /*
-     * HERO IMAGE
-     * Replace assets/illustrations/farm1.png with another image under the same
-     * filename if you want to swap the artwork later.
+     * HERO FARM IMAGE
+     * Replace assets/illustrations/farm1.png under the same filename to
+     * change this artwork without editing the HTML.
      *
-     * Adjust inset to control the image margins inside the rounded panel.
+     * object-position controls which part of the picture stays centered
+     * when the container crops it.
      */
-    .hero-scene {
+    .hero-scene-image {
       position: absolute;
       inset: 0;
+      z-index: 1;
       width: 100%;
       height: 100%;
+      display: block;
       object-fit: cover;
       object-position: center center;
-      z-index: 1;
     }
     .art-note {
       position: absolute; left: 28px; top: 28px; z-index: 4; max-width: 220px;
@@ -416,8 +418,16 @@
        chicken tile stored in assets/patterns/chickens-tile.png. */
     .pattern-wood::before {
       background-image: var(--pattern-chickens);
-      background-size: 360px 360px;
-      opacity: .30;
+
+      /*
+       * CHICKEN TILE POSITIONING
+       * Increase background-size for fewer/larger repeats.
+       * The first background-position value moves the tile horizontally.
+       * The second value moves it vertically.
+       */
+      background-size: 460px 460px;
+      background-position: 72px 38px;
+      opacity: .20;
     }
 
     .pattern-speckles::before {
@@ -431,6 +441,38 @@
     .pattern-wood > * {
       position: relative;
       z-index: 1;
+    }
+
+    /*
+     * TEXT OVER PATTERNED BACKGROUNDS
+     * These rules darken only text that sits directly over the tile patterns.
+     */
+    .pattern-leaves .section-head p,
+    .pattern-speckles .section-head p,
+    .pattern-wood .section-head p,
+    .pattern-leaves .process-intro p,
+    .pattern-speckles .process-intro p,
+    .pattern-wood .process-intro p {
+      color: #2f463b;
+      font-weight: 520;
+      text-shadow: 0 1px 0 rgba(255,255,255,.78);
+    }
+
+    .pattern-leaves .section-kicker,
+    .pattern-speckles .section-kicker,
+    .pattern-wood .section-kicker {
+      color: #183426;
+      text-shadow: 0 1px 0 rgba(255,255,255,.88);
+    }
+
+    .pattern-leaves .section-head h2,
+    .pattern-speckles .section-head h2,
+    .pattern-wood .section-head h2,
+    .pattern-leaves .process-intro h2,
+    .pattern-speckles .process-intro h2,
+    .pattern-wood .process-intro h2 {
+      color: #142d22;
+      text-shadow: 0 1px 0 rgba(255,255,255,.82);
     }
 
     /* Program card illustrations */
@@ -629,7 +671,6 @@
       .container { width: min(calc(100% - 1.25rem), var(--max)); }
       .hero { padding-top: 3.6rem; }
       .hero-art { min-height: 440px; border-radius: 28px; }
-      .hero-scene { object-position: center center; }
       .sun { width: 90px; height: 90px; right: 25px; top: 70px; }
       .art-note { left: 18px; top: 18px; max-width: 190px; }
       .art-tag { right: 16px; bottom: 16px; }
@@ -705,8 +746,15 @@
           </div>
         </div>
 
-        <div class="hero-art" aria-label="Illustration of a mobile farm learning visit">
-          <img class="hero-scene" src="assets/illustrations/farm1.png" alt="" aria-hidden="true" decoding="async">
+        <div class="hero-art" aria-label="Illustration of a farm with chickens and rabbits">
+          <img
+            class="hero-scene-image"
+            src="assets/illustrations/farm1.png"
+            alt=""
+            aria-hidden="true"
+            fetchpriority="high"
+            decoding="async"
+          >
           <div class="art-note"><strong>A living lesson</strong><span>Children observe, ask questions, and meet animals up close.</span></div>
           <div class="art-tag">Animals • Wonder • Learning</div>
         </div>

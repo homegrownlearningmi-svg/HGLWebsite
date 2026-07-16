@@ -1,18 +1,15 @@
-HOMEGROWN LEARNING — HERO IMAGE SWAP
+HOMEGROWN LEARNING — PATTERN TEXT CONTRAST UPDATE
 
-This version removes the original inline hero illustration and uses:
+Changes:
+- Darkened section paragraphs placed directly over leaf, speckle, and chicken tiles.
+- Darkened patterned-section kickers.
+- Strengthened patterned-section heading contrast.
+- Added a very light text shadow so letters remain readable over detailed areas.
 
-assets/illustrations/farm1.png
+To adjust later, search index.html for:
+TEXT OVER PATTERNED BACKGROUNDS
 
-Upload farm1.png into:
-assets/illustrations/farm1.png
-
-Then replace your site index.html with the included file.
-
-If you want to swap the hero artwork later without editing HTML, just replace
-farm1.png in GitHub under the same name.
-
-To tweak the hero image later, search for:
-.hero-scene
-.art-note
-.art-tag
+Main color controls:
+- Paragraphs: color: #2f463b;
+- Kickers: color: #183426;
+- Headings: color: #142d22;
