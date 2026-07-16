@@ -235,6 +235,32 @@
     .portrait-badge strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.5rem; color: var(--forest); }
     .portrait-badge span { color: var(--muted); font-size: .82rem; }
     .about-copy p { color: #45594e; font-size: 1.04rem; }
+
+    /*
+     * ABOUT CROSS POSITIONING
+     * Adjust gap to move it closer to or farther from the title.
+     * Adjust width/height to resize it.
+     * Adjust translateX/translateY for fine positioning.
+     */
+    .about-title-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-title-row h2 {
+      margin-bottom: 0;
+    }
+
+    .about-cross {
+      width: 76px;
+      height: 76px;
+      flex: 0 0 auto;
+      object-fit: contain;
+      transform: translateX(2px) translateY(-2px);
+      filter: drop-shadow(0 7px 10px rgba(24,52,38,.10));
+    }
     .about-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; margin: 1.5rem 0 1.8rem; }
     .fact { display: flex; gap: .65rem; align-items: flex-start; padding: .85rem; border-radius: 14px; background: rgba(255,255,255,.45); }
     .fact svg { width: 19px; flex: 0 0 auto; color: var(--forest); margin-top: .15rem; }
@@ -613,6 +639,8 @@
       .step { padding-right: 1.45rem; }
       .step-art { width: 62px; height: 62px; opacity: .13; right: .35rem; }
       .about-rabbit { width: 105px; height: 105px; left: -12px; bottom: -26px; }
+      .about-title-row { gap: .7rem; }
+      .about-cross { width: 54px; height: 54px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -703,7 +731,7 @@
     <div class="trust-strip">
       <div class="container trust-card">
         <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18V8l8-5 8 5v10H4Z" stroke="currentColor" stroke-width="2"/><path d="M9 18v-5h6v5" stroke="currentColor" stroke-width="2"/></svg></span><span><strong>Built for schools</strong><span>Age-appropriate, organized, and easy to host</span></span></div>
-        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22V8M7 13c-3 0-5-2-5-5 3 0 5 2 5 5Zm10-4c3 0 5-2 5-5-3 0-5 2-5 5ZM8 6c0-3 2-5 4-6 2 1 4 3 4 6 0 3-2 5-4 6-2-1-4-3-4-6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Full of wonder</strong><span>Creation, care, and stewardship come up naturally</span></span></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22V8M7 13c-3 0-5-2-5-5 3 0 5 2 5 5Zm10-4c3 0 5-2 5-5-3 0-5 2-5 5ZM8 6c0-3 2-5 4-6 2 1 4 3 4 6 0 3-2 5-4 6-2-1-4-3-4-6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Full of wonder</strong><span>Children learn to observe God's creation and care for it well</span></span></div>
         <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/></svg></span><span><strong>Local and mobile</strong><span>Serving communities around Grant, Michigan</span></span></div>
       </div>
     </div>
@@ -727,7 +755,7 @@
             <img class="brand-card-art card-art-church" src="assets/illustrations/egg%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             <div class="service-number">02 · CHURCH PROGRAMS</div>
             <h3>Church programs</h3>
-            <p>Hands-on animal programs for churches, VBS, camps, and schools, with biblical connections woven in naturally.</p>
+            <p>Hands-on animal programs for churches, VBS, camps, and schools that connect animal care, stewardship, and Scripture.</p>
             <a class="service-link" href="#book" data-open-tab="event-panel">Discuss a church program <span aria-hidden="true">→</span></a>
           </article>
           <article class="service-card">
@@ -750,7 +778,7 @@
         </div>
         <div class="audience-grid">
           <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Schools</h3><p>Clear, age-appropriate animal learning with plenty of room for questions and wonder.</p><ul><li>Observation and animal science</li><li>Care, needs, and life cycles</li><li>Stewardship and supervised interaction</li></ul></article>
-          <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Churches</h3><p>Farm-animal learning for VBS, camps, schools, and special events, with natural biblical connections.</p><ul><li>Creation and stewardship</li><li>Biblical connections</li><li>VBS, camps, and special events</li></ul></article>
+          <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Churches</h3><p>Farm-animal learning for VBS, camps, schools, and special events, grounded in Scripture and the care of God's creation.</p><ul><li>God's creation and stewardship</li><li>Biblical connections</li><li>VBS, camps, and special events</li></ul></article>
           <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Families</h3><p>Local activities that bring together practical experience, nature, and friendship.</p><ul><li>Seasonal events and field trips</li><li>Hands-on learning stations</li><li>Family-focused local community</li></ul></article>
         </div>
       </div>
@@ -782,13 +810,16 @@
         </div>
         <div class="about-copy">
           <div class="section-kicker">Meet Angel</div>
-          <h2>Meet Angel.</h2>
+          <div class="about-title-row">
+            <h2>Meet Angel.</h2>
+            <img class="about-cross" src="assets/illustrations/cross.png" alt="" aria-hidden="true" decoding="async">
+          </div>
           <p>Angel Floyd has spent 30 years working in early childhood development and helping children discover the world around them. Her favorite lessons are the ones children can experience firsthand—holding a chick, observing an animal's behavior, exploring a plant, or asking the unexpected question that opens a new line of learning.</p>
           <p>Through Homegrown Learning, Angel brings farm animals and practical teaching directly to schools, churches, and community groups. Her love for God's creation is evident in her passion for children, stewardship, and care.</p>
           <div class="about-facts">
             <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Early childhood education experience</span></div>
             <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Hands-on animal presentations</span></div>
-            <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Faith woven naturally into each program</span></div>
+            <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>God's creation and stewardship in every program</span></div>
             <div class="fact"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Based near Grant, Michigan</span></div>
           </div>
           <a class="button secondary" href="#book" data-open-tab="event-panel">Ask Angel about a visit</a>
@@ -801,7 +832,7 @@
         <div class="community-main">
           <div class="section-kicker">For local families</div>
           <h2>Join the community.</h2>
-          <p>Angel is growing a local community for families who value Christian, hands-on learning. Activities may include nature walks, animal experiences, seasonal outings, farm projects, and practical skills.</p>
+          <p>Angel is growing a local Christian homeschool community centered on hands-on learning, nature, animals, and practical skills. Activities may include nature walks, animal experiences, seasonal outings, and farm projects.</p>
           <p><strong>This is an interest list, not a paid membership.</strong> Joining simply lets Angel contact you when an appropriate community activity is planned.</p>
           <a class="button" href="#community-form">Join the interest list</a>
         </div>
@@ -810,7 +841,7 @@
           <div class="community-list">
             <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Activities near the Grant area</div>
             <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Family-friendly outdoor learning</div>
-            <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Shared values and easygoing fellowship</div>
+            <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Christian fellowship and family friendship</div>
             <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Invitations sent as events are scheduled</div>
           </div>
         </aside>
