@@ -36,6 +36,15 @@
       --pattern-leaves: url("assets/patterns/leaves-tile.png");
       --pattern-chickens: url("assets/patterns/chickens-tile.png");
       --pattern-speckles: url("assets/patterns/speckles-tile.png");
+
+      /*
+       * Pattern visibility is controlled in:
+       * .pattern-leaves::before
+       * .pattern-wood::before
+       * .pattern-speckles::before
+       *
+       * Raise or lower each opacity value to make a tile stronger or fainter.
+       */
     }
 
     * { box-sizing: border-box; }
@@ -360,22 +369,22 @@
 
     .pattern-leaves::before {
       background-image: var(--pattern-leaves);
-      background-size: 260px 260px;
-      opacity: .13;
+      background-size: 300px 300px;
+      opacity: .30;
     }
 
     /* The old class name stays in place for compatibility, but now uses the
        chicken tile stored in assets/patterns/chickens-tile.png. */
     .pattern-wood::before {
       background-image: var(--pattern-chickens);
-      background-size: 340px 340px;
-      opacity: .08;
+      background-size: 360px 360px;
+      opacity: .30;
     }
 
     .pattern-speckles::before {
       background-image: var(--pattern-speckles);
-      background-size: 180px 180px;
-      opacity: .12;
+      background-size: 165px 165px;
+      opacity: .28;
     }
 
     .pattern-leaves > *,
@@ -406,15 +415,46 @@
     .brand-card-art {
       position: absolute;
       z-index: 1;
-      right: .95rem;
-      top: .8rem;
-      width: 92px;
-      height: 92px;
       object-fit: contain;
       pointer-events: none;
       user-select: none;
       filter: drop-shadow(0 9px 12px rgba(24,52,38,.12));
     }
+
+    /*
+     * PROGRAM ILLUSTRATION LOCATIONS
+     * Change right/top/width/height here to reposition each picture.
+     */
+    .card-art-school {
+      right: 1.1rem;
+      top: .95rem;
+      width: 94px;
+      height: 94px;
+    }
+
+    .card-art-church {
+      right: 1.25rem;
+      top: 1rem;
+      width: 82px;
+      height: 82px;
+    }
+
+    .card-art-family {
+      right: 1rem;
+      top: .85rem;
+      width: 96px;
+      height: 96px;
+    }
+
+    /*
+     * OTHER ILLUSTRATION LOCATIONS
+     * Audience leaves: .audience-card-art
+     * Process-step art: .step-art
+     * About-page rabbit: .about-rabbit
+     *
+     * The HTML src= path selects the image file.
+     * The CSS right/left/top/bottom values select its location.
+     */
 
     /* Audience leaf illustrations */
     .audience-card {
@@ -474,25 +514,13 @@
       filter: drop-shadow(0 12px 18px rgba(24,52,38,.16));
     }
 
-    .curriculum-egg {
-      position: absolute;
-      z-index: 3;
-      right: 24px;
-      top: 24px;
-      width: 112px;
-      height: 112px;
-      object-fit: contain;
-      pointer-events: none;
-      user-select: none;
-      filter: drop-shadow(0 10px 14px rgba(0,0,0,.16));
-    }
 
     /* File-backed card patterns */
     .community-main {
       background-image:
         var(--pattern-speckles),
         linear-gradient(#eadbc7, #eadbc7);
-      background-size: 180px 180px, auto;
+      background-size: 165px 165px, auto;
       background-repeat: repeat, no-repeat;
     }
 
@@ -500,7 +528,7 @@
       background-image:
         var(--pattern-leaves),
         linear-gradient(var(--paper), var(--paper));
-      background-size: 210px 210px, auto;
+      background-size: 260px 260px, auto;
       background-position: 108% 110%, center;
       background-repeat: no-repeat;
     }
@@ -509,7 +537,7 @@
       background-image:
         var(--pattern-speckles),
         linear-gradient(var(--cream), var(--cream));
-      background-size: 180px 180px, auto;
+      background-size: 165px 165px, auto;
     }
 
     .cta-box {
@@ -576,13 +604,15 @@
       .footer-bottom { flex-direction: column; }
       .calendar-frame { min-height: 720px; }
       .brand-sub { display: none; }
-      .brand-card-art { width: 74px; height: 74px; opacity: .82; }
+      .brand-card-art { opacity: .82; }
+      .card-art-school { width: 76px; height: 76px; right: .7rem; top: .7rem; }
+      .card-art-church { width: 68px; height: 68px; right: .8rem; top: .75rem; }
+      .card-art-family { width: 76px; height: 76px; right: .65rem; top: .65rem; }
       .audience-card { padding-right: 1.7rem; }
       .audience-card-art { width: 62px; height: 72px; opacity: .24; }
       .step { padding-right: 1.45rem; }
       .step-art { width: 62px; height: 62px; opacity: .13; right: .35rem; }
       .about-rabbit { width: 105px; height: 105px; left: -12px; bottom: -26px; }
-      .curriculum-egg { width: 82px; height: 82px; right: 14px; top: 14px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -687,21 +717,21 @@
         </div>
         <div class="services-grid">
           <article class="service-card">
-            <img class="brand-card-art" src="assets/illustrations/rabbit%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
-            <img class="brand-card-art" src="assets/illustrations/egg%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
-            <img class="brand-card-art" src="assets/illustrations/chicken%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img class="brand-card-art card-art-school" src="assets/illustrations/chicken%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             <div class="service-number">01 · SCHOOL VISITS</div>
             <h3>Classroom visits</h3>
             <p>Live-animal lessons about care, behavior, life cycles, stewardship, and the wonder of God's creation.</p>
             <a class="service-link" href="#book" data-open-tab="event-panel">Request a school event <span aria-hidden="true">→</span></a>
           </article>
           <article class="service-card">
+            <img class="brand-card-art card-art-church" src="assets/illustrations/egg%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             <div class="service-number">02 · CHURCH PROGRAMS</div>
             <h3>Church programs</h3>
             <p>Hands-on animal programs for churches, VBS, camps, and schools, with biblical connections woven in naturally.</p>
             <a class="service-link" href="#book" data-open-tab="event-panel">Discuss a church program <span aria-hidden="true">→</span></a>
           </article>
           <article class="service-card">
+            <img class="brand-card-art card-art-family" src="assets/illustrations/rabbit%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             <div class="service-number">03 · COMMUNITY</div>
             <h3>Family activities</h3>
             <p>Seasonal nature walks, farm activities, field trips, and practical learning experiences for like-minded homeschool families.</p>
@@ -719,7 +749,7 @@
           <p>The format changes with the setting and the children's ages; the heart of the lesson stays the same—curiosity, good care, and gratitude for God's creation.</p>
         </div>
         <div class="audience-grid">
-          <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(1).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Schools</h3><p>Clear, age-appropriate animal learning with plenty of room for questions and wonder.</p><ul><li>Observation and animal science</li><li>Care, needs, and life cycles</li><li>Stewardship and supervised interaction</li></ul></article>
+          <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Schools</h3><p>Clear, age-appropriate animal learning with plenty of room for questions and wonder.</p><ul><li>Observation and animal science</li><li>Care, needs, and life cycles</li><li>Stewardship and supervised interaction</li></ul></article>
           <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Churches</h3><p>Farm-animal learning for VBS, camps, schools, and special events, with natural biblical connections.</p><ul><li>Creation and stewardship</li><li>Biblical connections</li><li>VBS, camps, and special events</li></ul></article>
           <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Families</h3><p>Local activities that bring together practical experience, nature, and friendship.</p><ul><li>Seasonal events and field trips</li><li>Hands-on learning stations</li><li>Family-focused local community</li></ul></article>
         </div>
@@ -796,7 +826,6 @@
         </div>
         <div class="curriculum-grid">
           <div class="product-preview" aria-label="Preview illustration of a printable activity packet">
-            <img class="curriculum-egg" src="assets/illustrations/egg%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
             <div class="packet-stack"><small>Homegrown Learning</small><h3>Farm Animal Discovery Pack</h3><p>Observation • vocabulary • activities</p><div class="packet-lines"><span></span><span></span><span></span></div></div>
           </div>
           <div class="waitlist-card">
