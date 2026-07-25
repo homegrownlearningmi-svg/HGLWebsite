@@ -307,6 +307,131 @@
     .service-card p { color: var(--muted); }
     .service-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--forest); font-weight: 850; text-decoration: none; margin-top: .8rem; }
 
+    /*
+     * MEET THE ANIMALS PHOTO GALLERY
+     *
+     * File paths:
+     * assets/photos/baby-goats.png
+     * assets/photos/piglets.png
+     * assets/photos/rabbit.png
+     *
+     * Replace any file under the same name to update the gallery without
+     * changing this HTML.
+     */
+    .animals-gallery {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 92% 10%, rgba(214,155,67,.15), transparent 22rem),
+        linear-gradient(180deg, var(--paper), var(--cream));
+    }
+
+    .animals-gallery::after {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      left: -170px;
+      bottom: -190px;
+      border-radius: 50%;
+      background: var(--sage);
+      opacity: .58;
+      pointer-events: none;
+    }
+
+    .animals-gallery .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .animal-photo-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      grid-template-rows: repeat(2, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .animal-photo-card {
+      position: relative;
+      min-height: 250px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--sage);
+      box-shadow: 0 18px 48px rgba(24,52,38,.11);
+      isolation: isolate;
+    }
+
+    .animal-photo-card.goats { grid-column: 1; grid-row: 1; }
+    .animal-photo-card.piglets { grid-column: 1; grid-row: 2; }
+    .animal-photo-card.rabbit {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      min-height: 516px;
+    }
+
+    .animal-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .45s ease;
+    }
+
+    .animal-photo-card:hover .animal-photo {
+      transform: scale(1.025);
+    }
+
+    .animal-photo-card.goats .animal-photo { object-position: center 46%; }
+    .animal-photo-card.piglets .animal-photo { object-position: center center; }
+    .animal-photo-card.rabbit .animal-photo { object-position: center center; }
+
+    .animal-photo-card::after {
+      content: "";
+      position: absolute;
+      inset: 42% 0 0;
+      z-index: 1;
+      background: linear-gradient(to bottom, transparent, rgba(15,39,27,.82));
+      pointer-events: none;
+    }
+
+    .animal-photo-caption {
+      position: absolute;
+      z-index: 2;
+      left: 1.15rem;
+      right: 1.15rem;
+      bottom: 1rem;
+      color: white;
+    }
+
+    .animal-photo-caption h3 {
+      margin-bottom: .2rem;
+      color: white;
+      font-size: clamp(1.45rem, 2.6vw, 2rem);
+    }
+
+    .animal-photo-caption p {
+      max-width: 540px;
+      margin-bottom: 0;
+      color: #e9f0eb;
+      font-size: .93rem;
+      line-height: 1.45;
+    }
+
+    .animals-gallery-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .8rem;
+      margin-top: 1.5rem;
+    }
+
+    .animals-gallery-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
     .audience { background: var(--forest-dark); color: white; position: relative; overflow: hidden; }
     .audience::before { content: ""; position: absolute; width: 480px; height: 480px; right: -170px; top: -230px; border-radius: 50%; border: 90px solid rgba(255,255,255,.035); }
     .audience .section-kicker { color: #dcebdc; }
@@ -704,6 +829,17 @@
       .hero-grid, .about-grid, .booking-grid, .faq-grid, .process-wrap { grid-template-columns: 1fr; }
       .hero-art { min-height: 500px; }
       .services-grid, .audience-grid { grid-template-columns: 1fr; }
+      .animal-photo-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: minmax(270px, 1fr) minmax(300px, 1fr);
+      }
+      .animal-photo-card.goats { grid-column: 1; grid-row: 1; }
+      .animal-photo-card.piglets { grid-column: 2; grid-row: 1; }
+      .animal-photo-card.rabbit {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        min-height: 340px;
+      }
       .service-card { min-height: auto; }
       .process-intro { position: static; }
       .community-grid, .curriculum-grid { grid-template-columns: 1fr; }
@@ -729,6 +865,20 @@
       .footer-bottom { flex-direction: column; }
       .calendar-frame { min-height: 720px; }
       .brand-sub { display: none; }
+      .animal-photo-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .animal-photo-card.goats,
+      .animal-photo-card.piglets,
+      .animal-photo-card.rabbit {
+        grid-column: 1;
+        grid-row: auto;
+        min-height: 310px;
+      }
+      .animal-photo-card.rabbit { min-height: 420px; }
+      .animal-photo-caption { left: 1rem; right: 1rem; bottom: .9rem; }
+      .animals-gallery-actions { align-items: flex-start; flex-direction: column; }
       .header-name-image { height: 60px; max-width: min(225px, 55vw); }
       .footer-name-image { height: 120px; max-width: 68vw; }
       .brand-card-art { opacity: .82; }
@@ -746,6 +896,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation: none !important; transition: none !important; }
+      .animal-photo-card:hover .animal-photo { transform: none; }
     }
   </style>
 </head>
@@ -782,6 +933,7 @@
       </button>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#programs">Programs</a>
+        <a href="#animals">Animals</a>
         <a href="#about">About Angel</a>
         <a href="#community">Community</a>
         <a href="#curriculum">Curriculum</a>
@@ -855,6 +1007,62 @@
             <p>Seasonal nature walks, farm activities, field trips, and practical learning experiences for like-minded homeschool families.</p>
             <a class="service-link" href="#community">Join the interest list <span aria-hidden="true">→</span></a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section animals-gallery" id="animals">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Meet the animals</div>
+          <h2>Real animals. Living lessons.</h2>
+          <p>Gentle animals, close observation, and plenty of opportunities for children to ask questions. Available animals vary by season, location, and program needs.</p>
+        </div>
+
+        <div class="animal-photo-grid">
+          <figure class="animal-photo-card goats">
+            <img
+              class="animal-photo"
+              src="assets/photos/baby-goats.png"
+              alt="Two young goats resting together outdoors"
+              loading="lazy"
+              decoding="async">
+            <figcaption class="animal-photo-caption">
+              <h3>Baby goats</h3>
+              <p>Curious, energetic, and always ready to investigate what the children are doing.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="animal-photo-card piglets">
+            <img
+              class="animal-photo"
+              src="assets/photos/piglets.png"
+              alt="Two piglets exploring grass outdoors"
+              loading="lazy"
+              decoding="async">
+            <figcaption class="animal-photo-caption">
+              <h3>Piglets</h3>
+              <p>A memorable way to explore animal behavior, care, growth, and good stewardship.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="animal-photo-card rabbit">
+            <img
+              class="animal-photo"
+              src="assets/photos/rabbit.png"
+              alt="A brown rabbit resting and grazing in grass"
+              loading="lazy"
+              decoding="async">
+            <figcaption class="animal-photo-caption">
+              <h3>Rabbits</h3>
+              <p>Gentle interaction centered on careful observation, safe handling, and respect for the animal.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="animals-gallery-actions">
+          <a class="button" href="request-event.html">Plan an animal visit</a>
+          <p class="animals-gallery-note">Animal availability depends on the season, travel conditions, venue, and children's ages.</p>
         </div>
       </div>
     </section>
@@ -1085,7 +1293,7 @@
           </a>
           <p>Mobile, hands-on farm animal education for schools, churches, and families near Grant, Michigan.</p><div class="contact-inline"><a href="mailto:homegrownlearningmi@gmail.com">homegrownlearningmi@gmail.com</a><a href="tel:+12316295981">231-629-5981</a></div>
         </div>
-        <div><div class="footer-title">Explore</div><div class="footer-links"><a href="#programs">Programs</a><a href="#about">About Angel</a><a href="#community">Community</a><a href="#curriculum">Curriculum</a></div></div>
+        <div><div class="footer-title">Explore</div><div class="footer-links"><a href="#programs">Programs</a><a href="#animals">Meet the animals</a><a href="#about">About Angel</a><a href="#community">Community</a><a href="#curriculum">Curriculum</a></div></div>
         <div><div class="footer-title">Get started</div><div class="footer-links"><a href="request-event.html">Request an event</a><a href="#book">Book a consultation</a><a href="#community-form">Community interest list</a></div></div><div><div class="footer-title">Contact</div><div class="footer-links"><a href="mailto:homegrownlearningmi@gmail.com">Email Angel</a><a href="tel:+12316295981">Call 231-629-5981</a></div></div>
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> Homegrown Learning. All rights reserved.</span><span>Serving West Michigan from the Grant area.</span></div>
