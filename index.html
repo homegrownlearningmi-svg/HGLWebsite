@@ -258,7 +258,6 @@
 
     .hero-art {
       position: relative;
-      min-height: 460px;
       border-radius: 42px;
       background: #264b39;
       box-shadow: var(--shadow);
@@ -857,7 +856,6 @@
       .nav-links a { padding: .55rem .25rem; }
       .menu-button { display: block; }
       .hero-grid, .about-grid, .booking-grid, .faq-grid, .process-wrap { grid-template-columns: 1fr; }
-      .hero-art { min-height: 420px; }
       .services-grid, .audience-grid { grid-template-columns: 1fr; }
       .animal-photo-grid {
         grid-template-columns: 1fr 1fr;
@@ -880,7 +878,7 @@
     @media (max-width: 700px) {
       .container { width: min(calc(100% - 1.25rem), var(--max)); }
       .hero { padding-top: 3.6rem; }
-      .hero-art { min-height: 370px; border-radius: 28px; }
+      .hero-art { border-radius: 28px; }
       .hero-scene { object-position: center center; }
       .sun { width: 90px; height: 90px; right: 25px; top: 70px; }
       .art-note { left: 18px; top: 18px; max-width: 190px; }
@@ -939,21 +937,27 @@
 
     /* Hero photo carousel */
     .hero-art {
+      position: relative;
+      width: 100%;
+      min-height: 0;
+      aspect-ratio: 4 / 3;
       background: var(--forest-dark);
     }
 
-    .hero-carousel,
+    .hero-carousel {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
     .hero-carousel-viewport,
     .hero-carousel-track,
     .hero-slide {
       width: 100%;
       height: 100%;
-    }
-
-    .hero-carousel {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
     }
 
     .hero-carousel-viewport {
@@ -987,12 +991,20 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center center;
       display: block;
     }
 
-    .hero-slide.baby-goats img { object-position: center 48%; }
-    .hero-slide.piglets img { object-position: center center; }
-    .hero-slide.rabbit img { object-position: center 48%; }
+    .hero-slide img {
+      object-position: center center;
+    }
+
+    /*
+     * Every carousel image is centered automatically.
+     * object-fit: cover keeps the frame full while preserving the image ratio.
+     * This also keeps tall images, such as the rabbit photo, from creating
+     * empty space inside the fixed 4:3 frame.
+     */
 
     .hero-slide figcaption {
       position: absolute;
@@ -1113,6 +1125,17 @@
         transition: none;
       }
     }
+
+
+    .hero-slide.farm-illustration figcaption {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      .hero-art {
+        aspect-ratio: 4 / 3;
+      }
+    }
 </style>
 </head>
 <body>
@@ -1130,7 +1153,6 @@
 </button>
 <nav aria-label="Primary navigation" class="nav-links">
 <a href="#programs">Programs</a>
-
 <a href="#about">About Angel</a>
 <a href="#community">Community</a>
 <a href="#curriculum">Curriculum</a>
@@ -1139,7 +1161,7 @@
 </div>
 </header>
 <main id="main">
-    <section class="hero" id="top">
+<section class="hero" id="top">
 <div class="container hero-grid">
 <div class="hero-copy">
 <div class="eyebrow"><span class="dot"></span> Mobile farm-animal education</div>
@@ -1159,20 +1181,19 @@
 </div>
 <div aria-label="Illustration of a mobile farm learning visit" class="hero-art"><div aria-label="Homegrown Learning animals" aria-roledescription="carousel" class="hero-carousel" data-hero-carousel="">
 <div class="hero-carousel-viewport">
-<div class="hero-carousel-track">
-<figure aria-hidden="false" class="hero-slide baby-goats">
-<img alt="Two young goats together outdoors" decoding="async" src="assets/photos/baby-goats.png"/>
+<div class="hero-carousel-track"><figure aria-hidden="false" class="hero-slide farm-illustration">
+<img alt="Illustrated farm scene with chickens and rabbits" decoding="async" src="assets/illustrations/farm1.png"/>
+<figcaption>Homegrown Learning</figcaption>
+</figure><figure aria-hidden="true" class="hero-slide baby-goats">
+<img alt="Two young goats together outdoors" decoding="async" loading="lazy" src="assets/photos/baby-goats.png"/>
 <figcaption>Baby goats</figcaption>
-</figure>
-<figure aria-hidden="true" class="hero-slide piglets">
+</figure><figure aria-hidden="true" class="hero-slide piglets">
 <img alt="Two piglets exploring grass outdoors" decoding="async" loading="lazy" src="assets/photos/piglets.png"/>
 <figcaption>Piglets</figcaption>
-</figure>
-<figure aria-hidden="true" class="hero-slide rabbit">
+</figure><figure aria-hidden="true" class="hero-slide rabbit">
 <img alt="A brown rabbit grazing in the grass" decoding="async" loading="lazy" src="assets/photos/rabbit.png"/>
 <figcaption>Rabbits</figcaption>
-</figure>
-</div>
+</figure></div>
 </div>
 <button aria-label="Show previous animal photo" class="carousel-arrow carousel-prev" type="button">
 <svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
@@ -1185,7 +1206,8 @@
 </svg>
 </button>
 <div aria-label="Choose an animal photo" class="carousel-dots" role="group">
-<button aria-current="true" aria-label="Show baby goats" class="carousel-dot active" type="button"></button>
+<button aria-current="true" aria-label="Show the farm illustration" class="carousel-dot active" type="button"></button>
+<button aria-current="false" aria-label="Show baby goats" class="carousel-dot" type="button"></button>
 <button aria-current="false" aria-label="Show piglets" class="carousel-dot" type="button"></button>
 <button aria-current="false" aria-label="Show rabbit" class="carousel-dot" type="button"></button>
 </div>
@@ -1194,7 +1216,7 @@
 </div></div>
 </div>
 </section>
-    <section class="section pattern-leaves" id="programs">
+<section class="section pattern-leaves" id="programs">
 <div class="container">
 <div class="section-head">
 <div class="section-kicker">Programs</div>
@@ -1226,7 +1248,7 @@
 </div>
 </div>
 </section>
-    <section class="section pattern-speckles">
+<section class="section pattern-speckles">
 <div class="container process-wrap">
 <div class="process-intro">
 <div class="section-kicker">How it works</div>
@@ -1265,7 +1287,7 @@
 </div>
 </div>
 </section>
-    <section class="section about pattern-speckles" id="about">
+<section class="section about pattern-speckles" id="about">
 <div class="container about-grid">
 <div class="portrait-wrap">
 <img alt="Angel Floyd, founder of Homegrown Learning" class="portrait" src="assets/illustrations/prof.png"/>
@@ -1290,7 +1312,7 @@
 </div>
 </div>
 </section>
-    <section class="section booking pattern-leaves" id="book">
+<section class="section booking pattern-leaves" id="book">
 <div class="container booking-grid">
 <div class="booking-copy">
 <div class="section-kicker">Request or consult</div>
@@ -1327,7 +1349,7 @@
 </div>
 </div>
 </section>
-    <section class="section curriculum pattern-speckles" id="curriculum">
+<section class="section curriculum pattern-speckles" id="curriculum">
 <div class="container">
 <div class="section-head">
 <div class="section-kicker">Coming later</div>
@@ -1357,7 +1379,7 @@
 </div>
 </div>
 </section>
-    <section class="section faq">
+<section class="section faq">
 <div class="container faq-grid">
 <div><div class="section-kicker">Common questions</div><h2>Good to know.</h2></div>
 <div>
@@ -1368,7 +1390,7 @@
 </div>
 </div>
 </section>
-    <section class="section pattern-wood" id="community">
+<section class="section pattern-wood" id="community">
 <div class="container community-grid">
 <div class="community-main">
 <div class="section-kicker">For local families</div>
@@ -1408,7 +1430,7 @@
 </aside>
 </div>
 </section>
-  </main>
+</main>
 <footer>
 <div class="container">
 <div class="footer-grid">
