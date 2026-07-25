@@ -68,8 +68,8 @@
       line-height: 1.05;
     }
     h1, h2, h3, p { margin-top: 0; }
-    h1 { font-size: clamp(3rem, 7vw, 6.6rem); margin-bottom: 1.4rem; }
-    h2 { font-size: clamp(2.35rem, 5vw, 4.4rem); margin-bottom: 1rem; }
+    h1 { font-size: clamp(3rem, 6.2vw, 5.7rem); margin-bottom: 1.05rem; }
+    h2 { font-size: clamp(2.2rem, 4.3vw, 3.75rem); margin-bottom: .8rem; }
     h3 { font-size: clamp(1.35rem, 2.4vw, 1.85rem); margin-bottom: .55rem; }
     p { margin-bottom: 1rem; }
 
@@ -80,7 +80,7 @@
     }
     .skip-link:focus { transform: translateY(0); }
     .container { width: min(calc(100% - 2rem), var(--max)); margin-inline: auto; }
-    .section { padding: clamp(4.5rem, 9vw, 8rem) 0; }
+    .section { padding: clamp(3.1rem, 6vw, 5.25rem) 0; }
     .section-kicker {
       display: inline-flex; align-items: center; gap: .55rem;
       margin-bottom: 1rem; color: var(--forest); font-size: .78rem;
@@ -89,7 +89,7 @@
     .section-kicker::before {
       content: ""; width: 34px; height: 2px; background: var(--gold); border-radius: 2px;
     }
-    .section-head { max-width: 760px; margin-bottom: 2.5rem; }
+    .section-head { max-width: 760px; margin-bottom: 1.75rem; }
     .section-head p { color: var(--muted); font-size: 1.08rem; }
     .eyebrow {
       display: inline-flex; align-items: center; gap: .65rem;
@@ -105,7 +105,7 @@
       background: rgba(247,243,233,.88); backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(28,45,36,.08);
     }
-    .nav-wrap { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav-wrap { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .brand { display: inline-flex; align-items: center; gap: .72rem; text-decoration: none; min-width: max-content; }
     .brand-mark {
       width: 44px;
@@ -151,8 +151,8 @@
     .header-name-image {
       display: block;
       width: auto;
-      height: 120px;
-      max-width: min(280px, 31vw);
+      height: 72px;
+      max-width: min(470px, 44vw);
       object-fit: contain;
       object-position: left center;
     }
@@ -168,6 +168,19 @@
 
     .brand-name { font-size: 1.26rem; font-weight: 800; letter-spacing: -.025em; }
     .brand-name-fallback { display: none; }
+
+    .header-brand {
+      flex: 0 1 470px;
+      min-width: 0;
+    }
+
+    .site-header .brand-copy {
+      width: 100%;
+    }
+
+    .site-header .brand-sub {
+      display: none;
+    }
 
     .brand-sub {
       display: block;
@@ -223,7 +236,7 @@
     .button svg { width: 18px; height: 18px; }
 
     .hero {
-      position: relative; overflow: hidden; padding: clamp(4.5rem, 9vw, 8.5rem) 0 clamp(5rem, 9vw, 8rem);
+      position: relative; overflow: hidden; padding: clamp(3.2rem, 6vw, 5.4rem) 0 clamp(3.4rem, 6vw, 5.5rem);
       background:
         radial-gradient(circle at 88% 15%, rgba(214,155,67,.19), transparent 23rem),
         radial-gradient(circle at 4% 80%, rgba(203,220,198,.75), transparent 28rem),
@@ -244,7 +257,7 @@
 
     .hero-art {
       position: relative;
-      min-height: 560px;
+      min-height: 460px;
       border-radius: 42px;
       background: #264b39;
       box-shadow: var(--shadow);
@@ -295,7 +308,7 @@
 
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
     .service-card {
-      position: relative; padding: 2rem; min-height: 330px; background: var(--paper);
+      position: relative; padding: 1.65rem; min-height: 285px; background: var(--paper);
       border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
       transition: transform .2s ease, box-shadow .2s ease;
     }
@@ -303,7 +316,7 @@
     .service-card::after { content: ""; position: absolute; width: 150px; height: 150px; border-radius: 50%; right: -65px; bottom: -70px; background: var(--sage); }
     .service-card:nth-child(2)::after { background: #ecd9c9; }
     .service-card:nth-child(3)::after { background: #ebe0b7; }
-    .service-number { color: var(--rust); font-weight: 900; letter-spacing: .1em; font-size: .76rem; margin-bottom: 2.6rem; }
+    .service-number { color: var(--rust); font-weight: 900; letter-spacing: .1em; font-size: .76rem; margin-bottom: 2rem; }
     .service-card p { color: var(--muted); }
     .service-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--forest); font-weight: 850; text-decoration: none; margin-top: .8rem; }
 
@@ -347,13 +360,13 @@
     .animal-photo-grid {
       display: grid;
       grid-template-columns: 1.15fr .85fr;
-      grid-template-rows: repeat(2, minmax(250px, 1fr));
+      grid-template-rows: repeat(2, minmax(220px, 1fr));
       gap: 1rem;
     }
 
     .animal-photo-card {
       position: relative;
-      min-height: 250px;
+      min-height: 220px;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 28px;
@@ -367,7 +380,7 @@
     .animal-photo-card.rabbit {
       grid-column: 2;
       grid-row: 1 / span 2;
-      min-height: 516px;
+      min-height: 456px;
     }
 
     .animal-photo {
@@ -447,13 +460,13 @@
     .process-intro { position: sticky; top: 112px; }
     .process-intro p { color: var(--muted); font-size: 1.05rem; }
     .steps { display: grid; gap: .9rem; }
-    .step { display: grid; grid-template-columns: 64px 1fr; gap: 1rem; padding: 1.45rem; background: var(--paper); border: 1px solid var(--line); border-radius: 20px; }
-    .step-no { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: var(--sage); color: var(--forest); font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; font-weight: 800; }
+    .step { display: grid; grid-template-columns: 58px 1fr; gap: .85rem; padding: 1.15rem; background: var(--paper); border: 1px solid var(--line); border-radius: 20px; }
+    .step-no { width: 46px; height: 46px; border-radius: 16px; display: grid; place-items: center; background: var(--sage); color: var(--forest); font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; font-weight: 800; }
     .step p { margin-bottom: 0; color: var(--muted); }
 
     .about { background: var(--sage); }
     .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
-    .portrait-wrap { position: relative; max-width: 470px; }
+    .portrait-wrap { position: relative; max-width: 410px; }
     .portrait { width: 100%; aspect-ratio: .78; object-fit: cover; border-radius: 38px; box-shadow: 0 25px 70px rgba(24,52,38,.2); border: 8px solid rgba(255,255,255,.75); }
     .portrait-badge { position: absolute; right: -18px; bottom: 38px; background: var(--paper); border-radius: 18px; padding: 1rem 1.15rem; box-shadow: 0 16px 40px rgba(24,52,38,.2); max-width: 180px; }
     .portrait-badge strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.5rem; color: var(--forest); }
@@ -502,7 +515,7 @@
 
     .curriculum { background: #f0e9d6; }
     .curriculum-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .product-preview { min-height: 420px; padding: 2rem; border-radius: 30px; position: relative; overflow: hidden; background: var(--forest); color: white; }
+    .product-preview { min-height: 350px; padding: 2rem; border-radius: 30px; position: relative; overflow: hidden; background: var(--forest); color: white; }
     .product-preview::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px); background-size: 28px 28px; }
     .packet-stack { position: absolute; left: 50%; bottom: 45px; transform: translateX(-50%) rotate(-3deg); width: min(72%, 340px); aspect-ratio: .76; background: var(--paper); color: var(--ink); border-radius: 8px; padding: 2rem; box-shadow: -14px 16px 0 #d7c697, -28px 32px 0 #aa6541, 0 26px 55px rgba(0,0,0,.28); }
     .packet-stack small { color: var(--rust); font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
@@ -527,7 +540,23 @@
     .fine-print { color: var(--muted); font-size: .76rem; margin: .2rem 0 0; }
 
     .booking { background: var(--paper); }
-    .booking-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    .booking-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+
+    .compact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1.25rem;
+    }
+
+    .community-side h3 {
+      margin-bottom: .35rem;
+    }
+
+    .community-side > p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
     .booking-copy p { color: var(--muted); }
     .booking-options { display: grid; gap: .75rem; margin-top: 1.5rem; }
     .booking-option { display: flex; gap: .75rem; align-items: flex-start; }
@@ -541,7 +570,7 @@
     .calendar-placeholder { border: 1px dashed rgba(41,78,58,.35); border-radius: 18px; padding: 2rem; text-align: center; background: rgba(255,255,255,.5); }
     .calendar-placeholder svg { width: 46px; margin: 0 auto 1rem; color: var(--forest); }
     .calendar-placeholder p { color: var(--muted); }
-    .calendar-frame { width: 100%; min-height: 680px; border: 0; border-radius: 18px; background: white; }
+    .calendar-frame { width: 100%; min-height: 560px; border: 0; border-radius: 18px; background: white; }
     .calendar-actions { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; margin-top: 1rem; }
     .calendar-note { color: var(--muted); font-size: .86rem; margin: .85rem 0 0; }
     .contact-inline { display: flex; flex-wrap: wrap; gap: .65rem 1.25rem; margin-top: 1rem; }
@@ -827,7 +856,7 @@
       .nav-links a { padding: .55rem .25rem; }
       .menu-button { display: block; }
       .hero-grid, .about-grid, .booking-grid, .faq-grid, .process-wrap { grid-template-columns: 1fr; }
-      .hero-art { min-height: 500px; }
+      .hero-art { min-height: 420px; }
       .services-grid, .audience-grid { grid-template-columns: 1fr; }
       .animal-photo-grid {
         grid-template-columns: 1fr 1fr;
@@ -850,7 +879,7 @@
     @media (max-width: 700px) {
       .container { width: min(calc(100% - 1.25rem), var(--max)); }
       .hero { padding-top: 3.6rem; }
-      .hero-art { min-height: 440px; border-radius: 28px; }
+      .hero-art { min-height: 370px; border-radius: 28px; }
       .hero-scene { object-position: center center; }
       .sun { width: 90px; height: 90px; right: 25px; top: 70px; }
       .art-note { left: 18px; top: 18px; max-width: 190px; }
@@ -863,7 +892,7 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-brand { grid-column: auto; }
       .footer-bottom { flex-direction: column; }
-      .calendar-frame { min-height: 720px; }
+      .calendar-frame { min-height: 620px; }
       .brand-sub { display: none; }
       .animal-photo-grid {
         grid-template-columns: 1fr;
@@ -879,7 +908,7 @@
       .animal-photo-card.rabbit { min-height: 420px; }
       .animal-photo-caption { left: 1rem; right: 1rem; bottom: .9rem; }
       .animals-gallery-actions { align-items: flex-start; flex-direction: column; }
-      .header-name-image { height: 60px; max-width: min(225px, 55vw); }
+      .header-name-image { height: 50px; max-width: min(310px, 72vw); }
       .footer-name-image { height: 120px; max-width: 68vw; }
       .brand-card-art { opacity: .82; }
       .card-art-school { width: 76px; height: 76px; right: .7rem; top: .7rem; }
@@ -905,17 +934,7 @@
 
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Homegrown Learning home">
-        <span class="brand-mark" aria-hidden="true">
-          <img
-            class="brand-logo-image"
-            src="assets/logo.png"
-            alt=""
-            decoding="async"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
-          >
-          <svg class="brand-logo-fallback" viewBox="0 0 64 64" fill="none"><path d="M17 40c11-1 17-10 19-25 9 8 13 18 8 28-5 10-18 11-27 3 7-1 13-5 17-10-6 3-11 5-17 4Z" fill="#f7f3e9"/><path d="M25 47c4-7 10-13 18-18" stroke="#d69b43" stroke-width="4" stroke-linecap="round"/></svg>
-        </span>
+      <a class="brand header-brand" href="#top" aria-label="Homegrown Learning home">
         <span class="brand-copy">
           <img
             class="header-name-image"
@@ -925,7 +944,6 @@
             onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
           >
           <span class="brand-name brand-name-fallback">Homegrown Learning</span>
-          <span class="brand-sub">Hands-on education in West Michigan</span>
         </span>
       </a>
       <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
@@ -953,7 +971,7 @@
             <a class="button" href="request-event.html">Request an event
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a class="button secondary" href="#community">Join homeschool activities</a>
+            <a class="button secondary" href="#community">Join the HGL community</a>
           </div>
           <div class="hero-proof">
             <span><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Custom event quotes</span>
@@ -970,13 +988,6 @@
       </div>
     </section>
 
-    <div class="trust-strip">
-      <div class="container trust-card">
-        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18V8l8-5 8 5v10H4Z" stroke="currentColor" stroke-width="2"/><path d="M9 18v-5h6v5" stroke="currentColor" stroke-width="2"/></svg></span><span><strong>Built for schools</strong><span>Age-appropriate, organized, and easy to host</span></span></div>
-        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22V8M7 13c-3 0-5-2-5-5 3 0 5 2 5 5Zm10-4c3 0 5-2 5-5-3 0-5 2-5 5ZM8 6c0-3 2-5 4-6 2 1 4 3 4 6 0 3-2 5-4 6-2-1-4-3-4-6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>Full of wonder</strong><span>Children learn to observe God's creation and care for it well</span></span></div>
-        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/></svg></span><span><strong>Local and mobile</strong><span>Serving communities around Grant, Michigan</span></span></div>
-      </div>
-    </div>
 
     <section class="section pattern-leaves" id="programs">
       <div class="container">
@@ -1067,34 +1078,43 @@
       </div>
     </section>
 
-    <section class="section audience">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-kicker">For every setting</div>
-          <h2>Made for your group.</h2>
-          <p>The format changes with the setting and the children's ages; the heart of the lesson stays the same—curiosity, good care, and gratitude for God's creation.</p>
-        </div>
-        <div class="audience-grid">
-          <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Schools</h3><p>Clear, age-appropriate animal learning with plenty of room for questions and wonder.</p><ul><li>Observation and animal science</li><li>Care, needs, and life cycles</li><li>Stewardship and supervised interaction</li></ul></article>
-          <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Churches</h3><p>Farm-animal learning for VBS, camps, schools, and special events, grounded in Scripture and the care of God's creation.</p><ul><li>God's creation and stewardship</li><li>Biblical connections</li><li>VBS, camps, and special events</li></ul></article>
-          <article class="audience-card"><img class="audience-card-art" src="assets/illustrations/leaf%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><h3>Families</h3><p>Local activities that bring together practical experience, nature, and friendship.</p><ul><li>Seasonal events and field trips</li><li>Hands-on learning stations</li><li>Family-focused local community</li></ul></article>
-        </div>
-      </div>
-    </section>
 
     <section class="section pattern-speckles">
       <div class="container process-wrap">
         <div class="process-intro">
           <div class="section-kicker">How it works</div>
           <h2>From inquiry to event.</h2>
-          <p>The request page shows the current visit lengths, animal choices, add-ons, and lesson formats. Angel confirms the final quote after reviewing travel, group size, timing, and program needs.</p>
-          <a class="button" href="request-event.html">Start an event request</a>
+          <p>Begin with a detailed event request, a short planning call, or both. Angel reviews the details, confirms the plan, and arrives ready to lead the lesson.</p>
+          <div class="compact-actions">
+            <a class="button" href="request-event.html">Request an event</a>
+            <a class="button secondary" href="#book">Book a planning call</a>
+          </div>
         </div>
         <div class="steps">
-          <article class="step"><img class="step-art" src="assets/illustrations/chicken%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="step-no">1</div><div><h3>Share the basics</h3><p>Share your organization, children's ages, estimated group size, location, and preferred date.</p></div></article>
-          <article class="step"><img class="step-art" src="assets/illustrations/egg%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="step-no">2</div><div><h3>Shape the visit</h3><p>Angel confirms the available animals, lesson focus, space requirements, travel details, and event goals.</p></div></article>
-          <article class="step"><img class="step-art" src="assets/illustrations/rabbit%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="step-no">3</div><div><h3>Get your quote</h3><p>You receive a straightforward event proposal rather than choosing from generic hourly packages.</p></div></article>
-          <article class="step"><img class="step-art" src="assets/illustrations/chicken%20(3).png" alt="" aria-hidden="true" loading="lazy" decoding="async"><div class="step-no">4</div><div><h3>Meet the animals</h3><p>Angel arrives prepared to lead the presentation and guide the children through a memorable hands-on lesson.</p></div></article>
+          <article class="step">
+            <img class="step-art" src="assets/illustrations/chicken%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <div class="step-no">1</div>
+            <div>
+              <h3>Request or talk it through</h3>
+              <p>Send the event details through the request page, book a planning call with Angel, or use both when the visit needs discussion.</p>
+            </div>
+          </article>
+          <article class="step">
+            <img class="step-art" src="assets/illustrations/egg%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <div class="step-no">2</div>
+            <div>
+              <h3>Angel confirms the plan</h3>
+              <p>Angel confirms the date, animals, lesson format, setup needs, travel details, and final quote.</p>
+            </div>
+          </article>
+          <article class="step">
+            <img class="step-art" src="assets/illustrations/rabbit%20(2).png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <div class="step-no">3</div>
+            <div>
+              <h3>Meet the animals</h3>
+              <p>Angel arrives prepared to guide the children through a safe, memorable, hands-on animal lesson.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1129,19 +1149,41 @@
       <div class="container community-grid">
         <div class="community-main">
           <div class="section-kicker">For local families</div>
-          <h2>Join the community.</h2>
+          <h2>Join the HGL community.</h2>
           <p>Angel is growing a local Christian homeschool community centered on hands-on learning, nature, animals, and practical skills. Activities may include nature walks, animal experiences, seasonal outings, and farm projects.</p>
           <p><strong>This is an interest list, not a paid membership.</strong> Joining simply lets Angel contact you when an appropriate community activity is planned.</p>
-          <a class="button" href="#community-form">Join the interest list</a>
-        </div>
-        <aside class="community-side">
-          <h3>What to expect</h3>
+
+          <h3 style="margin-top:1.35rem;">What to expect</h3>
           <div class="community-list">
             <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Activities near the Grant area</div>
             <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Family-friendly outdoor learning</div>
             <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Christian fellowship and family friendship</div>
             <div><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Invitations sent as events are scheduled</div>
           </div>
+        </div>
+
+        <aside class="community-side">
+          <h3>Join the interest list.</h3>
+          <p>Use this form for homeschool and community activities—not school or church event requests.</p>
+          <form class="form-stack website-form" name="community-interest" data-form-type="community-interest" novalidate>
+            <input type="hidden" name="form_type" value="community-interest">
+            <input type="hidden" name="submission_id" value="">
+            <input type="hidden" name="form_started" value="">
+            <input type="hidden" name="page_url" value="">
+            <label class="hp-field" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="field-row">
+              <label>Parent's name<input type="text" name="name" autocomplete="name" required></label>
+              <label>Email<input type="email" name="email" autocomplete="email" required></label>
+            </div>
+            <div class="field-row">
+              <label>City<input type="text" name="city" required></label>
+              <label>Children's ages<input type="text" name="children-ages" placeholder="Example: 3, 6, and 9"></label>
+            </div>
+            <label>What kinds of activities interest your family?<textarea name="interests" placeholder="Nature walks, farm animals, field trips, practical skills, seasonal events..."></textarea></label>
+            <button class="button" type="submit">Join the interest list</button>
+            <p class="form-status" aria-live="polite"></p>
+            <p class="fine-print">Your information is sent directly to Homegrown Learning and saved to its private inquiry log.</p>
+          </form>
         </aside>
       </div>
     </section>
@@ -1235,33 +1277,6 @@
       </div>
     </section>
 
-    <section class="cta-band">
-      <div class="container cta-box">
-        <div><h2>Bring the farm to your group.</h2><p>Tell Angel what you are planning and receive a custom response.</p></div>
-        <a class="button light" href="request-event.html">Request an event</a>
-      </div>
-    </section>
-
-    <section class="section" id="community-form">
-      <div class="container booking-grid">
-        <div class="booking-copy"><div class="section-kicker">Community interest list</div><h2>Get local activity updates.</h2><p>Use this form for homeschool and community activities—not school or church event requests.</p></div>
-        <div class="booking-panel">
-          <form class="form-stack website-form" name="community-interest" data-form-type="community-interest" novalidate>
-            <input type="hidden" name="form_type" value="community-interest">
-            <input type="hidden" name="submission_id" value="">
-            <input type="hidden" name="form_started" value="">
-            <input type="hidden" name="page_url" value="">
-            <label class="hp-field" aria-hidden="true">Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-            <div class="field-row"><label>Parent's name<input type="text" name="name" autocomplete="name" required></label><label>Email<input type="email" name="email" autocomplete="email" required></label></div>
-            <div class="field-row"><label>City<input type="text" name="city" required></label><label>Children's ages<input type="text" name="children-ages" placeholder="Example: 3, 6, and 9"></label></div>
-            <label>What kinds of activities interest your family?<textarea name="interests" placeholder="Nature walks, farm animals, field trips, practical skills, seasonal events..."></textarea></label>
-            <button class="button" type="submit">Join the interest list</button>
-            <p class="form-status" aria-live="polite"></p>
-            <p class="fine-print">Your information is sent directly to Homegrown Learning and saved to its private inquiry log.</p>
-          </form>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -1294,7 +1309,7 @@
           <p>Mobile, hands-on farm animal education for schools, churches, and families near Grant, Michigan.</p><div class="contact-inline"><a href="mailto:homegrownlearningmi@gmail.com">homegrownlearningmi@gmail.com</a><a href="tel:+12316295981">231-629-5981</a></div>
         </div>
         <div><div class="footer-title">Explore</div><div class="footer-links"><a href="#programs">Programs</a><a href="#animals">Meet the animals</a><a href="#about">About Angel</a><a href="#community">Community</a><a href="#curriculum">Curriculum</a></div></div>
-        <div><div class="footer-title">Get started</div><div class="footer-links"><a href="request-event.html">Request an event</a><a href="#book">Book a consultation</a><a href="#community-form">Community interest list</a></div></div><div><div class="footer-title">Contact</div><div class="footer-links"><a href="mailto:homegrownlearningmi@gmail.com">Email Angel</a><a href="tel:+12316295981">Call 231-629-5981</a></div></div>
+        <div><div class="footer-title">Get started</div><div class="footer-links"><a href="request-event.html">Request an event</a><a href="#book">Book a consultation</a><a href="#community">Community interest list</a></div></div><div><div class="footer-title">Contact</div><div class="footer-links"><a href="mailto:homegrownlearningmi@gmail.com">Email Angel</a><a href="tel:+12316295981">Call 231-629-5981</a></div></div>
       </div>
       <div class="footer-bottom"><span>© <span id="year"></span> Homegrown Learning. All rights reserved.</span><span>Serving West Michigan from the Grant area.</span></div>
     </div>
