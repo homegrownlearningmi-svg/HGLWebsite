@@ -36,8 +36,8 @@
     .nav-wrap{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
     /* Header illustration asset: assets/headername.png */
     .brand{display:inline-flex;align-items:center;gap:0;text-decoration:none;min-width:0}
-    .header-brand{flex:0 1 420px;max-width:100%}
-    .header-name-image{display:block;width:min(420px,100%);height:auto;max-height:92px;object-fit:contain;object-position:left center}
+    .header-brand{flex:0 1 520px;max-width:100%}
+    .header-name-image{display:block;width:min(520px,100%);height:auto;max-height:118px;object-fit:contain;object-position:left center}
     .brand-name-fallback{display:none;font-size:1.26rem;font-weight:800;font-family:"Fraunces",Georgia,serif;letter-spacing:-.035em}
     .brand-sub{display:none;color:var(--muted);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.14rem}
     .nav-links{display:flex;align-items:center;gap:1.15rem}
@@ -141,6 +141,8 @@
     footer{background:var(--forest-dark);color:white;padding:3rem 0 1.3rem;margin-top:4rem}
     .footer-row{display:flex;justify-content:space-between;gap:2rem;align-items:flex-start}
     .footer-row p{color:#b9c8bf;max-width:620px}
+    .footer-brand-art{display:inline-block;width:min(460px,100%);margin-bottom:.85rem;text-decoration:none}
+    .footer-brand-image{display:block;width:100%;height:auto;max-width:460px;object-fit:contain;object-position:left center}
     .contact-inline{display:flex;flex-wrap:wrap;gap:.65rem 1.25rem}
     .contact-inline a{font-weight:750}
     @media(max-width:980px){
@@ -153,8 +155,8 @@
       .nav-links{gap:.7rem}
       .nav-links a:not(.button){display:none}
       .brand-sub{display:none}
-      .header-brand{flex-basis:260px}
-      .header-name-image{width:min(260px,100%);max-height:72px}
+      .header-brand{flex-basis:320px}
+      .header-name-image{width:min(320px,100%);max-height:84px}
       .field-row,.choice-grid,.lesson-grid,.animal-mode-grid,.animal-grid,.addon-grid{grid-template-columns:1fr}
       .animal-choice{grid-template-columns:76px 1fr}
       .animal-art{width:76px;height:70px}
@@ -535,7 +537,7 @@
   <footer>
     <div class="container footer-row">
       <div>
-        <a class="brand header-brand" href="index.html"><img alt="Homegrown Learning" class="header-name-image" decoding="async" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" src="assets/footername.png"/><span class="brand-name-fallback" style="display:none;">Homegrown Learning</span></a>
+        <a class="footer-brand-art" href="index.html" aria-label="Homegrown Learning home"><img alt="Homegrown Learning" class="footer-brand-image" decoding="async" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" src="assets/headername.png"/><span class="brand-name-fallback" style="display:none;">Homegrown Learning</span></a>
         <p>Mobile, hands-on farm-animal education serving West Michigan from the Grant area.</p>
       </div>
       <div class="contact-inline">
