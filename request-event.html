@@ -9,44 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="assets/site.css">
   <style>
-    :root {
-      --cream:#f7f3e9; --paper:#fffdf8; --sage:#dfe9d9; --sage-2:#cbdcc6;
-      --forest:#294e3a; --forest-dark:#183426; --ink:#1c2d24; --muted:#5d6c63;
-      --gold:#d69b43; --rust:#aa6541; --line:rgba(28,45,36,.16); --white:#fff;
-      --shadow:0 22px 70px rgba(24,52,38,.12); --radius:26px; --max:1180px;
-      --pattern-speckles:url("assets/patterns/speckles-tile.png");
-      --pattern-leaves:url("assets/patterns/leaves-tile.png");
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;color:var(--ink);background:var(--cream);font-family:"Source Sans 3",Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-    img,svg{display:block;max-width:100%}
-    a{color:inherit}
-    button,input,select,textarea{font:inherit}
-    button{cursor:pointer}
-    h1,h2,h3,.brand-name{font-family:"Fraunces",Georgia,serif;letter-spacing:-.035em;line-height:1.05}
-    h1,h2,h3,p{margin-top:0}
-    h1{font-size:clamp(2.8rem,7vw,5.7rem);margin-bottom:1rem}
-    h2{font-size:clamp(2rem,4.5vw,3.5rem);margin-bottom:.85rem}
-    h3{font-size:clamp(1.25rem,2.3vw,1.7rem);margin-bottom:.45rem}
-    p{margin-bottom:1rem}
-    .container{width:min(calc(100% - 2rem),var(--max));margin-inline:auto}
-    .site-header{position:sticky;top:0;z-index:1000;background:rgba(247,243,233,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(28,45,36,.08)}
-    .nav-wrap{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    /* Header illustration asset: assets/headername.png */
-    .brand{display:inline-flex;align-items:center;gap:0;text-decoration:none;min-width:0}
-    .header-brand{flex:0 1 520px;max-width:100%}
-    .header-name-image{display:block;width:min(520px,100%);height:auto;max-height:118px;object-fit:contain;object-position:left center}
-    .brand-name-fallback{display:none;font-size:1.26rem;font-weight:800;font-family:"Fraunces",Georgia,serif;letter-spacing:-.035em}
-    .brand-sub{display:none;color:var(--muted);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;margin-top:.14rem}
-    .nav-links{display:flex;align-items:center;gap:1.15rem}
-    .nav-links a{text-decoration:none;font-size:.91rem;font-weight:750;color:#34493e}
-    .nav-links a:hover{color:var(--rust)}
-    .button{display:inline-flex;justify-content:center;align-items:center;gap:.55rem;min-height:48px;padding:.78rem 1.15rem;border-radius:999px;border:1px solid var(--forest);background:var(--forest);color:white;text-decoration:none;font-weight:800;line-height:1;box-shadow:0 12px 25px rgba(41,78,58,.16);transition:.2s}
-    .button:hover{transform:translateY(-2px);background:var(--forest-dark)}
-    .button:disabled{cursor:wait;opacity:.68;transform:none}
-    .button.secondary{color:var(--forest);background:transparent;box-shadow:none}
     .request-hero{position:relative;overflow:hidden;padding:clamp(4rem,8vw,7rem) 0;background:radial-gradient(circle at 88% 15%,rgba(214,155,67,.2),transparent 23rem),var(--cream)}
     .request-hero::before{content:"";position:absolute;inset:0;background-image:var(--pattern-leaves);background-repeat:repeat;background-size:320px 320px;opacity:.14;pointer-events:none}
     .request-hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,6vw,5rem);align-items:center}
@@ -138,51 +103,43 @@
     .toast.show{transform:translateY(0);opacity:1}
     .toast strong{display:block;margin-bottom:.15rem}
     .form-submit-frame{position:fixed;left:-10000px;top:0;width:1px;height:1px;border:0;opacity:0;pointer-events:none}
-    footer{background:var(--forest-dark);color:white;padding:3rem 0 1.3rem;margin-top:4rem}
-    .footer-row{display:flex;justify-content:space-between;gap:2rem;align-items:flex-start}
-    .footer-row p{color:#b9c8bf;max-width:620px}
-    .footer-brand-art{display:inline-block;width:min(460px,100%);margin-bottom:.85rem;text-decoration:none}
-    .footer-brand-image{display:block;width:100%;height:auto;max-width:460px;object-fit:contain;object-position:left center}
-    .contact-inline{display:flex;flex-wrap:wrap;gap:.65rem 1.25rem}
-    .contact-inline a{font-weight:750}
     @media(max-width:980px){
       .request-hero-grid,.layout{grid-template-columns:1fr}
       .estimate{position:static}
       .animal-grid{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:700px){
-      .container{width:min(calc(100% - 1.25rem),var(--max))}
-      .nav-links{gap:.7rem}
-      .nav-links a:not(.button){display:none}
-      .brand-sub{display:none}
-      .header-brand{flex-basis:320px}
-      .header-name-image{width:min(320px,100%);max-height:84px}
       .field-row,.choice-grid,.lesson-grid,.animal-mode-grid,.animal-grid,.addon-grid{grid-template-columns:1fr}
       .animal-choice{grid-template-columns:76px 1fr}
       .animal-art{width:76px;height:70px}
-      .footer-row{flex-direction:column}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand header-brand" href="index.html" aria-label="Homegrown Learning home">
-        <img alt="Homegrown Learning" class="header-name-image" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" src="assets/headername.png"/>
-        <span class="brand-name-fallback">Homegrown Learning</span>
-      </a>
-      <nav class="nav-links" aria-label="Request page navigation">
-        <a href="index.html#programs">Programs</a>
-        <a href="about.html">About Angel</a>
-        <a href="plan-a-visit.html">Plan a Visit</a>
-        <a href="assets/pricing.pdf" target="_blank" rel="noopener">Price guide</a>
-        <a class="button secondary" href="index.html">Back to home</a>
-      </nav>
-    </div>
-  </header>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+<div class="container nav-wrap">
+<a aria-label="Homegrown Learning home" class="brand header-brand" href="index.html">
+<span class="brand-copy">
+<img alt="Homegrown Learning" class="header-name-image" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" src="assets/headername.png"/>
+<span class="brand-name brand-name-fallback">Homegrown Learning</span>
+</span>
+</a>
+<button aria-expanded="false" aria-label="Open navigation" class="menu-button" type="button">
+<span></span><span></span><span></span>
+</button>
+<nav aria-label="Primary navigation" class="nav-links">
+<a href="index.html#programs">Programs</a>
+<a href="about.html">About Angel</a>
+<a href="plan-a-visit.html">Plan a Visit</a>
+<a href="community.html">Community</a>
+<a aria-current="page" class="button small" href="request-event.html">Request an event</a>
+</nav>
+</div>
+</header>
 
-  <main>
+  <main id="main">
     <section class="request-hero">
       <div class="container request-hero-grid">
         <div>
@@ -535,18 +492,22 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-row">
-      <div>
-        <a class="footer-brand-art" href="index.html" aria-label="Homegrown Learning home"><img alt="Homegrown Learning" class="footer-brand-image" decoding="async" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" src="assets/headername.png"/><span class="brand-name-fallback" style="display:none;">Homegrown Learning</span></a>
-        <p>Mobile, hands-on farm-animal education serving West Michigan from the Grant area.</p>
-      </div>
-      <div class="contact-inline">
-        <a href="mailto:homegrownlearningmi@gmail.com">homegrownlearningmi@gmail.com</a>
-        <a href="tel:+12316295981">231-629-5981</a>
-      </div>
-    </div>
-  </footer>
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<a aria-label="Homegrown Learning home" class="footer-brand-art" href="index.html">
+<img alt="Homegrown Learning" class="footer-brand-image" decoding="async" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" src="assets/headername.png"/>
+<span class="brand-name brand-name-fallback">Homegrown Learning</span>
+</a>
+<p>Mobile, hands-on farm animal education for schools, churches, and families near Grant, Michigan.</p><div class="contact-inline"><a href="mailto:homegrownlearningmi@gmail.com">homegrownlearningmi@gmail.com</a><a href="tel:+12316295981">231-629-5981</a></div>
+</div>
+<div><div class="footer-title">Explore</div><div class="footer-links"><a href="index.html#programs">Programs</a><a href="about.html">About Angel</a><a href="plan-a-visit.html">Plan a Visit</a><a href="community.html">Community</a><a href="community.html#curriculum">Activity packs</a></div></div>
+<div><div class="footer-title">Get started</div><div class="footer-links"><a href="request-event.html">Request an event</a><a href="plan-a-visit.html#book">Book a consultation</a><a href="community.html">Community interest list</a></div></div><div><div class="footer-title">Contact</div><div class="footer-links"><a href="mailto:homegrownlearningmi@gmail.com">Email Angel</a><a href="tel:+12316295981">Call 231-629-5981</a></div></div>
+</div>
+<div class="footer-bottom"><span>© <span id="year"></span> Homegrown Learning. All rights reserved.</span><span>Serving West Michigan from the Grant area.</span></div>
+</div>
+</footer>
 
   <div class="toast" role="status" aria-live="polite"><strong>Request sent.</strong><span>Homegrown Learning received your information.</span></div>
   <iframe class="form-submit-frame" name="form-submit-frame" id="form-submit-frame" title="Form submission response"></iframe>
@@ -858,6 +819,24 @@
       pendingSubmissions.set(submissionId, { button, originalText, status, timeout });
       form.submit();
     });
+  </script>
+  <script>
+    (() => {
+      const menuButton = document.querySelector('.menu-button');
+      const navLinks = document.querySelector('.nav-links');
+      menuButton.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        document.body.classList.toggle('menu-open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }));
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
