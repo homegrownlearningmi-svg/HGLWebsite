@@ -211,3 +211,74 @@
   showSlide(0);
   startAutoPlay();
 })();
+
+(() => {
+  const carousel = document.querySelector('[data-quote-carousel]');
+  if (!carousel) return;
+
+  const track = carousel.querySelector('.quote-track');
+  const slides = [...carousel.querySelectorAll('.quote-slide')];
+  const dotsWrap = carousel.querySelector('.quote-dots');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (slides.length < 2) {
+    carousel.classList.add('single');
+    return;
+  }
+
+  const dots = slides.map((slide, index) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Show testimonial ${index + 1} of ${slides.length}`);
+    dot.addEventListener('click', () => { showSlide(index); startAutoPlay(); });
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+
+  let currentIndex = 0;
+  let timer = null;
+
+  function showSlide(index) {
+    currentIndex = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === currentIndex;
+      slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+      slide.toggleAttribute('inert', !active);
+    });
+    dots.forEach((dot, dotIndex) => {
+      const active = dotIndex === currentIndex;
+      dot.classList.toggle('active', active);
+      dot.setAttribute('aria-current', active ? 'true' : 'false');
+    });
+  }
+
+  function stopAutoPlay() {
+    if (timer) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    if (reduceMotion || document.hidden) return;
+    timer = window.setInterval(() => showSlide(currentIndex + 1), 9000);
+  }
+
+  carousel.querySelector('.quote-prev').addEventListener('click', () => { showSlide(currentIndex - 1); startAutoPlay(); });
+  carousel.querySelector('.quote-next').addEventListener('click', () => { showSlide(currentIndex + 1); startAutoPlay(); });
+
+  carousel.addEventListener('mouseenter', stopAutoPlay);
+  carousel.addEventListener('mouseleave', startAutoPlay);
+  carousel.addEventListener('focusin', stopAutoPlay);
+  carousel.addEventListener('focusout', event => {
+    if (!carousel.contains(event.relatedTarget)) startAutoPlay();
+  });
+  document.addEventListener('visibilitychange', () => {
+    document.hidden ? stopAutoPlay() : startAutoPlay();
+  });
+
+  showSlide(0);
+  startAutoPlay();
+})();

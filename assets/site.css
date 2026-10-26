@@ -1126,19 +1126,38 @@ footer .footer-large-logo {
 /* Current page in the main navigation */
 .nav-links a[aria-current="page"]:not(.button) { color: var(--rust); }
 
-/* Testimonials */
-.testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+/* Testimonials carousel */
+.quote-carousel { max-width: 860px; }
+.quote-viewport { overflow: hidden; border-radius: var(--radius); }
+.quote-track { display: flex; transition: transform .55s ease; }
+.quote-slide { flex: 0 0 100%; min-width: 0; }
 .testimonial {
-  position: relative; margin: 0; padding: clamp(1.6rem, 3vw, 2.25rem);
+  position: relative; margin: 0; padding: clamp(1.6rem, 4vw, 2.6rem);
   display: flex; flex-direction: column; gap: 1.25rem;
-  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
 }
 .testimonial .quote-mark { width: 44px; height: 33px; color: var(--gold); }
 .testimonial blockquote { margin: 0; flex: 1; }
-.testimonial blockquote p { margin: 0; color: var(--ink); font-size: 1.08rem; line-height: 1.65; }
+.testimonial blockquote p { margin: 0; color: var(--ink); font-size: clamp(1.05rem, 1.6vw, 1.2rem); line-height: 1.65; }
 .testimonial figcaption { display: grid; gap: .15rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
 .testimonial figcaption strong { font-family: "Fraunces", Georgia, serif; color: var(--forest); font-size: 1.1rem; }
 .testimonial figcaption span { color: var(--muted); font-size: .92rem; }
+.quote-controls { display: flex; align-items: center; gap: 1rem; margin-top: 1.25rem; }
+.quote-controls .carousel-arrow {
+  position: static; transform: none; border-color: var(--line); box-shadow: none;
+}
+.quote-controls .carousel-arrow:hover { transform: scale(1.06); }
+.quote-dots { display: flex; gap: 8px; }
+.quote-dots button {
+  width: 10px; height: 10px; padding: 0; border: 0; border-radius: 50%;
+  background: var(--sage-2); cursor: pointer; transition: width .25s ease, background .25s ease;
+}
+.quote-dots button.active { width: 26px; border-radius: 999px; background: var(--forest); }
+.quote-carousel.single .quote-controls { display: none; }
+
+/* Footer wordmark (same artwork as the header, recolored for the dark footer) */
+.footer-brand-art { display: inline-block; width: min(300px, 100%); margin-bottom: 1rem; }
+.footer-brand-image { display: block; width: 100%; height: auto; filter: invert(1) sepia(.25); }
 
 /* Closing call to action on the homepage */
 .cta-band { background: var(--forest); color: var(--cream); }
@@ -1151,6 +1170,6 @@ footer .footer-large-logo {
 .cta-band .button.secondary { background: transparent; border-color: rgba(247,243,233,.55); color: var(--paper); }
 .cta-band .button.secondary:hover { background: rgba(247,243,233,.1); }
 
-@media (max-width: 860px) {
-  .testimonial-grid { grid-template-columns: 1fr; }
+@media (prefers-reduced-motion: reduce) {
+  .quote-track { transition: none; }
 }

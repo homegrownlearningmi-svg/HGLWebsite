@@ -129,17 +129,36 @@
 <div class="section-kicker">Kind words</div>
 <h2>What hosts are saying.</h2>
 </div>
-<div class="testimonial-grid">
-<figure class="testimonial">
+<!--
+  TESTIMONIALS CAROUSEL
+  To add a quote, copy one <figure class="testimonial quote-slide"> ... </figure> block,
+  paste it below the last one, and change the quote, name, and organization.
+  Arrows and dots update automatically.
+-->
+<div aria-label="Testimonials" aria-roledescription="carousel" class="quote-carousel" data-quote-carousel="">
+<div class="quote-viewport">
+<div class="quote-track">
+<figure class="testimonial quote-slide">
 <svg aria-hidden="true" class="quote-mark" viewbox="0 0 48 36"><path d="M0 36V22C0 9 7 1 19 0v7c-6 1-9 6-9 11h9v18H0Zm29 0V22C29 9 36 1 48 0v7c-6 1-9 6-9 11h9v18H29Z" fill="currentColor"></path></svg>
 <blockquote><p>HomeGrown Learning has brought amazing animal enrichment experiences to students of all ages at Bishop Baraga Academy. Angel brings the program right into our building and handles everything, making it easy for us to offer a memorable learning experience. This past May, they also taught us how to hatch chicks. Watching the chicks emerge became one of the most talked-about experiences of the year—for students and teachers alike!</p></blockquote>
 <figcaption><strong>Dr. Shari Ann McCarty</strong><span>Bishop Baraga Academy</span></figcaption>
 </figure>
-<figure class="testimonial">
+<figure class="testimonial quote-slide">
 <svg aria-hidden="true" class="quote-mark" viewbox="0 0 48 36"><path d="M0 36V22C0 9 7 1 19 0v7c-6 1-9 6-9 11h9v18H0Zm29 0V22C29 9 36 1 48 0v7c-6 1-9 6-9 11h9v18H29Z" fill="currentColor"></path></svg>
 <blockquote><p>Home Grown Learning brought their amazing farm animals to our church’s annual community‑wide event, and the kids were all smiles! They loved petting the animals, asking questions, and learning all about farm life. It quickly became one of the day’s biggest hits — and we’re already looking forward to having them back again next year.</p></blockquote>
 <figcaption><strong>Linda Pace-Wright</strong><span>Event Coordinator, Zion Tabernacle House of God, Muskegon · Summer Breeze community event</span></figcaption>
 </figure>
+</div>
+</div>
+<div class="quote-controls">
+<button aria-label="Show previous testimonial" class="carousel-arrow quote-prev" type="button">
+<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="m15 18-6-6 6-6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"></path></svg>
+</button>
+<div aria-label="Choose a testimonial" class="quote-dots" role="group"></div>
+<button aria-label="Show next testimonial" class="carousel-arrow quote-next" type="button">
+<svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"></path></svg>
+</button>
+</div>
 </div>
 </div>
 </section>
@@ -161,14 +180,9 @@
 <div class="container">
 <div class="footer-grid">
 <div class="footer-brand">
-<a aria-label="Homegrown Learning home" class="brand footer-logo-link" href="index.html">
-<span aria-hidden="true" class="brand-mark footer-large-logo">
-<img alt="" class="brand-logo-image" decoding="async" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" src="assets/logo.png"/>
-<svg class="brand-logo-fallback" fill="none" viewbox="0 0 64 64">
-<path d="M17 40c11-1 17-10 19-25 9 8 13 18 8 28-5 10-18 11-27 3 7-1 13-5 17-10-6 3-11 5-17 4Z" fill="#f7f3e9"></path>
-<path d="M25 47c4-7 10-13 18-18" stroke="#d69b43" stroke-linecap="round" stroke-width="4"></path>
-</svg>
-</span>
+<a aria-label="Homegrown Learning home" class="footer-brand-art" href="index.html">
+<img alt="Homegrown Learning" class="footer-brand-image" decoding="async" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" src="assets/headername.png"/>
+<span class="brand-name brand-name-fallback">Homegrown Learning</span>
 </a>
 <p>Mobile, hands-on farm animal education for schools, churches, and families near Grant, Michigan.</p><div class="contact-inline"><a href="mailto:homegrownlearningmi@gmail.com">homegrownlearningmi@gmail.com</a><a href="tel:+12316295981">231-629-5981</a></div>
 </div>
