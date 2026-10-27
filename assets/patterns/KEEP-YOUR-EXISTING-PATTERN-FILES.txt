@@ -1,8 +1,0 @@
-The updated index.html expects these existing GitHub files:
-
-leaves-tile.png
-chickens-tile.png
-speckles-tile.png
-
-Keep them in assets/patterns/. Replacing a file under the same name changes the
-live pattern without changing index.html.

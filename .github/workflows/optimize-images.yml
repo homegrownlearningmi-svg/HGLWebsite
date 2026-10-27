@@ -1,0 +1,54 @@
+# Automatically shrinks photos uploaded to assets/ (see scripts/optimize_images.py).
+# Upload photos through GitHub as usual; within a minute or two this commits a
+# web-sized copy back to the same file name.
+name: Optimize images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "assets/**.jpg"
+      - "assets/**.jpeg"
+      - "assets/**.JPG"
+      - "assets/**.JPEG"
+      - "assets/**.png"
+      - "assets/**.PNG"
+      - "assets/**.webp"
+      - "assets/**.heic"
+      - "assets/**.HEIC"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: optimize-images
+  cancel-in-progress: false
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install image tools
+        run: pip install pillow pillow-heif
+
+      - name: Shrink images
+        run: python scripts/optimize_images.py assets
+
+      - name: Commit smaller images
+        run: |
+          if [ -z "$(git status --porcelain assets)" ]; then
+            echo "Images are already web-sized."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets
+          git commit -m "Optimize uploaded images for the web"
+          git push

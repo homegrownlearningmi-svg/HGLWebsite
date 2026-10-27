@@ -108,9 +108,8 @@ p { margin-bottom: 1rem; }
 
 /*
  * FILE-BACKED BRAND IDENTITY
- * Header/footer logo: assets/logo.png
- * Header name art:     assets/headername.png
- * Footer name art:     assets/footername.png
+ * Browser tab icon:    assets/logo.png
+ * Header/footer name art: assets/headername.png (recolored in the footer)
  *
  * Replacing a file under the same name updates the branding without
  * another HTML change.
@@ -253,7 +252,7 @@ footer .brand-mark {
 
 /*
  * HERO IMAGE
- * Replace assets/illustrations/farm1.png with another image under the same
+ * Replace assets/illustrations/farm1.webp with another image under the same
  * filename if you want to swap the artwork later.
  *
  * Adjust inset to control the image margins inside the rounded panel.
@@ -310,9 +309,9 @@ footer .brand-mark {
  * MEET THE ANIMALS PHOTO GALLERY
  *
  * File paths:
- * assets/photos/baby-goats.png
- * assets/photos/piglets.png
- * assets/photos/rabbit.png
+ * assets/photos/baby-goats.webp
+ * assets/photos/piglets.webp
+ * assets/photos/rabbit.webp
  *
  * Replace any file under the same name to update the gallery without
  * changing this HTML.
